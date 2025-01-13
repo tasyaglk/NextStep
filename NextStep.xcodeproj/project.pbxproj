@@ -15,6 +15,37 @@
 		00306FFC2D355D3900CD8516 /* NextStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00306FFB2D355D3900CD8516 /* NextStepTests.swift */; };
 		003070062D355D3900CD8516 /* NextStepUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003070052D355D3900CD8516 /* NextStepUITests.swift */; };
 		003070082D355D3900CD8516 /* NextStepUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003070072D355D3900CD8516 /* NextStepUITestsLaunchTests.swift */; };
+		003070162D355E8B00CD8516 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003070152D355E8B00CD8516 /* TabBarViewModel.swift */; };
+		0030701B2D355ECB00CD8516 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0030701A2D355ECB00CD8516 /* TabBarView.swift */; };
+		0030701E2D356EBA00CD8516 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0030701D2D356EBA00CD8516 /* ColorExtension.swift */; };
+		003070202D356ED300CD8516 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0030701F2D356ED300CD8516 /* CustomFonts.swift */; };
+		0030702B2D356F3A00CD8516 /* Onest-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070222D356F3A00CD8516 /* Onest-Regular.ttf */; };
+		0030702C2D356F3A00CD8516 /* Onest-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070222D356F3A00CD8516 /* Onest-Regular.ttf */; };
+		0030702D2D356F3A00CD8516 /* Onest-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070222D356F3A00CD8516 /* Onest-Regular.ttf */; };
+		0030702E2D356F3A00CD8516 /* Onest-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070232D356F3A00CD8516 /* Onest-Thin.ttf */; };
+		0030702F2D356F3A00CD8516 /* Onest-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070232D356F3A00CD8516 /* Onest-Thin.ttf */; };
+		003070302D356F3A00CD8516 /* Onest-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070232D356F3A00CD8516 /* Onest-Thin.ttf */; };
+		003070312D356F3A00CD8516 /* Onest-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070242D356F3A00CD8516 /* Onest-Black.ttf */; };
+		003070322D356F3A00CD8516 /* Onest-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070242D356F3A00CD8516 /* Onest-Black.ttf */; };
+		003070332D356F3A00CD8516 /* Onest-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070242D356F3A00CD8516 /* Onest-Black.ttf */; };
+		003070342D356F3A00CD8516 /* Onest-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070252D356F3A00CD8516 /* Onest-Bold.ttf */; };
+		003070352D356F3A00CD8516 /* Onest-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070252D356F3A00CD8516 /* Onest-Bold.ttf */; };
+		003070362D356F3A00CD8516 /* Onest-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070252D356F3A00CD8516 /* Onest-Bold.ttf */; };
+		003070372D356F3A00CD8516 /* Onest-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070262D356F3A00CD8516 /* Onest-ExtraBold.ttf */; };
+		003070382D356F3A00CD8516 /* Onest-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070262D356F3A00CD8516 /* Onest-ExtraBold.ttf */; };
+		003070392D356F3A00CD8516 /* Onest-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070262D356F3A00CD8516 /* Onest-ExtraBold.ttf */; };
+		0030703A2D356F3A00CD8516 /* Onest-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070272D356F3A00CD8516 /* Onest-Light.ttf */; };
+		0030703B2D356F3A00CD8516 /* Onest-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070272D356F3A00CD8516 /* Onest-Light.ttf */; };
+		0030703C2D356F3A00CD8516 /* Onest-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070272D356F3A00CD8516 /* Onest-Light.ttf */; };
+		0030703D2D356F3A00CD8516 /* Onest-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070282D356F3A00CD8516 /* Onest-Medium.ttf */; };
+		0030703E2D356F3A00CD8516 /* Onest-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070282D356F3A00CD8516 /* Onest-Medium.ttf */; };
+		0030703F2D356F3A00CD8516 /* Onest-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070282D356F3A00CD8516 /* Onest-Medium.ttf */; };
+		003070402D356F3A00CD8516 /* Onest-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070292D356F3A00CD8516 /* Onest-SemiBold.ttf */; };
+		003070412D356F3A00CD8516 /* Onest-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070292D356F3A00CD8516 /* Onest-SemiBold.ttf */; };
+		003070422D356F3A00CD8516 /* Onest-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 003070292D356F3A00CD8516 /* Onest-SemiBold.ttf */; };
+		003070432D356F3A00CD8516 /* Onest-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0030702A2D356F3A00CD8516 /* Onest-ExtraLight.ttf */; };
+		003070442D356F3A00CD8516 /* Onest-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0030702A2D356F3A00CD8516 /* Onest-ExtraLight.ttf */; };
+		003070452D356F3A00CD8516 /* Onest-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0030702A2D356F3A00CD8516 /* Onest-ExtraLight.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +77,19 @@
 		003070012D355D3900CD8516 /* NextStepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NextStepUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		003070052D355D3900CD8516 /* NextStepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStepUITests.swift; sourceTree = "<group>"; };
 		003070072D355D3900CD8516 /* NextStepUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStepUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		003070152D355E8B00CD8516 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		0030701A2D355ECB00CD8516 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		0030701D2D356EBA00CD8516 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		0030701F2D356ED300CD8516 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
+		003070222D356F3A00CD8516 /* Onest-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Regular.ttf"; sourceTree = "<group>"; };
+		003070232D356F3A00CD8516 /* Onest-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Thin.ttf"; sourceTree = "<group>"; };
+		003070242D356F3A00CD8516 /* Onest-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Black.ttf"; sourceTree = "<group>"; };
+		003070252D356F3A00CD8516 /* Onest-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Bold.ttf"; sourceTree = "<group>"; };
+		003070262D356F3A00CD8516 /* Onest-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-ExtraBold.ttf"; sourceTree = "<group>"; };
+		003070272D356F3A00CD8516 /* Onest-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Light.ttf"; sourceTree = "<group>"; };
+		003070282D356F3A00CD8516 /* Onest-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Medium.ttf"; sourceTree = "<group>"; };
+		003070292D356F3A00CD8516 /* Onest-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-SemiBold.ttf"; sourceTree = "<group>"; };
+		0030702A2D356F3A00CD8516 /* Onest-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-ExtraLight.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +140,10 @@
 		00306FE72D355D3800CD8516 /* NextStep */ = {
 			isa = PBXGroup;
 			children = (
+				0030701C2D356E9400CD8516 /* Utilities */,
+				003070192D355EB800CD8516 /* ViewModel */,
+				003070182D355EB300CD8516 /* Model */,
+				003070172D355EAD00CD8516 /* View */,
 				00306FE82D355D3800CD8516 /* NextStepApp.swift */,
 				00306FEA2D355D3800CD8516 /* ContentView.swift */,
 				00306FEC2D355D3800CD8516 /* Item.swift */,
@@ -128,6 +176,55 @@
 				003070072D355D3900CD8516 /* NextStepUITestsLaunchTests.swift */,
 			);
 			path = NextStepUITests;
+			sourceTree = "<group>";
+		};
+		003070172D355EAD00CD8516 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0030701A2D355ECB00CD8516 /* TabBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		003070182D355EB300CD8516 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		003070192D355EB800CD8516 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				003070152D355E8B00CD8516 /* TabBarViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0030701C2D356E9400CD8516 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				003070212D356F2300CD8516 /* Fonts */,
+				0030701D2D356EBA00CD8516 /* ColorExtension.swift */,
+				0030701F2D356ED300CD8516 /* CustomFonts.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		003070212D356F2300CD8516 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				003070242D356F3A00CD8516 /* Onest-Black.ttf */,
+				003070252D356F3A00CD8516 /* Onest-Bold.ttf */,
+				003070262D356F3A00CD8516 /* Onest-ExtraBold.ttf */,
+				0030702A2D356F3A00CD8516 /* Onest-ExtraLight.ttf */,
+				003070272D356F3A00CD8516 /* Onest-Light.ttf */,
+				003070282D356F3A00CD8516 /* Onest-Medium.ttf */,
+				003070222D356F3A00CD8516 /* Onest-Regular.ttf */,
+				003070292D356F3A00CD8516 /* Onest-SemiBold.ttf */,
+				003070232D356F3A00CD8516 /* Onest-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +331,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0030702B2D356F3A00CD8516 /* Onest-Regular.ttf in Resources */,
+				0030703A2D356F3A00CD8516 /* Onest-Light.ttf in Resources */,
+				003070342D356F3A00CD8516 /* Onest-Bold.ttf in Resources */,
+				0030703D2D356F3A00CD8516 /* Onest-Medium.ttf in Resources */,
 				00306FF22D355D3900CD8516 /* Preview Assets.xcassets in Resources */,
 				00306FEF2D355D3900CD8516 /* Assets.xcassets in Resources */,
+				003070312D356F3A00CD8516 /* Onest-Black.ttf in Resources */,
+				003070432D356F3A00CD8516 /* Onest-ExtraLight.ttf in Resources */,
+				003070372D356F3A00CD8516 /* Onest-ExtraBold.ttf in Resources */,
+				0030702E2D356F3A00CD8516 /* Onest-Thin.ttf in Resources */,
+				003070402D356F3A00CD8516 /* Onest-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +349,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003070382D356F3A00CD8516 /* Onest-ExtraBold.ttf in Resources */,
+				0030703B2D356F3A00CD8516 /* Onest-Light.ttf in Resources */,
+				003070322D356F3A00CD8516 /* Onest-Black.ttf in Resources */,
+				003070412D356F3A00CD8516 /* Onest-SemiBold.ttf in Resources */,
+				003070352D356F3A00CD8516 /* Onest-Bold.ttf in Resources */,
+				0030702C2D356F3A00CD8516 /* Onest-Regular.ttf in Resources */,
+				0030703E2D356F3A00CD8516 /* Onest-Medium.ttf in Resources */,
+				003070442D356F3A00CD8516 /* Onest-ExtraLight.ttf in Resources */,
+				0030702F2D356F3A00CD8516 /* Onest-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +365,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003070392D356F3A00CD8516 /* Onest-ExtraBold.ttf in Resources */,
+				0030703C2D356F3A00CD8516 /* Onest-Light.ttf in Resources */,
+				003070332D356F3A00CD8516 /* Onest-Black.ttf in Resources */,
+				003070422D356F3A00CD8516 /* Onest-SemiBold.ttf in Resources */,
+				003070362D356F3A00CD8516 /* Onest-Bold.ttf in Resources */,
+				0030702D2D356F3A00CD8516 /* Onest-Regular.ttf in Resources */,
+				0030703F2D356F3A00CD8516 /* Onest-Medium.ttf in Resources */,
+				003070452D356F3A00CD8516 /* Onest-ExtraLight.ttf in Resources */,
+				003070302D356F3A00CD8516 /* Onest-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +384,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003070162D355E8B00CD8516 /* TabBarViewModel.swift in Sources */,
 				00306FEB2D355D3800CD8516 /* ContentView.swift in Sources */,
+				003070202D356ED300CD8516 /* CustomFonts.swift in Sources */,
 				00306FED2D355D3800CD8516 /* Item.swift in Sources */,
+				0030701E2D356EBA00CD8516 /* ColorExtension.swift in Sources */,
+				0030701B2D355ECB00CD8516 /* TabBarView.swift in Sources */,
 				00306FE92D355D3800CD8516 /* NextStepApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
