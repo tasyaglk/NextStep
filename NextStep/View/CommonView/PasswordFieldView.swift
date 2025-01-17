@@ -1,0 +1,31 @@
+//
+//  PasswordFieldView.swift
+//  NextStep
+//
+//  Created by Тася Галкина on 17.01.2025.
+//
+
+import SwiftUI
+
+struct PasswordFieldView: View {
+    @Binding var isPasswordVisible: Bool
+    var hint: String
+    @Binding var password: String
+    var isTextChanged: (Bool) -> Void
+    
+    var body: some View {
+        HStack {
+            if isPasswordVisible {
+                VisiblePasswordField(hint: hint, password: $password, isTextChanged: isTextChanged)
+            } else {
+                UnvisiblePasswordField(hint: hint, password: $password)
+            }
+        }.overlay(alignment: .trailing) {
+            Image(systemName: isPasswordVisible ? "eye.fill" : "eye.slash.fill")
+                .padding()
+                .onTapGesture {
+                    isPasswordVisible.toggle()
+                }
+        }
+    }
+}
