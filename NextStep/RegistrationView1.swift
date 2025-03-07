@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RegistrationView: View {
+struct RegistrationView1: View {
     @State private var name = ""
     @State private var surname = ""
     @State private var email = ""

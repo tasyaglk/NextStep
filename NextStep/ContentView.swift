@@ -7,61 +7,61 @@
 
 import SwiftUI
 
-import SwiftUI
-
-struct ContentView: View {
-    @State private var showRegistration = false
-    @State private var showLogin = false
-    @State private var isLoggedIn = false
-    
-    var body: some View {
-        NavigationView {
-            VStack {
-                if isLoggedIn {
-                    Text("Вы авторизованы!")
-                        .font(.largeTitle)
-                        .padding()
-                } else {
-                    Text("Добро пожаловать!")
-                        .font(.largeTitle)
-                        .padding()
-                    
-                    Button(action: {
-                        showLogin = true
-                    }) {
-                        Text("Войти")
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                    .padding()
-                    
-                    Button(action: {
-                        showRegistration = true
-                    }) {
-                        Text("Зарегистрироваться")
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.green)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                    .padding()
-                }
-            }
-            .padding()
-            .navigationTitle("Главная")
-            .sheet(isPresented: $showRegistration) {
-                RegistrationView()
-            }
-            .sheet(isPresented: $showLogin) {
-                LoginView(isLoggedIn: $isLoggedIn)
-            }
-        }
-    }
-}
+//import SwiftUI
+//
+//struct ContentView: View {
+//    @State private var showRegistration = false
+//    @State private var showLogin = false
+//    @State private var isLoggedIn = false
+//    
+//    var body: some View {
+//        NavigationView {
+//            VStack {
+//                if isLoggedIn {
+//                    Text("Вы авторизованы!")
+//                        .font(.largeTitle)
+//                        .padding()
+//                } else {
+//                    Text("Добро пожаловать!")
+//                        .font(.largeTitle)
+//                        .padding()
+//                    
+//                    Button(action: {
+//                        showLogin = true
+//                    }) {
+//                        Text("Войти")
+//                            .padding()
+//                            .frame(maxWidth: .infinity)
+//                            .background(Color.blue)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(10)
+//                    }
+//                    .padding()
+//                    
+//                    Button(action: {
+//                        showRegistration = true
+//                    }) {
+//                        Text("Зарегистрироваться")
+//                            .padding()
+//                            .frame(maxWidth: .infinity)
+//                            .background(Color.green)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(10)
+//                    }
+//                    .padding()
+//                }
+//            }
+//            .padding()
+//            .navigationTitle("Главная")
+//            .sheet(isPresented: $showRegistration) {
+//                RegistrationView(isLoggedIn: <#Binding<Bool>#>)
+//            }
+//            .sheet(isPresented: $showLogin) {
+//                LoginView(isLoggedIn: $isLoggedIn)
+//            }
+//        }
+//    }
+//}
 
 //struct ContentView: View {
 //    @State private var users: [UserProfile] = []

@@ -120,7 +120,7 @@ struct LoginView: View {
             }
             
             NavigationLink(
-                destination: RegistrationView(),
+                destination: RegistrationView(isLoggedIn: $viewModel.isLoggedIn),
                 isActive: $isSignUpViewPresented
             ) {
                 EmptyView()
