@@ -58,10 +58,18 @@
 		003070532D380E2300CD8516 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003070522D380E2300CD8516 /* ProfileViewModel.swift */; };
 		0073230C2D3A984300297828 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073230B2D3A984300297828 /* ButtonView.swift */; };
 		0073230E2D3AC90500297828 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073230D2D3AC90500297828 /* ChangePasswordView.swift */; };
-		007323102D3AC90C00297828 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073230F2D3AC90C00297828 /* ChangePasswordViewModel.swift */; };
+		007323102D3AC90C00297828 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073230F2D3AC90C00297828 /* PasswordViewModel.swift */; };
 		007323122D3ACA4600297828 /* UnvisiblePasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007323112D3ACA4600297828 /* UnvisiblePasswordField.swift */; };
 		007323142D3AD1B800297828 /* VisiblePasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007323132D3AD1B800297828 /* VisiblePasswordField.swift */; };
 		007323162D3AD28900297828 /* PasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007323152D3AD28900297828 /* PasswordFieldView.swift */; };
+		00E63BDE2D75F97C004585DE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BDD2D75F97C004585DE /* ChatView.swift */; };
+		00E63BDF2D75F97C004585DE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BDD2D75F97C004585DE /* ChatView.swift */; };
+		00E63BE02D75F97C004585DE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BDD2D75F97C004585DE /* ChatView.swift */; };
+		00E63BE62D75FA50004585DE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BE52D75FA50004585DE /* LoginView.swift */; };
+		00E63BF82D78F92C004585DE /* RegistrationView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BF72D78F92C004585DE /* RegistrationView1.swift */; };
+		00E63BFC2D79E43D004585DE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BFB2D79E43D004585DE /* LoginViewModel.swift */; };
+		00E63BFE2D79EA8F004585DE /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BFD2D79EA8F004585DE /* RegistrationView.swift */; };
+		00E63C002D79EAF3004585DE /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,10 +121,16 @@
 		003070542D3814B300CD8516 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0073230B2D3A984300297828 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		0073230D2D3AC90500297828 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
-		0073230F2D3AC90C00297828 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		0073230F2D3AC90C00297828 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		007323112D3ACA4600297828 /* UnvisiblePasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnvisiblePasswordField.swift; sourceTree = "<group>"; };
 		007323132D3AD1B800297828 /* VisiblePasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisiblePasswordField.swift; sourceTree = "<group>"; };
 		007323152D3AD28900297828 /* PasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFieldView.swift; sourceTree = "<group>"; };
+		00E63BDD2D75F97C004585DE /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		00E63BE52D75FA50004585DE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		00E63BF72D78F92C004585DE /* RegistrationView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView1.swift; sourceTree = "<group>"; };
+		00E63BFB2D79E43D004585DE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		00E63BFD2D79EA8F004585DE /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +191,7 @@
 				00306FEC2D355D3800CD8516 /* Item.swift */,
 				00306FEE2D355D3900CD8516 /* Assets.xcassets */,
 				00306FF02D355D3900CD8516 /* Preview Content */,
+				00E63BF72D78F92C004585DE /* RegistrationView1.swift */,
 			);
 			path = NextStep;
 			sourceTree = "<group>";
@@ -209,11 +224,12 @@
 		003070172D355EAD00CD8516 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				00E63BE42D75FA14004585DE /* Enter */,
+				00E63BE32D75FA08004585DE /* Chat */,
+				00E63BE22D75FA00004585DE /* Calendar */,
+				00E63BE12D75F9F2004585DE /* Profile */,
 				0073230A2D3A983700297828 /* CommonView */,
 				0030701A2D355ECB00CD8516 /* TabBarView.swift */,
-				003070462D357AA100CD8516 /* ProfileView.swift */,
-				0030704A2D35803D00CD8516 /* CalendarView.swift */,
-				0073230D2D3AC90500297828 /* ChangePasswordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -231,7 +247,9 @@
 			children = (
 				003070152D355E8B00CD8516 /* TabBarViewModel.swift */,
 				003070522D380E2300CD8516 /* ProfileViewModel.swift */,
-				0073230F2D3AC90C00297828 /* ChangePasswordViewModel.swift */,
+				0073230F2D3AC90C00297828 /* PasswordViewModel.swift */,
+				00E63BFB2D79E43D004585DE /* LoginViewModel.swift */,
+				00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -271,6 +289,40 @@
 				007323152D3AD28900297828 /* PasswordFieldView.swift */,
 			);
 			path = CommonView;
+			sourceTree = "<group>";
+		};
+		00E63BE12D75F9F2004585DE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				003070462D357AA100CD8516 /* ProfileView.swift */,
+				0073230D2D3AC90500297828 /* ChangePasswordView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		00E63BE22D75FA00004585DE /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				0030704A2D35803D00CD8516 /* CalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		00E63BE32D75FA08004585DE /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				00E63BDD2D75F97C004585DE /* ChatView.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		00E63BE42D75FA14004585DE /* Enter */ = {
+			isa = PBXGroup;
+			children = (
+				00E63BE52D75FA50004585DE /* LoginView.swift */,
+				00E63BFD2D79EA8F004585DE /* RegistrationView.swift */,
+			);
+			path = Enter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +413,9 @@
 				Base,
 			);
 			mainGroup = 00306FDC2D355D3800CD8516;
+			packageReferences = (
+				00E63BE72D77A35A004585DE /* XCRemoteSwiftPackageReference "FSCalendar" */,
+			);
 			productRefGroup = 00306FE62D355D3800CD8516 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -432,21 +487,27 @@
 			files = (
 				003070472D357AA100CD8516 /* ProfileView.swift in Sources */,
 				003070162D355E8B00CD8516 /* TabBarViewModel.swift in Sources */,
+				00E63BFC2D79E43D004585DE /* LoginViewModel.swift in Sources */,
 				0073230C2D3A984300297828 /* ButtonView.swift in Sources */,
 				0030704F2D35901E00CD8516 /* UserProfile.swift in Sources */,
+				00E63BE02D75F97C004585DE /* ChatView.swift in Sources */,
 				00306FEB2D355D3800CD8516 /* ContentView.swift in Sources */,
 				003070202D356ED300CD8516 /* CustomFonts.swift in Sources */,
+				00E63BE62D75FA50004585DE /* LoginView.swift in Sources */,
 				007323162D3AD28900297828 /* PasswordFieldView.swift in Sources */,
 				0073230E2D3AC90500297828 /* ChangePasswordView.swift in Sources */,
+				00E63BFE2D79EA8F004585DE /* RegistrationView.swift in Sources */,
 				00306FED2D355D3800CD8516 /* Item.swift in Sources */,
+				00E63C002D79EAF3004585DE /* RegistrationViewModel.swift in Sources */,
 				0030704B2D35803D00CD8516 /* CalendarView.swift in Sources */,
 				003070532D380E2300CD8516 /* ProfileViewModel.swift in Sources */,
 				0030701E2D356EBA00CD8516 /* ColorExtension.swift in Sources */,
-				007323102D3AC90C00297828 /* ChangePasswordViewModel.swift in Sources */,
+				007323102D3AC90C00297828 /* PasswordViewModel.swift in Sources */,
 				007323142D3AD1B800297828 /* VisiblePasswordField.swift in Sources */,
 				0030701B2D355ECB00CD8516 /* TabBarView.swift in Sources */,
 				007323122D3ACA4600297828 /* UnvisiblePasswordField.swift in Sources */,
 				00306FE92D355D3800CD8516 /* NextStepApp.swift in Sources */,
+				00E63BF82D78F92C004585DE /* RegistrationView1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +517,7 @@
 			files = (
 				003070502D35901E00CD8516 /* UserProfile.swift in Sources */,
 				003070482D357AA100CD8516 /* ProfileView.swift in Sources */,
+				00E63BDE2D75F97C004585DE /* ChatView.swift in Sources */,
 				00306FFC2D355D3900CD8516 /* NextStepTests.swift in Sources */,
 				0030704C2D35803D00CD8516 /* CalendarView.swift in Sources */,
 			);
@@ -469,6 +531,7 @@
 				003070492D357AA100CD8516 /* ProfileView.swift in Sources */,
 				003070512D35901E00CD8516 /* UserProfile.swift in Sources */,
 				0030704D2D35803D00CD8516 /* CalendarView.swift in Sources */,
+				00E63BDF2D75F97C004585DE /* ChatView.swift in Sources */,
 				003070062D355D3900CD8516 /* NextStepUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,6 +841,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		00E63BE72D77A35A004585DE /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 00306FDD2D355D3800CD8516 /* Project object */;
 }

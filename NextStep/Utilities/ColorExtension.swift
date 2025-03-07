@@ -12,8 +12,8 @@ extension Color {
     static let blackColor = Color.adaptive(light: "020203", dark: "020203")
     static let grayColor = Color.adaptive(light: "787878", dark: "787878")
     static let lightYellow = Color.adaptive(light: "FFFEEF", dark: "FFFEEF")
-    static let lightBlue = Color.adaptive(light: "C5D1D3", dark: "C5D1D3")
-    static let backgroundColor = Color.adaptive(light: "8B9599", dark: "8B9599")
+    static let backgroundColor  = Color.adaptive(light: "C5D1D3", dark: "C5D1D3")
+    static let lightBlue = Color.adaptive(light: "8B9599", dark: "8B9599")
     
 //    static let purpleColor = Color.adaptive(light: "AE7DD1", dark: "AE7DD1")
 //    static let grayColor = Color.adaptive(light: "787878", dark: "787878")

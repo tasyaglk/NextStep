@@ -14,6 +14,8 @@ struct VisiblePasswordField: View {
     
     var body: some View {
         TextField(hint, text: $password, onEditingChanged: isTextChanged)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 8)
         .overlay(
             RoundedRectangle(cornerRadius: 20).strokeBorder(
                 .gray.opacity(0.2),

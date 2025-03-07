@@ -26,6 +26,7 @@ struct ButtonView: View {
                 .background(isEnabled ? Color.lightBlue : Color.lightBlue)
                 .cornerRadius(14)
         })
+        .shadow(color: .gray.opacity(0.5), radius: 3, x: 0, y: 3)
     }
     
     init(title: String, height: CGFloat = 55, buttonClicked: (() -> Void)? = nil) {
@@ -35,6 +36,6 @@ struct ButtonView: View {
     }
 }
 
-#Preview {
-    ButtonView(title: "lol")
-}
+//#Preview {
+//    ButtonView(title: "lol")
+//}

@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     @State private var selectedIndex: Int = 0
     @StateObject private var profileViewModel = ProfileViewModel()
+//    @StateObject private var eventStore = EventStore()
     
     var body: some View {
         TabView(selection: $selectedIndex) {
@@ -20,12 +21,30 @@ struct TabBarView: View {
                 }
                 .tag(0)
             
+            
+            ChatView()
+                .tabItem {
+                    Image(systemName: "message.fill")
+                    Text("chats")
+                }
+                .tag(1)
+            
             ProfileView(profileViewModel: profileViewModel)
                 .tabItem {
                     Image(systemName: "person.fill")
                     Text("profile")
                 }
-                .tag(1)
+                .tag(2)
         }
+        .navigationBarBackButtonHidden()
+        .background(Color.lightBlue)
+        .clipShape(
+            UnevenRoundedRectangle(
+                topLeadingRadius: 12,
+                bottomLeadingRadius: 0,
+                bottomTrailingRadius: 0,
+                topTrailingRadius: 12
+            )
+        )
     }
 }

@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct UserProfile {
-    var firstName: String
-    var secondName: String
-    var email: String
+struct UserProfile: Codable, Identifiable {
+    let id: Int
+        var name: String
+        var surname: String
+        var email: String
 }

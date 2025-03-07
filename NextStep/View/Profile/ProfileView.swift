@@ -9,14 +9,13 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var profileViewModel: ProfileViewModel
-//    @State private var logOutAlert = false
     
     var body: some View {
         
         VStack {
             
             HStack {
-                Text(profileViewModel.userInfo.firstName + " " + profileViewModel.userInfo.secondName)
+                Text(profileViewModel.userInfo.name + " " + profileViewModel.userInfo.surname)
                     .font(customFont: .onestBold, size: 24)
                     .foregroundStyle(Color.blackColor)
                     .padding(.horizontal, 16)
@@ -40,7 +39,7 @@ struct ProfileView: View {
                 }
                 .sheet(isPresented: $profileViewModel.logOutAlert) {
                     VStack(alignment: .leading) {
-                        ButtonView(title: "Выйти из аккаунта") // сделать чтобы кнопка была красной
+                        ButtonView(title: "Выйти из аккаунта")
                         
                         ButtonView(title: "Отмена")
                             .padding(.vertical, 8)
@@ -51,17 +50,15 @@ struct ProfileView: View {
                 }
             }
             .padding(.horizontal, 16)
+            
+            NavigationLink(
+                destination: ChangePasswordView(),
+                isActive: $profileViewModel.changePassword
+            ) {
+                EmptyView()
+            }
         }
-        
-        NavigationLink(
-            destination: ChangePasswordView(),
-            isActive: $profileViewModel.changePassword
-        ) {
-            EmptyView()
-        }
-
     }
-    
 }
 
 

@@ -10,11 +10,12 @@ import SwiftData
 
 @main
 struct NextStepApp: App {
-
+    @State private var isLoggedIn = false
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                TabBarView()
+                LoginView(isLoggedIn: $isLoggedIn)
+//                ContentView()
             }
             .navigationViewStyle(.stack)
         }

@@ -14,18 +14,21 @@ struct PasswordFieldView: View {
     var isTextChanged: (Bool) -> Void
     
     var body: some View {
-        HStack {
+        
+        HStack(spacing: 0) {
             if isPasswordVisible {
                 VisiblePasswordField(hint: hint, password: $password, isTextChanged: isTextChanged)
             } else {
                 UnvisiblePasswordField(hint: hint, password: $password)
             }
-        }.overlay(alignment: .trailing) {
+        }
+        .overlay(alignment: .trailing) {
             Image(systemName: isPasswordVisible ? "eye.fill" : "eye.slash.fill")
                 .padding()
                 .onTapGesture {
                     isPasswordVisible.toggle()
                 }
         }
+        
     }
 }
