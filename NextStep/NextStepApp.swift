@@ -15,8 +15,13 @@ struct NextStepApp: App {
         WindowGroup {
             NavigationView {
 //                ContentView()
-                LoginView(isLoggedIn: $isLoggedIn)
+//                LoginView(isLoggedIn: $isLoggedIn)
 //                ContentView()
+                if !UserService.isLoggedIn {
+                    LoginView(isLoggedIn: $isLoggedIn)
+                } else {
+                    TabBarView()
+                }
             }
             .navigationViewStyle(.stack)
         }

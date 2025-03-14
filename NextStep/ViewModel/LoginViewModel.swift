@@ -95,5 +95,6 @@ class LoginViewModel: ObservableObject {
         if let data = try? JSONEncoder().encode(userInfo) {
             UserDefaults.standard.set(data, forKey: "userProfile")
         }
+        UserService.isLoggedIn = true
     }
 }

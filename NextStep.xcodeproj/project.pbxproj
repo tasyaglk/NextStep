@@ -71,6 +71,7 @@
 		00E63BFE2D79EA8F004585DE /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BFD2D79EA8F004585DE /* RegistrationView.swift */; };
 		00E63C002D79EAF3004585DE /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */; };
 		00E63C052D8312D8004585DE /* FloatingClouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C042D8312D8004585DE /* FloatingClouds.swift */; };
+		00E63C0C2D8433A2004585DE /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C0B2D8433A2004585DE /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		00E63BFD2D79EA8F004585DE /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		00E63C042D8312D8004585DE /* FloatingClouds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingClouds.swift; sourceTree = "<group>"; };
+		00E63C0B2D8433A2004585DE /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		00306FE72D355D3800CD8516 /* NextStep */ = {
 			isa = PBXGroup;
 			children = (
+				00E63C0A2D843396004585DE /* Service */,
 				003070542D3814B300CD8516 /* Info.plist */,
 				0030701C2D356E9400CD8516 /* Utilities */,
 				003070192D355EB800CD8516 /* ViewModel */,
@@ -334,6 +337,14 @@
 				00E63C042D8312D8004585DE /* FloatingClouds.swift */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		00E63C0A2D843396004585DE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				00E63C0B2D8433A2004585DE /* UserService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				003070472D357AA100CD8516 /* ProfileView.swift in Sources */,
+				00E63C0C2D8433A2004585DE /* UserService.swift in Sources */,
 				003070162D355E8B00CD8516 /* TabBarViewModel.swift in Sources */,
 				00E63BFC2D79E43D004585DE /* LoginViewModel.swift in Sources */,
 				0073230C2D3A984300297828 /* ButtonView.swift in Sources */,

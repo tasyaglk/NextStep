@@ -11,6 +11,7 @@ struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @Binding var isLoggedIn: Bool
     @State private var isSignUpViewPresented = false
+    @State var isPasswordVisible: Bool = false
     
     var body: some View {
         ZStack {
@@ -51,16 +52,14 @@ struct LoginView: View {
                         .autocapitalization(.none)
                         .keyboardType(.emailAddress)
                         .font(.custom("Onest-Regular", size: 14))                    
-                    
-                    SecureField("Password", text: $viewModel.password)
-                        .padding()
-                        .background(Color.textBackgroundField)
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.textBorderField, lineWidth: 1)
-                        )
-                        .font(.custom("Onest-Regular", size: 14))
+                    PasswordFieldView(
+                        isPasswordVisible: $isPasswordVisible,
+                        hint: "password",
+                        password: $viewModel.password,
+                        isTextChanged: { (changed) in
+                            
+                        }
+                    )
                     
                     Spacer()
                     

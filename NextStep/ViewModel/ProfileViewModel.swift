@@ -37,6 +37,7 @@ class ProfileViewModel: ObservableObject {
     func deleteUserProfile() {
         UserDefaults.standard.removeObject(forKey: "userProfile")
         logOut.toggle()
+        UserService.isLoggedIn = false
     }
 }
 //tasya.galkina@mail.ru

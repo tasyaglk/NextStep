@@ -95,13 +95,12 @@ struct ChangePasswordView: View {
                     }
                     .padding(.bottom, 16)
                 }
-            }
-            
-            NavigationLink(
-                destination: TabBarView(),
-                isActive: $viewModel.isChanged
-            ) {
-                EmptyView()
+                NavigationLink(
+                    destination: TabBarView(),
+                    isActive: $viewModel.isChanged
+                ) {
+                    EmptyView()
+                }
             }
         }
         .padding(.horizontal, 16)

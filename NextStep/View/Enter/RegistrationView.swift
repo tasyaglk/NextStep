@@ -10,6 +10,8 @@ import SwiftUI
 struct RegistrationView: View {
     @StateObject private var viewModel = RegistrationViewModel()
     @State private var isSignUpViewPresented = false
+    @State var isPasswordVisible: Bool = false
+    @State var isConfirmPasswordVisible: Bool = false
     @Binding var isLoggedIn: Bool
     @Environment(\.dismiss) var dismiss
     
@@ -62,28 +64,23 @@ struct RegistrationView: View {
                         .keyboardType(.emailAddress)
                         .font(.custom("Onest-Regular", size: 14))
 //                        .shadow(color: .gray.opacity(0.2), radius: 3, x: 0, y: 3)
+                    PasswordFieldView(
+                        isPasswordVisible: $isPasswordVisible,
+                        hint: "password",
+                        password: $viewModel.password,
+                        isTextChanged: { (changed) in
+                            
+                        }
+                    )
                     
-                    SecureField("password", text: $viewModel.password)
-                        .padding()
-                        .background(Color.textBackgroundField)
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.textBorderField, lineWidth: 1)
-                        )
-                        .font(.custom("Onest-Regular", size: 14))
-//                        .shadow(color: .gray.opacity(0.2), radius: 3, x: 0, y: 3)
-                    
-                    SecureField("confirm password", text: $viewModel.confirmPassword)
-                        .padding()
-                        .background(Color.textBackgroundField)
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.textBorderField, lineWidth: 1)
-                        )
-                        .font(.custom("Onest-Regular", size: 14))
-//                        .shadow(color: .gray.opacity(0.2), radius: 3, x: 0, y: 3)
+                    PasswordFieldView(
+                        isPasswordVisible: $isConfirmPasswordVisible,
+                        hint: "confirm password",
+                        password: $viewModel.confirmPassword,
+                        isTextChanged: { (changed) in
+                            
+                        }
+                    )
                     
                     Spacer()
                     
