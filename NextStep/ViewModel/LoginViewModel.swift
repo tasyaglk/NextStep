@@ -22,6 +22,18 @@ class LoginViewModel: ObservableObject {
             return
         }
         
+        guard isPasswordValid(password) else {
+            alertMessage = "Пароль должен содержать минимум 8 символов, включая цифры и специальные символы (!@#$%^&*)."
+            showAlert = true
+            return
+        }
+        
+        guard isValidEmail(email) else {
+            alertMessage = "Некорректный email."
+            showAlert = true
+            return
+        }
+        
         login(email: email, password: password) { user in
             DispatchQueue.main.async {
                 if let user = user {
@@ -30,11 +42,20 @@ class LoginViewModel: ObservableObject {
                     self.alertMessage = "Ошибка авторизации. Проверьте email и пароль."
                     self.showAlert = true
                 }
-                
             }
         }
-        
-        
+    }
+    
+    func isPasswordValid(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
     }
     
     private func login(email: String, password: String, completion: @escaping (UserProfile?) -> Void) {
