@@ -8,8 +8,8 @@
 import Foundation
 
 struct UserProfile: Codable, Identifiable {
-    let id: Int
-        var name: String
-        var surname: String
-        var email: String
+    let id = UUID()
+    var name: String
+    var surname: String
+    var email: String
 }

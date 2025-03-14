@@ -23,10 +23,10 @@ struct ButtonView: View {
                 .foregroundStyle(Color.blackColor)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .frame(height: height)
-                .background(isEnabled ? Color.lightBlue : Color.lightBlue)
+                .background(isEnabled ? Color.gradientLightColor : Color.gradientLightColor)
                 .cornerRadius(14)
         })
-        .shadow(color: .gray.opacity(0.5), radius: 3, x: 0, y: 3)
+        .shadow(color: .gradientLightColor.opacity(0.5), radius: 3, x: 0, y: 3)
     }
     
     init(title: String, height: CGFloat = 55, buttonClicked: (() -> Void)? = nil) {

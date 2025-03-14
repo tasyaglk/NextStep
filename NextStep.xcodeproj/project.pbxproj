@@ -70,6 +70,7 @@
 		00E63BFC2D79E43D004585DE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BFB2D79E43D004585DE /* LoginViewModel.swift */; };
 		00E63BFE2D79EA8F004585DE /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BFD2D79EA8F004585DE /* RegistrationView.swift */; };
 		00E63C002D79EAF3004585DE /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */; };
+		00E63C052D8312D8004585DE /* FloatingClouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C042D8312D8004585DE /* FloatingClouds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		00E63BFB2D79E43D004585DE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		00E63BFD2D79EA8F004585DE /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		00E63C042D8312D8004585DE /* FloatingClouds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingClouds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 		003070172D355EAD00CD8516 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				00E63C032D8312CC004585DE /* Animations */,
 				00E63BE42D75FA14004585DE /* Enter */,
 				00E63BE32D75FA08004585DE /* Chat */,
 				00E63BE22D75FA00004585DE /* Calendar */,
@@ -323,6 +326,14 @@
 				00E63BFD2D79EA8F004585DE /* RegistrationView.swift */,
 			);
 			path = Enter;
+			sourceTree = "<group>";
+		};
+		00E63C032D8312CC004585DE /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				00E63C042D8312D8004585DE /* FloatingClouds.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,6 +501,7 @@
 				00E63BFC2D79E43D004585DE /* LoginViewModel.swift in Sources */,
 				0073230C2D3A984300297828 /* ButtonView.swift in Sources */,
 				0030704F2D35901E00CD8516 /* UserProfile.swift in Sources */,
+				00E63C052D8312D8004585DE /* FloatingClouds.swift in Sources */,
 				00E63BE02D75F97C004585DE /* ChatView.swift in Sources */,
 				00306FEB2D355D3800CD8516 /* ContentView.swift in Sources */,
 				003070202D356ED300CD8516 /* CustomFonts.swift in Sources */,

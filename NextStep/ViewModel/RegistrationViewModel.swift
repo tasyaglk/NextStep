@@ -34,15 +34,15 @@ class RegistrationViewModel: ObservableObject {
         register(name: name, surname: surname, email: email, password: password) { success in
             DispatchQueue.main.async {
                 if success {
-//                    self.alertMessage = "Регистрация прошла успешно!"
                     self.isSignUp = true
                 } else {
                     self.alertMessage = "Ошибка регистрации. Попробуйте снова."
                     self.showAlert = true
                 }
-                
             }
         }
+        
+        saveUserInfo(name: name, surname: surname, email: email)
     }
     
     private func register(name: String, surname: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
@@ -73,5 +73,12 @@ class RegistrationViewModel: ObservableObject {
                 completion(false)
             }
         }.resume()
+    }
+    
+    private func saveUserInfo(name: String, surname: String, email: String) {
+        let user = UserProfile(name: name, surname: surname, email: email)
+        if let data = try? JSONEncoder().encode(user) {
+            UserDefaults.standard.set(data, forKey: "userProfile")
+        }
     }
 }

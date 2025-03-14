@@ -13,14 +13,16 @@ struct VisiblePasswordField: View {
     var isTextChanged: (Bool) -> Void
     
     var body: some View {
+        
         TextField(hint, text: $password, onEditingChanged: isTextChanged)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 8)
-        .overlay(
-            RoundedRectangle(cornerRadius: 20).strokeBorder(
-                .gray.opacity(0.2),
-                style: StrokeStyle(lineWidth: 2.0)
+            .padding()
+            .background(Color.textBackgroundField)
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.textBorderField, lineWidth: 1)
             )
-        )
+            .autocapitalization(.none)
+            .font(.custom("Onest-Regular", size: 14))
     }
 }

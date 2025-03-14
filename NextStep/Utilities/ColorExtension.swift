@@ -12,16 +12,17 @@ extension Color {
     static let blackColor = Color.adaptive(light: "020203", dark: "020203")
     static let grayColor = Color.adaptive(light: "787878", dark: "787878")
     static let lightYellow = Color.adaptive(light: "FFFEEF", dark: "FFFEEF")
-    static let backgroundColor  = Color.adaptive(light: "C5D1D3", dark: "C5D1D3")
-    static let lightBlue = Color.adaptive(light: "8B9599", dark: "8B9599")
+    static let backgroundColor  = Color.adaptive(light: "EEEEEE", dark: "EEEEEE")
+    static let lightBlue = Color.adaptive(light: "B1CEFF", dark: "B1CEFF")
+    static let lightBack = Color.adaptive(light: "262626", dark: "262626")
+    static let lightSkyBlue = Color.adaptive(light: "C9DAFA", dark: "C9DAFA")
+    static let blueColor = Color.adaptive(light: "5D9CFF", dark: "5D9CFF")
+    static let gradientLightColor = Color.adaptive(light: "DCEAFA", dark: "DCEAFA")
+    static let gradientDarkColor = Color.adaptive(light: "A4C0F7", dark: "A4C0F7")
+    static let textBackgroundField = Color.adaptive(light: "F7F7F7", dark: "F7F7F7")
+    static let textBorderField = Color.adaptive(light: "EDEDED", dark: "EDEDED")
     
-//    static let purpleColor = Color.adaptive(light: "AE7DD1", dark: "AE7DD1")
-//    static let grayColor = Color.adaptive(light: "787878", dark: "787878")
-//    static let darkBlueColor = Color.adaptive(light: "050A1D", dark: "050A1D")
-//    static let lightBlueColor = Color.adaptive(light: "181C2E", dark: "181C2E")
-//    static let lightPurple = Color.adaptive(light: "7F3AEF", dark: "7F3AEF")
-//    static let darkPurple = Color.adaptive(light: "3E2481", dark: "3E2481")
-//    static let darkGray = Color.adaptive(light: "82848D", dark: "82848D")
+    
     
 }
 

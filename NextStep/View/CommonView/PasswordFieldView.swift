@@ -23,7 +23,8 @@ struct PasswordFieldView: View {
             }
         }
         .overlay(alignment: .trailing) {
-            Image(systemName: isPasswordVisible ? "eye.fill" : "eye.slash.fill")
+            Image(systemName: isPasswordVisible ? "eye" : "eye.slash")
+                .foregroundStyle(Color.grayColor)
                 .padding()
                 .onTapGesture {
                     isPasswordVisible.toggle()

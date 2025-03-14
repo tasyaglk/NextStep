@@ -7,170 +7,70 @@
 
 import SwiftUI
 
-//import SwiftUI
-//
-//struct ContentView: View {
-//    @State private var showRegistration = false
-//    @State private var showLogin = false
-//    @State private var isLoggedIn = false
-//    
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                if isLoggedIn {
-//                    Text("Вы авторизованы!")
-//                        .font(.largeTitle)
-//                        .padding()
-//                } else {
-//                    Text("Добро пожаловать!")
-//                        .font(.largeTitle)
-//                        .padding()
-//                    
-//                    Button(action: {
-//                        showLogin = true
-//                    }) {
-//                        Text("Войти")
-//                            .padding()
-//                            .frame(maxWidth: .infinity)
-//                            .background(Color.blue)
-//                            .foregroundColor(.white)
-//                            .cornerRadius(10)
-//                    }
-//                    .padding()
-//                    
-//                    Button(action: {
-//                        showRegistration = true
-//                    }) {
-//                        Text("Зарегистрироваться")
-//                            .padding()
-//                            .frame(maxWidth: .infinity)
-//                            .background(Color.green)
-//                            .foregroundColor(.white)
-//                            .cornerRadius(10)
-//                    }
-//                    .padding()
-//                }
-//            }
-//            .padding()
-//            .navigationTitle("Главная")
-//            .sheet(isPresented: $showRegistration) {
-//                RegistrationView(isLoggedIn: <#Binding<Bool>#>)
-//            }
-//            .sheet(isPresented: $showLogin) {
-//                LoginView(isLoggedIn: $isLoggedIn)
-//            }
-//        }
-//    }
-//}
+import SwiftUI
 
 //struct ContentView: View {
-//    @State private var users: [UserProfile] = []
-//    @State private var newUser = UserProfile(id: 0, name: "", surname: "", email: "")
-//    @State private var showAlert = false
-//    @State private var alertMessage = ""
-//    
-//    // Замените localhost на IP вашего компьютера, если тестируете на устройстве
-//    let serverURL = "http://localhost:8080/users"
-//    
+//    @State private var offset1 = CGSize(width: 100, height: 100)
+//    @State private var offset2 = CGSize(width: -100, height: -100)
+//    @State private var offset3 = CGSize(width: -150, height: 150)
+//    @State private var offset4 = CGSize(width: 150, height: -150)
+//
 //    var body: some View {
-//        NavigationView {
-//            VStack {
-//                // Форма для добавления пользователя
-//                Group {
-//                    TextField("Name", text: $newUser.name)
-//                    TextField("Surname", text: $newUser.surname)
-//                    TextField("Email", text: $newUser.email)
-//                    
-//                    Button(action: addUser) {
-//                        Text("Add User")
-//                            .padding()
-//                            .frame(maxWidth: .infinity)
-//                            .background(Color.blue)
-//                            .foregroundColor(.white)
-//                            .cornerRadius(10)
-//                    }
-//                }
-//                .padding(.horizontal)
-//                
-//                // Список пользователей
-//                List(users) { user in
-//                    VStack(alignment: .leading) {
-//                        Text("\(user.name) \(user.surname)")
-//                            .font(.headline)
-//                        Text(user.email)
-//                            .font(.subheadline)
-//                    }
-//                }
-//            }
-//            .navigationTitle("Users")
-//            .alert(isPresented: $showAlert) {
-//                Alert(title: Text("Message"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-//            }
-//            .onAppear {
-//                loadUsers()
-//            }
+//        ZStack {
+//            LinearGradient(
+//                gradient: Gradient(colors: [Color(red: 0.85, green: 0.95, blue: 1.00), Color(red: 0.90, green: 0.80, blue: 1.00)]),
+//                startPoint: .topLeading,
+//                endPoint: .bottomTrailing
+//            )
+//            .ignoresSafeArea()
+//
+//            Circle()
+//                .fill(Color(red: 0.85, green: 0.95, blue: 1.00))
+//                .frame(width: 300, height: 300)
+//                .offset(offset1)
+//                .blur(radius: 30)
+//                .animation(
+//                    Animation.easeInOut(duration: 8).repeatForever(),
+//                    value: offset1
+//                )
+//
+//            Circle()
+//                .fill(Color(red: 0.90, green: 0.80, blue: 1.00))
+//                .frame(width: 350, height: 350)
+//                .offset(offset2)
+//                .blur(radius: 40)
+//                .animation(
+//                    Animation.easeInOut(duration: 10).repeatForever(),
+//                    value: offset2
+//                )
+//
+//            Circle()
+//                .fill(Color(red: 1.00, green: 0.85, blue: 0.95))
+//                .frame(width: 400, height: 400)
+//                .offset(offset3)
+//                .blur(radius: 50)
+//                .animation(
+//                    Animation.easeInOut(duration: 12).repeatForever(),
+//                    value: offset3
+//                )
+//
+//            Circle()
+//                .fill(Color(red: 0.80, green: 1.00, blue: 0.90))
+//                .frame(width: 450, height: 450)
+//                .offset(offset4)
+//                .blur(radius: 60)
+//                .animation(
+//                    Animation.easeInOut(duration: 14).repeatForever(),
+//                    value: offset4
+//                )
 //        }
-//    }
-//    
-//    // Загрузка пользователей
-//    func loadUsers() {
-//        guard let url = URL(string: serverURL) else { return }
-//        
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            if let error = error {
-//                showAlert(message: "Error: \(error.localizedDescription)")
-//                return
+//        .onAppear {
+//            withAnimation {
+//                offset1 = CGSize(width: -200, height: -200) 
+//                offset2 = CGSize(width: 200, height: 200)
+//                offset3 = CGSize(width: 250, height: -250)
+//                offset4 = CGSize(width: -250, height: 250)
 //            }
-//            
-//            guard let data = data else {
-//                showAlert(message: "No data received")
-//                return
-//            }
-//            
-//            do {
-//                let decodedUsers = try JSONDecoder().decode([UserProfile].self, from: data)
-//                DispatchQueue.main.async {
-//                    self.users = decodedUsers
-//                }
-//            } catch {
-//                showAlert(message: "Decoding error: \(error.localizedDescription)")
-//            }
-//        }.resume()
-//    }
-//    
-//    // Добавление пользователя
-//    func addUser() {
-//        guard let url = URL(string: serverURL) else { return }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        
-//        do {
-//            request.httpBody = try JSONEncoder().encode(newUser)
-//        } catch {
-//            showAlert(message: "Encoding error: \(error.localizedDescription)")
-//            return
-//        }
-//        
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let error = error {
-//                showAlert(message: "Error: \(error.localizedDescription)")
-//                return
-//            }
-//            
-//            // Очищаем форму и обновляем список
-//            DispatchQueue.main.async {
-//                self.newUser = UserProfile(id: 0, name: "", surname: "", email: "")
-//                self.loadUsers()
-//                self.showAlert(message: "User added successfully!")
-//            }
-//        }.resume()
-//    }
-//    
-//    func showAlert(message: String) {
-//        DispatchQueue.main.async {
-//            self.alertMessage = message
-//            self.showAlert = true
 //        }
 //    }
 //}

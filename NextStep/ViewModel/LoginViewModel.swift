@@ -25,7 +25,6 @@ class LoginViewModel: ObservableObject {
         login(email: email, password: password) { user in
             DispatchQueue.main.async {
                 if let user = user {
-//                    self.alertMessage = "Добро пожаловать, \(user.name)!"
                     self.isLoggedIn = true
                 } else {
                     self.alertMessage = "Ошибка авторизации. Проверьте email и пароль."
@@ -34,6 +33,8 @@ class LoginViewModel: ObservableObject {
                 
             }
         }
+        
+        
     }
     
     private func login(email: String, password: String, completion: @escaping (UserProfile?) -> Void) {
@@ -59,6 +60,7 @@ class LoginViewModel: ObservableObject {
             if let data = data {
                 do {
                     let user = try JSONDecoder().decode(UserProfile.self, from: data)
+                    self.saveUserInfo(userInfo: user)
                     completion(user)
                 } catch {
                     print("Decoding error: \(error)")
@@ -66,5 +68,11 @@ class LoginViewModel: ObservableObject {
                 }
             }
         }.resume()
+    }
+    
+    private func saveUserInfo(userInfo: UserProfile) {
+        if let data = try? JSONEncoder().encode(userInfo) {
+            UserDefaults.standard.set(data, forKey: "userProfile")
+        }
     }
 }

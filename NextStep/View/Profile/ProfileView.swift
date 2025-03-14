@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var profileViewModel: ProfileViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
@@ -38,11 +39,16 @@ struct ProfileView: View {
                     profileViewModel.logOutTaped()
                 }
                 .sheet(isPresented: $profileViewModel.logOutAlert) {
-                    VStack(alignment: .leading) {
-                        ButtonView(title: "Выйти из аккаунта")
+                    VStack(alignment: .leading, spacing: 8) {
+                        ButtonView(title: "Выйти из аккаунта") {
+                            profileViewModel.deleteUserProfile()
+                                dismiss()
+                        }
                         
-                        ButtonView(title: "Отмена")
-                            .padding(.vertical, 8)
+                        ButtonView(title: "Отмена") {
+                            profileViewModel.logOutTaped()
+                            dismiss()
+                        }
                         
                     }
                     .padding(.horizontal, 16)
@@ -54,6 +60,13 @@ struct ProfileView: View {
             NavigationLink(
                 destination: ChangePasswordView(),
                 isActive: $profileViewModel.changePassword
+            ) {
+                EmptyView()
+            }
+            
+            NavigationLink(
+                destination: LoginView(isLoggedIn: $profileViewModel.logOut),
+                isActive: $profileViewModel.logOut
             ) {
                 EmptyView()
             }
