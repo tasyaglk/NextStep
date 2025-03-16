@@ -21,8 +21,14 @@ extension Color {
     static let gradientDarkColor = Color.adaptive(light: "A4C0F7", dark: "A4C0F7")
     static let textBackgroundField = Color.adaptive(light: "F7F7F7", dark: "F7F7F7")
     static let textBorderField = Color.adaptive(light: "EDEDED", dark: "EDEDED")
-    
-    
+    static let appContainer = Color.adaptive(light: "F2F3FA", dark: "F2F3FA")
+    static let appPurple = Color.adaptive(light: "ADA1DE", dark: "ADA1DE")
+    static let appGreen = Color.adaptive(light: "AEDCB0", dark: "AEDCB0")
+    static let appPink = Color.adaptive(light: "F08CD6", dark: "F08CD6")
+    static let appOrange = Color.adaptive(light: "EABE92", dark: "EABE92")
+    static let appBlue = Color.adaptive(light: "90A1E2", dark: "90A1E2")
+    static let appTeal = Color.adaptive(light: "60A9CB", dark: "60A9CB")
+
     
 }
 

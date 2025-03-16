@@ -72,6 +72,40 @@
 		00E63C002D79EAF3004585DE /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */; };
 		00E63C052D8312D8004585DE /* FloatingClouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C042D8312D8004585DE /* FloatingClouds.swift */; };
 		00E63C0C2D8433A2004585DE /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C0B2D8433A2004585DE /* UserService.swift */; };
+		00E63C0E2D870072004585DE /* EventModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C0D2D870072004585DE /* EventModal.swift */; };
+		00E63C0F2D870072004585DE /* EventModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C0D2D870072004585DE /* EventModal.swift */; };
+		00E63C102D870072004585DE /* EventModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C0D2D870072004585DE /* EventModal.swift */; };
+		00E63C122D8709AE004585DE /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C112D8709AC004585DE /* CalendarViewModel.swift */; };
+		00E63C142D870A45004585DE /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C132D870A45004585DE /* WeekView.swift */; };
+		00E63C152D870A45004585DE /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C132D870A45004585DE /* WeekView.swift */; };
+		00E63C162D870A45004585DE /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C132D870A45004585DE /* WeekView.swift */; };
+		00E63C182D870A69004585DE /* WeekRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C172D870A69004585DE /* WeekRowView.swift */; };
+		00E63C192D870A69004585DE /* WeekRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C172D870A69004585DE /* WeekRowView.swift */; };
+		00E63C1A2D870A69004585DE /* WeekRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C172D870A69004585DE /* WeekRowView.swift */; };
+		00E63C1C2D870A7C004585DE /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C1B2D870A7C004585DE /* DayView.swift */; };
+		00E63C1D2D870A7C004585DE /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C1B2D870A7C004585DE /* DayView.swift */; };
+		00E63C1E2D870A7C004585DE /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C1B2D870A7C004585DE /* DayView.swift */; };
+		00E63C202D870AB2004585DE /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C1F2D870AB2004585DE /* TaskListView.swift */; };
+		00E63C212D870AB2004585DE /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C1F2D870AB2004585DE /* TaskListView.swift */; };
+		00E63C222D870AB2004585DE /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C1F2D870AB2004585DE /* TaskListView.swift */; };
+		00E63C242D870AD6004585DE /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C232D870AD6004585DE /* TimelineView.swift */; };
+		00E63C252D870AD6004585DE /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C232D870AD6004585DE /* TimelineView.swift */; };
+		00E63C262D870AD6004585DE /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C232D870AD6004585DE /* TimelineView.swift */; };
+		00E63C282D870AF4004585DE /* TimelineHourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C272D870AF4004585DE /* TimelineHourView.swift */; };
+		00E63C292D870AF4004585DE /* TimelineHourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C272D870AF4004585DE /* TimelineHourView.swift */; };
+		00E63C2A2D870AF4004585DE /* TimelineHourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C272D870AF4004585DE /* TimelineHourView.swift */; };
+		00E63C2C2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */; };
+		00E63C2D2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */; };
+		00E63C2E2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */; };
+		00E63C302D870CEF004585DE /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2F2D870CEF004585DE /* TaskView.swift */; };
+		00E63C312D870CEF004585DE /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2F2D870CEF004585DE /* TaskView.swift */; };
+		00E63C322D870CEF004585DE /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2F2D870CEF004585DE /* TaskView.swift */; };
+		00E63C342D870D09004585DE /* CalendarTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C332D870D09004585DE /* CalendarTask.swift */; };
+		00E63C352D870D09004585DE /* CalendarTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C332D870D09004585DE /* CalendarTask.swift */; };
+		00E63C362D870D09004585DE /* CalendarTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C332D870D09004585DE /* CalendarTask.swift */; };
+		00E63C382D8711DD004585DE /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C372D8711DD004585DE /* Header.swift */; };
+		00E63C392D8711DD004585DE /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C372D8711DD004585DE /* Header.swift */; };
+		00E63C3A2D8711DD004585DE /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C372D8711DD004585DE /* Header.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +169,18 @@
 		00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		00E63C042D8312D8004585DE /* FloatingClouds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingClouds.swift; sourceTree = "<group>"; };
 		00E63C0B2D8433A2004585DE /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		00E63C0D2D870072004585DE /* EventModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModal.swift; sourceTree = "<group>"; };
+		00E63C112D8709AC004585DE /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		00E63C132D870A45004585DE /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		00E63C172D870A69004585DE /* WeekRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRowView.swift; sourceTree = "<group>"; };
+		00E63C1B2D870A7C004585DE /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		00E63C1F2D870AB2004585DE /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		00E63C232D870AD6004585DE /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		00E63C272D870AF4004585DE /* TimelineHourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineHourView.swift; sourceTree = "<group>"; };
+		00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeIndicator.swift; sourceTree = "<group>"; };
+		00E63C2F2D870CEF004585DE /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		00E63C332D870D09004585DE /* CalendarTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTask.swift; sourceTree = "<group>"; };
+		00E63C372D8711DD004585DE /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +289,7 @@
 		003070182D355EB300CD8516 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				00E63C332D870D09004585DE /* CalendarTask.swift */,
 				0030704E2D35901E00CD8516 /* UserProfile.swift */,
 			);
 			path = Model;
@@ -251,6 +298,7 @@
 		003070192D355EB800CD8516 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				00E63C112D8709AC004585DE /* CalendarViewModel.swift */,
 				003070152D355E8B00CD8516 /* TabBarViewModel.swift */,
 				003070522D380E2300CD8516 /* ProfileViewModel.swift */,
 				0073230F2D3AC90C00297828 /* PasswordViewModel.swift */,
@@ -310,6 +358,16 @@
 			isa = PBXGroup;
 			children = (
 				0030704A2D35803D00CD8516 /* CalendarView.swift */,
+				00E63C0D2D870072004585DE /* EventModal.swift */,
+				00E63C132D870A45004585DE /* WeekView.swift */,
+				00E63C172D870A69004585DE /* WeekRowView.swift */,
+				00E63C1B2D870A7C004585DE /* DayView.swift */,
+				00E63C1F2D870AB2004585DE /* TaskListView.swift */,
+				00E63C232D870AD6004585DE /* TimelineView.swift */,
+				00E63C272D870AF4004585DE /* TimelineHourView.swift */,
+				00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */,
+				00E63C2F2D870CEF004585DE /* TaskView.swift */,
+				00E63C372D8711DD004585DE /* Header.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -507,8 +565,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E63C292D870AF4004585DE /* TimelineHourView.swift in Sources */,
 				003070472D357AA100CD8516 /* ProfileView.swift in Sources */,
+				00E63C1C2D870A7C004585DE /* DayView.swift in Sources */,
+				00E63C222D870AB2004585DE /* TaskListView.swift in Sources */,
+				00E63C2E2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
 				00E63C0C2D8433A2004585DE /* UserService.swift in Sources */,
+				00E63C102D870072004585DE /* EventModal.swift in Sources */,
+				00E63C122D8709AE004585DE /* CalendarViewModel.swift in Sources */,
+				00E63C322D870CEF004585DE /* TaskView.swift in Sources */,
 				003070162D355E8B00CD8516 /* TabBarViewModel.swift in Sources */,
 				00E63BFC2D79E43D004585DE /* LoginViewModel.swift in Sources */,
 				0073230C2D3A984300297828 /* ButtonView.swift in Sources */,
@@ -519,7 +584,9 @@
 				003070202D356ED300CD8516 /* CustomFonts.swift in Sources */,
 				00E63BE62D75FA50004585DE /* LoginView.swift in Sources */,
 				007323162D3AD28900297828 /* PasswordFieldView.swift in Sources */,
+				00E63C392D8711DD004585DE /* Header.swift in Sources */,
 				0073230E2D3AC90500297828 /* ChangePasswordView.swift in Sources */,
+				00E63C182D870A69004585DE /* WeekRowView.swift in Sources */,
 				00E63BFE2D79EA8F004585DE /* RegistrationView.swift in Sources */,
 				00306FED2D355D3800CD8516 /* Item.swift in Sources */,
 				00E63C002D79EAF3004585DE /* RegistrationViewModel.swift in Sources */,
@@ -529,9 +596,12 @@
 				007323102D3AC90C00297828 /* PasswordViewModel.swift in Sources */,
 				007323142D3AD1B800297828 /* VisiblePasswordField.swift in Sources */,
 				0030701B2D355ECB00CD8516 /* TabBarView.swift in Sources */,
+				00E63C352D870D09004585DE /* CalendarTask.swift in Sources */,
+				00E63C162D870A45004585DE /* WeekView.swift in Sources */,
 				007323122D3ACA4600297828 /* UnvisiblePasswordField.swift in Sources */,
 				00306FE92D355D3800CD8516 /* NextStepApp.swift in Sources */,
 				00E63BF82D78F92C004585DE /* RegistrationView1.swift in Sources */,
+				00E63C252D870AD6004585DE /* TimelineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,9 +609,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E63C382D8711DD004585DE /* Header.swift in Sources */,
+				00E63C0F2D870072004585DE /* EventModal.swift in Sources */,
+				00E63C312D870CEF004585DE /* TaskView.swift in Sources */,
 				003070502D35901E00CD8516 /* UserProfile.swift in Sources */,
 				003070482D357AA100CD8516 /* ProfileView.swift in Sources */,
+				00E63C192D870A69004585DE /* WeekRowView.swift in Sources */,
+				00E63C1D2D870A7C004585DE /* DayView.swift in Sources */,
+				00E63C342D870D09004585DE /* CalendarTask.swift in Sources */,
+				00E63C242D870AD6004585DE /* TimelineView.swift in Sources */,
+				00E63C142D870A45004585DE /* WeekView.swift in Sources */,
 				00E63BDE2D75F97C004585DE /* ChatView.swift in Sources */,
+				00E63C212D870AB2004585DE /* TaskListView.swift in Sources */,
+				00E63C282D870AF4004585DE /* TimelineHourView.swift in Sources */,
+				00E63C2D2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
 				00306FFC2D355D3900CD8516 /* NextStepTests.swift in Sources */,
 				0030704C2D35803D00CD8516 /* CalendarView.swift in Sources */,
 			);
@@ -551,12 +632,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E63C2C2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
+				00E63C152D870A45004585DE /* WeekView.swift in Sources */,
+				00E63C1E2D870A7C004585DE /* DayView.swift in Sources */,
+				00E63C302D870CEF004585DE /* TaskView.swift in Sources */,
+				00E63C0E2D870072004585DE /* EventModal.swift in Sources */,
+				00E63C202D870AB2004585DE /* TaskListView.swift in Sources */,
 				003070082D355D3900CD8516 /* NextStepUITestsLaunchTests.swift in Sources */,
 				003070492D357AA100CD8516 /* ProfileView.swift in Sources */,
+				00E63C3A2D8711DD004585DE /* Header.swift in Sources */,
 				003070512D35901E00CD8516 /* UserProfile.swift in Sources */,
+				00E63C262D870AD6004585DE /* TimelineView.swift in Sources */,
+				00E63C362D870D09004585DE /* CalendarTask.swift in Sources */,
+				00E63C2A2D870AF4004585DE /* TimelineHourView.swift in Sources */,
 				0030704D2D35803D00CD8516 /* CalendarView.swift in Sources */,
 				00E63BDF2D75F97C004585DE /* ChatView.swift in Sources */,
 				003070062D355D3900CD8516 /* NextStepUITests.swift in Sources */,
+				00E63C1A2D870A69004585DE /* WeekRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
