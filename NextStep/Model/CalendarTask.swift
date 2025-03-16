@@ -14,6 +14,22 @@ struct CalendarTask: Identifiable {
     let startTime: Date
     let duration: TimeInterval
     let color: Color
+    
+    init(
+            id: UUID = UUID(),
+            title: String,
+            description: String,
+            startTime: Date,
+            duration: TimeInterval,
+            color: Color
+        ) {
+//            self.id = id
+            self.title = title
+            self.description = description
+            self.startTime = startTime
+            self.duration = duration
+            self.color = color
+        }
 }
 
 extension CalendarTask {

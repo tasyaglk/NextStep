@@ -19,8 +19,24 @@ struct EventModal: View {
     @State private var notes: String = ""
     @State private var selectedSegment = 0
     @EnvironmentObject var viewModel: GoalsViewModel
-
     
+    let taskToEdit: CalendarTask?
+    var onSave: ((CalendarTask) -> Void)?
+    @State private var color: Color = .appBlue
+    
+    init(taskToEdit: CalendarTask? = nil, onSave: ((CalendarTask) -> Void)? = nil) {
+            self.taskToEdit = taskToEdit
+            self.onSave = onSave
+            
+            if let task = taskToEdit {
+                _title = State(initialValue: task.title)
+                _description = State(initialValue: task.description)
+                _startDate = State(initialValue: task.startTime)
+                _endDate = State(initialValue: task.startTime.addingTimeInterval(task.duration))
+                _color = State(initialValue: task.color)
+            }
+        }
+
     private let segments = ["Event", "Reminder"]
     
     var body: some View {
@@ -124,6 +140,8 @@ struct EventModal: View {
                         .frame(minHeight: 100, alignment: .top)
                 }
                 .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
+                
+                ColorPicker("Task Color", selection: $color)
             }
             .listStyle(.insetGrouped)
             .scrollContentBackground(.hidden)
@@ -162,7 +180,12 @@ struct EventModal: View {
             )
         print(newTask)
         
-            viewModel.addTask(newTask) 
+//            viewModel.addTask(newTask)
+        if taskToEdit != nil {
+                    onSave?(newTask)
+                } else {
+                    viewModel.addTask(newTask)
+                }
         }
 }
 

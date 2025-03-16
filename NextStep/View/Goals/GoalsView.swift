@@ -10,6 +10,8 @@ import SwiftUI
 struct GoalsView: View {
     @State private var isShowingEventModal = false
     @State private var searchText = ""
+    @State private var editingTask: CalendarTask? = nil
+    
     @EnvironmentObject var viewModel: GoalsViewModel
     
     private var filteredTasks: [CalendarTask] {
@@ -35,6 +37,12 @@ struct GoalsView: View {
                     TaskView(task: task)
                         .padding(.top, 8)
                         .contextMenu {
+                            Button {
+                                editTask(task)
+                            } label: {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            
                             Button(role: .destructive) {
                                 viewModel.deleteTask(task)
                             } label: {
@@ -46,9 +54,17 @@ struct GoalsView: View {
             .padding()
         }
         .sheet(isPresented: $isShowingEventModal) {
-            EventModal()
-                .presentationDetents([.large])
-                .presentationDragIndicator(.visible)
+            EventModal(
+                taskToEdit: editingTask,
+                onSave: { updatedTask in
+                    if let index = viewModel.tasks.firstIndex(where: { $0.id == updatedTask.id }) {
+                        viewModel.tasks[index] = updatedTask
+                    }
+                    editingTask = nil
+                }
+            )
+            .presentationDetents([.large])
+            .presentationDragIndicator(.visible)
         }
     }
     
@@ -72,5 +88,10 @@ struct GoalsView: View {
             }
         }
         .padding(.horizontal, 8)
+    }
+    
+    private func editTask(_ task: CalendarTask) {
+        editingTask = task
+        isShowingEventModal = true
     }
 }

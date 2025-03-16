@@ -20,4 +20,9 @@ class GoalsViewModel: ObservableObject {
             tasks.remove(at: index)
         }
     }
+    
+//    private func editTask(_ task: CalendarTask) {
+//        editingTask = task
+//        isShowingEventModal = true
+//    }
 }
