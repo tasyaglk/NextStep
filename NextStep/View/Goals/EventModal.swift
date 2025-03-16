@@ -18,6 +18,8 @@ struct EventModal: View {
     @State private var url: String = ""
     @State private var notes: String = ""
     @State private var selectedSegment = 0
+    @EnvironmentObject var viewModel: GoalsViewModel
+
     
     private let segments = ["Event", "Reminder"]
     
@@ -109,7 +111,7 @@ struct EventModal: View {
                 
                 Section {
                     Button(action: {
-                        // Add attachment action
+                        addTask()
                     }) {
                         Text("Add attachment...")
                     }
@@ -138,6 +140,9 @@ struct EventModal: View {
                 
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {
+//                        dismiss()
+                        addTask()
+                        
                         dismiss()
                     }
                     .foregroundColor(.red)
@@ -145,6 +150,20 @@ struct EventModal: View {
             }
         }
     }
+    
+    private func addTask() {
+            let duration = endDate.timeIntervalSince(startDate)
+            let newTask = CalendarTask(
+                title: title,
+                description: description,
+                startTime: startDate,
+                duration: duration,
+                color: .appBlue
+            )
+        print(newTask)
+        
+            viewModel.addTask(newTask) 
+        }
 }
 
 //#Preview() {

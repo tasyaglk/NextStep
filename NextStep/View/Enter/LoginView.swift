@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
+    @StateObject private var goalsViewModel = GoalsViewModel()
     @Binding var isLoggedIn: Bool
     @State private var isSignUpViewPresented = false
     @State var isPasswordVisible: Bool = false

@@ -54,6 +54,12 @@ struct ProfileView: View {
                     .padding(.horizontal, 16)
                     .presentationDetents([.height(200)])
                 }
+                NavigationLink(
+                    destination: LoginView(isLoggedIn: $profileViewModel.logOut),
+                    isActive: $profileViewModel.logOut
+                ) {
+                    EmptyView()
+                }
             }
             .padding(.horizontal, 16)
             
@@ -64,12 +70,7 @@ struct ProfileView: View {
                 EmptyView()
             }
             
-            NavigationLink(
-                destination: LoginView(isLoggedIn: $profileViewModel.logOut),
-                isActive: $profileViewModel.logOut
-            ) {
-                EmptyView()
-            }
+            
         }
     }
 }

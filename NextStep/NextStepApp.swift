@@ -10,19 +10,20 @@ import SwiftData
 
 @main
 struct NextStepApp: App {
+    @StateObject private var viewModel = GoalsViewModel()
+    
     @State private var isLoggedIn = false
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-//                ContentView()
-//                LoginView(isLoggedIn: $isLoggedIn)
-//                ContentView()
                 if !UserService.isLoggedIn {
                     LoginView(isLoggedIn: $isLoggedIn)
                 } else {
                     TabBarView()
                 }
             }
+            .environmentObject(viewModel)
             .navigationViewStyle(.stack)
         }
     }

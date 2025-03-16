@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegistrationView: View {
     @StateObject private var viewModel = RegistrationViewModel()
+    @StateObject private var goalsViewModel = GoalsViewModel()
     @State private var isSignUpViewPresented = false
     @State var isPasswordVisible: Bool = false
     @State var isConfirmPasswordVisible: Bool = false

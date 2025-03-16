@@ -1,0 +1,76 @@
+//
+//  GoalsView.swift
+//  NextStep
+//
+//  Created by Тася Галкина on 16.03.2025.
+//
+
+import SwiftUI
+
+struct GoalsView: View {
+    @State private var isShowingEventModal = false
+    @State private var searchText = ""
+    @EnvironmentObject var viewModel: GoalsViewModel
+    
+    private var filteredTasks: [CalendarTask] {
+        if searchText.isEmpty {
+            return viewModel.tasks
+        } else {
+            return viewModel.tasks.filter {
+                $0.title.localizedCaseInsensitiveContains(searchText) ||
+                $0.description.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+    
+    var body: some View {
+        VStack {
+            Header
+            
+            SearchBar(text: $searchText)
+                .padding(.horizontal)
+            
+            ScrollView {
+                ForEach(filteredTasks) { task in
+                    TaskView(task: task)
+                        .padding(.top, 8)
+                        .contextMenu {
+                            Button(role: .destructive) {
+                                viewModel.deleteTask(task)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
+                }
+            }
+            .padding()
+        }
+        .sheet(isPresented: $isShowingEventModal) {
+            EventModal()
+                .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
+        }
+    }
+    
+    private var Header: some View {
+        HStack(spacing: 0) {
+            Spacer()
+            
+            Text("all goals")
+                .font(customFont: .onestBold, size: 24)
+                .foregroundStyle(Color.blackColor)
+            
+            Spacer()
+            
+            Button(action: {
+                isShowingEventModal = true
+            }) {
+                Image(systemName: "plus")
+                    .foregroundColor(.blackColor)
+                    .frame(width: 40, height: 40)
+                    .font(.system(size: 24))
+            }
+        }
+        .padding(.horizontal, 8)
+    }
+}

@@ -21,20 +21,27 @@ struct TabBarView: View {
                 }
                 .tag(0)
             
+            GoalsView()
+                .tabItem {
+                    Image(systemName: "trophy.fill")
+                    Text("goals")
+                }
+                .tag(1)
+            
             
             ChatView()
                 .tabItem {
                     Image(systemName: "message.fill")
                     Text("chats")
                 }
-                .tag(1)
+                .tag(2)
             
             ProfileView(profileViewModel: profileViewModel)
                 .tabItem {
                     Image(systemName: "person.fill")
                     Text("profile")
                 }
-                .tag(2)
+                .tag(3)
         }
         .navigationBarBackButtonHidden()
         .background(Color.lightBlue)
