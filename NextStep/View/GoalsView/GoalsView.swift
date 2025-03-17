@@ -40,7 +40,7 @@ struct GoalsView: View {
                             Button {
                                 editTask(task)
                             } label: {
-                                Label("Edit", systemImage: "pencil")
+                                Label("Редактировать", systemImage: "pencil")
                                     .font(.custom("Onest-Regular", size: 16))
                                     .foregroundStyle(Color.blackColor)
                             }
@@ -48,7 +48,7 @@ struct GoalsView: View {
                             Button(role: .destructive) {
                                 viewModel.deleteTask(task)
                             } label: {
-                                Label("Delete", systemImage: "trash")
+                                Label("Удалить", systemImage: "trash")
                                     .font(.custom("Onest-Regular", size: 16))
                                     .foregroundStyle(Color.blackColor)
                             }
@@ -79,7 +79,7 @@ struct GoalsView: View {
             
             
             HStack(spacing: 16) {
-                Text("All goals")
+                Text("Все цели")
                     .font(customFont: .onestBold, size: 20)
                     .foregroundStyle(Color.blackColor)
             }

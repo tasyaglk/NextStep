@@ -35,11 +35,11 @@ struct ChangePasswordView: View {
                 }
                 
                 VStack(alignment: .center, spacing: 8) {
-                    Text("create password")
+                    Text("создать пароль")
                         .font(customFont: .onestBold, size: 24)
                         .foregroundStyle(Color.blackColor)
                     
-                    Text("The password will further protect your account from hackers")
+                    Text("Этот пароль еще больше защитит вашу учетную запись от хакеров")
                         .font(customFont: .onestMedium, size: 16)
                         .foregroundStyle(Color.grayColor)
                         .multilineTextAlignment(.center)
@@ -47,20 +47,20 @@ struct ChangePasswordView: View {
                 .padding()
                 
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Enter the old password")
+                    Text("Введите старый пароль")
                         .font(customFont: .onestMedium, size: 16)
                         .foregroundStyle(Color.grayColor)
                         .multilineTextAlignment(.center)
                     
                     PasswordFieldView(
                         isPasswordVisible: $isOldPasswordVisible,
-                        hint: "old password",
+                        hint: "старый пароль",
                         password: $viewModel.oldPassword,
                         isTextChanged: { (changed) in
                         }
                     )
                     
-                    Text("Enter a new password")
+                    Text("Введите новый пароль")
                         .font(customFont: .onestMedium, size: 16)
                         .foregroundStyle(Color.grayColor)
                         .multilineTextAlignment(.center)
@@ -68,20 +68,20 @@ struct ChangePasswordView: View {
                     
                     PasswordFieldView(
                         isPasswordVisible: $isNewPasswordVisible,
-                        hint: "create password",
+                        hint: "пароль",
                         password: $viewModel.newPassword,
                         isTextChanged: { (changed) in
                         }
                     )
                     
-                    Text("The password must contain at least eight characters, including numbers and special characters (! # $ % ' () *)")
+                    Text("Пароль должен содержать не менее восьми символов, включая цифры и специальные символы (! # $ % ' () *)")
                         .font(customFont: .onestMedium, size: 14)
                         .foregroundStyle(Color.grayColor)
                         .padding(.vertical, 8)
                     
                     PasswordFieldView(
                         isPasswordVisible: $isConfirmPasswordVisible,
-                        hint: "re-enter password",
+                        hint: "введите пароль повторно",
                         password: $viewModel.confirmPassword,
                         isTextChanged: { (changed) in
                             
@@ -90,7 +90,7 @@ struct ChangePasswordView: View {
                     
                     Spacer()
                     
-                    ButtonView(title: "save") {
+                    ButtonView(title: "Сохранить") {
                         viewModel.changePassword()
                     }
                     .padding(.bottom, 16)

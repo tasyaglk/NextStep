@@ -54,6 +54,16 @@ struct ProfileView: View {
                 }
                 .sheet(isPresented: $profileViewModel.logOutAlert) {
                     VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Spacer()
+                            Text("Вы уверены, что хотите выйти?")
+                                .font(customFont: .onestBold, size: 14)
+                                .foregroundStyle(Color.grayColor)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+//                                .multilineTextAlignment(.center)
+                            Spacer()
+                        }
                         ButtonView(title: "Выйти из аккаунта") {
                             profileViewModel.deleteUserProfile()
                                 dismiss()

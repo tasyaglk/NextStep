@@ -51,16 +51,16 @@ struct EventModal: View {
 //                .listRowBackground(Color.clear)
                 
                 Section {
-                    TextField("Title", text: $title)
+                    TextField("Заголовок", text: $title)
                         .customTextFieldStyle()
-                    TextField("Description", text: $description)
+                    TextField("Описание", text: $description)
                         .customTextFieldStyle()
                 }
                 .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
                 
                 Section {
                     HStack {
-                        Text("Starts")
+                        Text("Начинается")
                             .font(customFont: .onestRegular, size: 16)
                             .foregroundStyle(Color.blackColor)
                         Spacer()
@@ -73,7 +73,7 @@ struct EventModal: View {
                     }
                     
                     HStack {
-                        Text("Ends")
+                        Text("Заканчивается")
                             .font(customFont: .onestRegular, size: 16)
                             .foregroundStyle(Color.blackColor)
                         Spacer()
@@ -88,27 +88,20 @@ struct EventModal: View {
                 }
                 .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
                 
-//                Section {
-//                    TextField("URL", text: $url)
-//                    TextField("Notes", text: $notes, axis: .vertical)
-//                        .frame(minHeight: 100, alignment: .top)
-//                }
-//                .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
-//                
-                ColorPicker("Task Color", selection: $color)
+                ColorPicker("Цвет задачи", selection: $color)
                     .font(.custom("Onest-Regular", size: 16))
                     .foregroundStyle(Color.blackColor)
             }
             .listStyle(.insetGrouped)
             .scrollContentBackground(.hidden)
             .background(Color(UIColor.systemGroupedBackground))
-            .navigationTitle("New Event")
+            .navigationTitle("Новая цель")
             .font(.custom("Onest-Bold", size: 24))
             .foregroundStyle(Color.blackColor)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel", role: .cancel) {
+                    Button("Отмена", role: .cancel) {
                         dismiss()
                     }
                     .font(.custom("Onest-SemiBold", size: 16))
@@ -116,7 +109,7 @@ struct EventModal: View {
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") {
+                    Button("Добавить") {
                         addTask()
                         
                         dismiss()

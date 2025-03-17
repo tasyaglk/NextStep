@@ -278,12 +278,12 @@
 		003070172D355EAD00CD8516 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				00E63C3B2D871660004585DE /* Goals */,
+				00E63C3B2D871660004585DE /* GoalsView */,
 				00E63C032D8312CC004585DE /* Animations */,
-				00E63BE42D75FA14004585DE /* Enter */,
-				00E63BE32D75FA08004585DE /* Chat */,
-				00E63BE22D75FA00004585DE /* Calendar */,
-				00E63BE12D75F9F2004585DE /* Profile */,
+				00E63BE42D75FA14004585DE /* EnterView */,
+				00E63BE32D75FA08004585DE /* ChatView */,
+				00E63BE22D75FA00004585DE /* CalendarView */,
+				00E63BE12D75F9F2004585DE /* ProfileView */,
 				0073230A2D3A983700297828 /* CommonView */,
 				0030701A2D355ECB00CD8516 /* TabBarView.swift */,
 			);
@@ -302,13 +302,11 @@
 		003070192D355EB800CD8516 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				00E63C112D8709AC004585DE /* CalendarViewModel.swift */,
-				003070152D355E8B00CD8516 /* TabBarViewModel.swift */,
-				003070522D380E2300CD8516 /* ProfileViewModel.swift */,
-				0073230F2D3AC90C00297828 /* PasswordViewModel.swift */,
-				00E63BFB2D79E43D004585DE /* LoginViewModel.swift */,
-				00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */,
-				00E63C402D871F98004585DE /* GoalsViewModel.swift */,
+				00E63C4A2D884051004585DE /* GoalsViewModel */,
+				00E63C492D884042004585DE /* ProfileViewModel */,
+				00E63C482D884036004585DE /* CalendarViewModel */,
+				00E63C472D884025004585DE /* TabBarViewModel */,
+				00E63C462D883FF3004585DE /* EnterViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -352,46 +350,45 @@
 			path = CommonView;
 			sourceTree = "<group>";
 		};
-		00E63BE12D75F9F2004585DE /* Profile */ = {
+		00E63BE12D75F9F2004585DE /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
 				003070462D357AA100CD8516 /* ProfileView.swift */,
 				0073230D2D3AC90500297828 /* ChangePasswordView.swift */,
 			);
-			path = Profile;
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
-		00E63BE22D75FA00004585DE /* Calendar */ = {
+		00E63BE22D75FA00004585DE /* CalendarView */ = {
 			isa = PBXGroup;
 			children = (
 				0030704A2D35803D00CD8516 /* CalendarView.swift */,
-				00E63C132D870A45004585DE /* WeekView.swift */,
-				00E63C172D870A69004585DE /* WeekRowView.swift */,
+				00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */,
 				00E63C1B2D870A7C004585DE /* DayView.swift */,
 				00E63C1F2D870AB2004585DE /* TaskListView.swift */,
-				00E63C232D870AD6004585DE /* TimelineView.swift */,
 				00E63C272D870AF4004585DE /* TimelineHourView.swift */,
-				00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */,
-				00E63C2F2D870CEF004585DE /* TaskView.swift */,
+				00E63C232D870AD6004585DE /* TimelineView.swift */,
+				00E63C172D870A69004585DE /* WeekRowView.swift */,
+				00E63C132D870A45004585DE /* WeekView.swift */,
 			);
-			path = Calendar;
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
-		00E63BE32D75FA08004585DE /* Chat */ = {
+		00E63BE32D75FA08004585DE /* ChatView */ = {
 			isa = PBXGroup;
 			children = (
 				00E63BDD2D75F97C004585DE /* ChatView.swift */,
 			);
-			path = Chat;
+			path = ChatView;
 			sourceTree = "<group>";
 		};
-		00E63BE42D75FA14004585DE /* Enter */ = {
+		00E63BE42D75FA14004585DE /* EnterView */ = {
 			isa = PBXGroup;
 			children = (
 				00E63BE52D75FA50004585DE /* LoginView.swift */,
 				00E63BFD2D79EA8F004585DE /* RegistrationView.swift */,
 			);
-			path = Enter;
+			path = EnterView;
 			sourceTree = "<group>";
 		};
 		00E63C032D8312CC004585DE /* Animations */ = {
@@ -410,13 +407,56 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		00E63C3B2D871660004585DE /* Goals */ = {
+		00E63C3B2D871660004585DE /* GoalsView */ = {
 			isa = PBXGroup;
 			children = (
+				00E63C2F2D870CEF004585DE /* TaskView.swift */,
 				00E63C0D2D870072004585DE /* EventModal.swift */,
 				00E63C3C2D871685004585DE /* GoalsView.swift */,
 			);
-			path = Goals;
+			path = GoalsView;
+			sourceTree = "<group>";
+		};
+		00E63C462D883FF3004585DE /* EnterViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				00E63BFB2D79E43D004585DE /* LoginViewModel.swift */,
+				00E63BFF2D79EAF3004585DE /* RegistrationViewModel.swift */,
+			);
+			path = EnterViewModel;
+			sourceTree = "<group>";
+		};
+		00E63C472D884025004585DE /* TabBarViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				003070152D355E8B00CD8516 /* TabBarViewModel.swift */,
+			);
+			path = TabBarViewModel;
+			sourceTree = "<group>";
+		};
+		00E63C482D884036004585DE /* CalendarViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				00E63C112D8709AC004585DE /* CalendarViewModel.swift */,
+			);
+			path = CalendarViewModel;
+			sourceTree = "<group>";
+		};
+		00E63C492D884042004585DE /* ProfileViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				003070522D380E2300CD8516 /* ProfileViewModel.swift */,
+				0073230F2D3AC90C00297828 /* PasswordViewModel.swift */,
+			);
+			path = ProfileViewModel;
+			sourceTree = "<group>";
+		};
+		00E63C4A2D884051004585DE /* GoalsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				00E63C402D871F98004585DE /* GoalsViewModel.swift */,
+			);
+			path = GoalsViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

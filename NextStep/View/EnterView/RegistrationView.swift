@@ -1,18 +1,20 @@
 //
-//  LoginView.swift
+//  RegistrationView.swift
 //  NextStep
 //
-//  Created by Тася Галкина on 03.03.2025.
+//  Created by Тася Галкина on 06.03.2025.
 //
 
 import SwiftUI
 
-struct LoginView: View {
-    @StateObject private var viewModel = LoginViewModel()
+struct RegistrationView: View {
+    @StateObject private var viewModel = RegistrationViewModel()
     @StateObject private var goalsViewModel = GoalsViewModel()
-    @Binding var isLoggedIn: Bool
     @State private var isSignUpViewPresented = false
     @State var isPasswordVisible: Bool = false
+    @State var isConfirmPasswordVisible: Bool = false
+    @Binding var isLoggedIn: Bool
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack {
@@ -26,23 +28,40 @@ struct LoginView: View {
                     .padding(.vertical, 172)
                 
                 VStack {
+                    
                     HStack {
-                        VStack(alignment: .leading) {
-                            Text("login")
-                                .font(customFont: .onestMedium, size: 16)
-                                .foregroundStyle(Color.blackColor)
-                            
-                            
-                            Text("welcome back")
-                                .font(customFont: .onestMedium, size: 24)
-                                .foregroundStyle(Color.blackColor)
-                        }
-                        .padding(.leading, 8)
+                        Text("регистрация")
+                            .font(customFont: .onestMedium, size: 16)
+                            .foregroundStyle(Color.blackColor)
                         
                         Spacer()
                     }
                     
-                    TextField("Email", text: $viewModel.email)
+                    TextField("имя", text: $viewModel.name)
+                        .padding()
+                        .background(Color.textBackgroundField)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.textBorderField, lineWidth: 1)
+                        )
+                        .autocapitalization(.none)
+                        .font(.custom("Onest-Regular", size: 14))
+//                        .shadow(color: .gray.opacity(0.2), radius: 3, x: 0, y: 3)
+                    
+                    TextField("фамилия", text: $viewModel.surname)
+                        .padding()
+                        .background(Color.textBackgroundField)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.textBorderField, lineWidth: 1)
+                        )
+                        .autocapitalization(.none)
+                        .font(.custom("Onest-Regular", size: 14))
+//                        .shadow(color: .gray.opacity(0.2), radius: 3, x: 0, y: 3)
+                    
+                    TextField("почта", text: $viewModel.email)
                         .padding()
                         .background(Color.textBackgroundField)
                         .cornerRadius(10)
@@ -53,11 +72,20 @@ struct LoginView: View {
                         .autocapitalization(.none)
                         .keyboardType(.emailAddress)
                         .font(.custom("Onest-Regular", size: 14))
-                    
+//                        .shadow(color: .gray.opacity(0.2), radius: 3, x: 0, y: 3)
                     PasswordFieldView(
                         isPasswordVisible: $isPasswordVisible,
-                        hint: "password",
+                        hint: "пароль",
                         password: $viewModel.password,
+                        isTextChanged: { (changed) in
+                            
+                        }
+                    )
+                    
+                    PasswordFieldView(
+                        isPasswordVisible: $isConfirmPasswordVisible,
+                        hint: "подтвердите пароль",
+                        password: $viewModel.confirmPassword,
                         isTextChanged: { (changed) in
                             
                         }
@@ -65,42 +93,35 @@ struct LoginView: View {
                     
                     Spacer()
                     
-                    VStack(spacing: 8) {
-                        ButtonView(title: "Login") {
-                            viewModel.loginUser()
-                            print(viewModel.isLoggedIn)
-                        }
-                        
-                        ButtonView(title: "Apple login") {
-                            print("apple")
-                        }
+                    ButtonView(title: "Зарегистрироваться") {
+                        viewModel.registerUser()
                     }
                     
                     
                     HStack {
-                        Text("Don't have any account?")
+                        Text("Уже есть аккаунт?")
                             .font(customFont: .onestMedium, size: 12)
                             .foregroundStyle(Color.grayColor)
                         Button(action: {
-                            isSignUpViewPresented = true
+                            dismiss()
                         }) {
-                            Text("Sign Up")
+                            Text("Войти")
                                 .font(customFont: .onestMedium, size: 12)
                                 .foregroundStyle(Color.grayColor)
                                 .underline()
                         }
                     }
                     .padding(.bottom, 36)
-                    .padding(.top, 16)
+                    .padding(.top, 32)
                     
                 }
                 .padding(.horizontal, 24)
-                .padding(.top, 24)
+                .padding(.top, 36)
                 .background(Color.white)
                 .alert(isPresented: $viewModel.showAlert) {
                     Alert(title: Text("Сообщение"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
                 }
-                .onChange(of: viewModel.isLoggedIn) { newValue in
+                .onChange(of: isLoggedIn) { newValue in
                     isLoggedIn = newValue
                 }
                 .clipShape(
@@ -115,21 +136,15 @@ struct LoginView: View {
                 
                 NavigationLink(
                     destination: TabBarView(),
-                    isActive: $viewModel.isLoggedIn
+                    isActive: $viewModel.isSignUp
                 ) {
                     EmptyView()
                 }
-                
-                NavigationLink(
-                    destination: RegistrationView(isLoggedIn: $viewModel.isLoggedIn),
-                    isActive: $isSignUpViewPresented
-                ) {
-                    EmptyView()
-                }
-                
             }
-//            .background(Color.white)
         }
+        .background(Color.white)
+        .navigationBarHidden(true)
+        
     }
 }
-//galkina.tasya@mail.ru
+
