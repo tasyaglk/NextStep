@@ -27,13 +27,13 @@ struct CalendarView: View {
                 .padding(.top)
             }
         }
-//        .sheet(isPresented: $isShowingEventModal) {
-//            EventModal()
-//                .presentationDetents([.large])
-//                .presentationDragIndicator(.visible)
-//        }
+        //        .sheet(isPresented: $isShowingEventModal) {
+        //            EventModal()
+        //                .presentationDetents([.large])
+        //                .presentationDragIndicator(.visible)
+        //        }
     }
-        
+    
 }
 
 struct Header: View {
@@ -41,26 +41,16 @@ struct Header: View {
     
     var body: some View {
         HStack {
-//            Button(action: {
-//                
-//            }) {
-//                Image(systemName: "chevron.left")
-//                    .foregroundColor(.blackColor)
-//                    .frame(width: 40, height: 40)
-//                    .font(.system(size: 18))
-//            }
             
             Spacer()
             
-            Button(action: {
-                
-            }) {
-                HStack(spacing: 16) {
-                    Text("Calendar")
-                        .font(customFont: .onestBold, size: 20)
-                        .foregroundStyle(Color.blackColor)
-                }
+            
+            HStack(spacing: 16) {
+                Text("Calendar")
+                    .font(customFont: .onestBold, size: 20)
+                    .foregroundStyle(Color.blackColor)
             }
+            
             
             Spacer()
             

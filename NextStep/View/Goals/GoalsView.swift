@@ -73,12 +73,17 @@ struct GoalsView: View {
     }
     
     private var Header: some View {
-        HStack(spacing: 0) {
+        HStack {
+            
             Spacer()
             
-            Text("all goals")
-                .font(customFont: .onestBold, size: 24)
-                .foregroundStyle(Color.blackColor)
+            
+            HStack(spacing: 16) {
+                Text("All goals")
+                    .font(customFont: .onestBold, size: 20)
+                    .foregroundStyle(Color.blackColor)
+            }
+            
             
             Spacer()
             
@@ -90,8 +95,10 @@ struct GoalsView: View {
                     .frame(width: 40, height: 40)
                     .font(.system(size: 24))
             }
+            
         }
-        .padding(.horizontal, 8)
+        .padding(.horizontal)
+        .padding(.top, 16)
     }
     
     private func editTask(_ task: CalendarTask) {

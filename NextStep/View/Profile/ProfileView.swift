@@ -13,7 +13,21 @@ struct ProfileView: View {
     
     var body: some View {
         
-        VStack {
+        VStack(spacing: 16) {
+            
+            HStack {
+                
+                Spacer()
+                
+                Text("Profile")
+                    .font(customFont: .onestBold, size: 20)
+                    .foregroundStyle(Color.blackColor)
+                
+                Spacer()
+                
+            }
+            .padding(.horizontal)
+            .padding(.top, 16)
             
             HStack {
                 Text(profileViewModel.userInfo.name + " " + profileViewModel.userInfo.surname)
