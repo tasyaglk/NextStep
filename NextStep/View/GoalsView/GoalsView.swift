@@ -10,9 +10,9 @@ import SwiftUI
 struct GoalsView: View {
     @State private var isShowingEventModal = false
     @State private var searchText = ""
-    @State private var editingTask: CalendarTask? = nil
-    
+    @State private var selectedTask: CalendarTask? = nil
     @EnvironmentObject var viewModel: GoalsViewModel
+    
     
     private var filteredTasks: [CalendarTask] {
         if searchText.isEmpty {
@@ -38,7 +38,8 @@ struct GoalsView: View {
                         .padding(.top, 8)
                         .contextMenu {
                             Button {
-                                editTask(task)
+                                selectedTask = task
+                                isShowingEventModal = true
                             } label: {
                                 Label("Редактировать", systemImage: "pencil")
                                     .font(.custom("Onest-Regular", size: 16))
@@ -59,14 +60,16 @@ struct GoalsView: View {
         }
         .sheet(isPresented: $isShowingEventModal) {
             EventModal(
-                taskToEdit: editingTask,
-                onSave: { updatedTask in
-                    if let index = viewModel.tasks.firstIndex(where: { $0.id == updatedTask.id }) {
-                        viewModel.tasks[index] = updatedTask
-                    }
-                    editingTask = nil
-                }
+                taskToEdit: selectedTask
+                
+//                onSave: { updatedTask in
+//                    if let index = viewModel.tasks.firstIndex(where: { $0.id == updatedTask.id }) {
+//                        viewModel.tasks[index] = updatedTask
+//                    }
+//                    editingTask = nil
+//                }
             )
+            .environmentObject(viewModel)
             .presentationDetents([.large])
             .presentationDragIndicator(.visible)
         }
@@ -101,10 +104,12 @@ struct GoalsView: View {
         .padding(.top, 16)
     }
     
-    private func editTask(_ task: CalendarTask) {
-        editingTask = task
-        isShowingEventModal = true
-    }
+//    private func editTask(_ task: CalendarTask) {
+//        if let index = viewModel.tasks.firstIndex(where: { $0.id == task.id }) {
+//            viewModel.tasks[index] = task
+//                }
+//        isShowingEventModal = true
+//    }
 }
 
 
