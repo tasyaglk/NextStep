@@ -16,13 +16,14 @@ class GoalsViewModel: ObservableObject {
         }
     
     func deleteTask(_ task: CalendarTask) {
-        if let index = tasks.firstIndex(where: { $0.id == task.id }) {
-            tasks.remove(at: index)
-        }
-    }
+           if let index = tasks.firstIndex(where: { $0.id == task.id }) {
+               tasks.remove(at: index)
+           }
+       }
     
-//    private func editTask(_ task: CalendarTask) {
-//        editingTask = task
-//        isShowingEventModal = true
-//    }
+    func updateTask(_ updatedTask: CalendarTask) {
+            if let index = tasks.firstIndex(where: { $0.id == updatedTask.id }) {
+                tasks[index] = updatedTask
+            }
+        }
 }

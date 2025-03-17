@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CalendarTask: Identifiable {
-    let id = UUID()
+    let id: UUID
     let title: String
     let description: String
     let startTime: Date
@@ -23,7 +23,7 @@ struct CalendarTask: Identifiable {
             duration: TimeInterval,
             color: Color
         ) {
-//            self.id = id
+            self.id = id
             self.title = title
             self.description = description
             self.startTime = startTime

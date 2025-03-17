@@ -8,100 +8,59 @@
 import SwiftUI
 
 struct EventModal: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel: GoalsViewModel
+    var taskToEdit: CalendarTask?
+    
     @State private var title: String = ""
     @State private var description: String = ""
-    @State private var location: String = ""
-    @State private var isAllDay = false
-    @State private var startDate = Date()
-    @State private var endDate = Date().addingTimeInterval(3600)
-    @State private var url: String = ""
-    @State private var notes: String = ""
-    @State private var selectedSegment = 0
-    @EnvironmentObject var viewModel: GoalsViewModel
+    @State private var startDate: Date = Date()
+    @State private var endDate: Date = Date()
+    @State private var selectedColor: Color = .blue
     
-    let taskToEdit: CalendarTask?
-    var onSave: ((CalendarTask) -> Void)?
-    @State private var color: Color = .appBlue
-    
-    init(taskToEdit: CalendarTask? = nil, onSave: ((CalendarTask) -> Void)? = nil) {
-            self.taskToEdit = taskToEdit
-            self.onSave = onSave
-            
-            if let task = taskToEdit {
-                _title = State(initialValue: task.title)
-                _description = State(initialValue: task.description)
-                _startDate = State(initialValue: task.startTime)
-                _endDate = State(initialValue: task.startTime.addingTimeInterval(task.duration))
-                _color = State(initialValue: task.color)
-            }
+    init(taskToEdit: CalendarTask? = nil) {
+        self.taskToEdit = taskToEdit
+        if let task = taskToEdit {
+            _title = State(initialValue: task.title)
+            _description = State(initialValue: task.description)
+            _startDate = State(initialValue: task.startTime)
+            _endDate = State(initialValue: task.startTime.addingTimeInterval(task.duration))
+            _selectedColor = State(initialValue: task.color)
         }
-
-//    private let segments = ["Event", "Reminder"]
+    }
     
     var body: some View {
         NavigationView {
-            List {
-//                Picker("Type", selection: $selectedSegment) {
-//                    ForEach(0...1, id: \.self) { index in
-//                        Text(segments[index]).tag(index)
-//                    }
-//                }
-//                .pickerStyle(.segmented)
-//                .listRowBackground(Color.clear)
-                
+            Form {
                 Section {
                     TextField("Заголовок", text: $title)
-                        .customTextFieldStyle()
                     TextField("Описание", text: $description)
-                        .customTextFieldStyle()
                 }
-                .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
+                .font(.custom("Onest-Regular", size: 16))
+                .foregroundStyle(Color.blackColor)
                 
                 Section {
-                    HStack {
-                        Text("Начинается")
-                            .font(customFont: .onestRegular, size: 16)
-                            .foregroundStyle(Color.blackColor)
-                        Spacer()
-                        DatePicker(
-                            "",
-                            selection: $startDate,
-                            displayedComponents: isAllDay ? .date : [.date, .hourAndMinute]
-                        )
-                        .labelsHidden()
-                    }
-                    
-                    HStack {
-                        Text("Заканчивается")
-                            .font(customFont: .onestRegular, size: 16)
-                            .foregroundStyle(Color.blackColor)
-                        Spacer()
-                        DatePicker(
-                            "",
-                            selection: $endDate,
-                            in: startDate...,
-                            displayedComponents: isAllDay ? .date : [.date, .hourAndMinute]
-                        )
-                        .labelsHidden()
-                    }
+                    DatePicker("Начало", selection: $startDate, displayedComponents: [.date, .hourAndMinute])
+                        .font(.custom("Onest-Regular", size: 16))
+                        .foregroundStyle(Color.blackColor)
+                    DatePicker("Окончание", selection: $endDate, in: startDate..., displayedComponents: [.date, .hourAndMinute])
+                        .font(.custom("Onest-Regular", size: 16))
+                        .foregroundStyle(Color.blackColor)
                 }
-                .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
                 
-                ColorPicker("Цвет задачи", selection: $color)
-                    .font(.custom("Onest-Regular", size: 16))
-                    .foregroundStyle(Color.blackColor)
+                Section {
+                    ColorPicker("Цвет задачи", selection: $selectedColor)
+                        .font(.custom("Onest-Regular", size: 16))
+                        .foregroundStyle(Color.blackColor)
+                }
             }
-            .listStyle(.insetGrouped)
-            .scrollContentBackground(.hidden)
-            .background(Color(UIColor.systemGroupedBackground))
-            .navigationTitle("Новая цель")
+            .navigationTitle(taskToEdit == nil ? "Новая цель" : "Редактировать")
             .font(.custom("Onest-Bold", size: 24))
             .foregroundStyle(Color.blackColor)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Отмена", role: .cancel) {
+                    Button("Отмена") {
                         dismiss()
                     }
                     .font(.custom("Onest-SemiBold", size: 16))
@@ -109,40 +68,33 @@ struct EventModal: View {
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Добавить") {
-                        addTask()
-                        
+                    Button(taskToEdit == nil ? "Добавить" : "Сохранить") {
+                        saveTask()
                         dismiss()
                     }
                     .font(.custom("Onest-SemiBold", size: 16))
                     .foregroundColor(.red)
+                    .disabled(title.isEmpty)
                 }
             }
         }
     }
     
-    private func addTask() {
-            let duration = endDate.timeIntervalSince(startDate)
-            let newTask = CalendarTask(
-                title: title,
-                description: description,
-                startTime: startDate,
-                duration: duration,
-                color: .appBlue
-            )
-        print(newTask)
+    private func saveTask() {
+        let duration = endDate.timeIntervalSince(startDate)
+        let task = CalendarTask(
+            id: taskToEdit?.id ?? UUID(),
+            title: title,
+            description: description,
+            startTime: startDate,
+            duration: duration,
+            color: selectedColor
+        )
         
-//            viewModel.addTask(newTask)
         if taskToEdit != nil {
-                    onSave?(newTask)
-                } else {
-                    viewModel.addTask(newTask)
-                }
+            viewModel.updateTask(task)
+        } else {
+            viewModel.addTask(task)
         }
+    }
 }
-
-//#Preview() {
-//    EventModal()
-//}
-
-

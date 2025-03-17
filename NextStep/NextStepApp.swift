@@ -18,7 +18,7 @@ struct NextStepApp: App {
         WindowGroup {
             NavigationView {
                 if !UserService.isLoggedIn {
-                    LoginView(isLoggedIn: $isLoggedIn)
+                    LoginView()
                 } else {
                     TabBarView()
                 }

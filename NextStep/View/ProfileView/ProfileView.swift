@@ -65,13 +65,17 @@ struct ProfileView: View {
                             Spacer()
                         }
                         ButtonView(title: "Выйти из аккаунта") {
-                            profileViewModel.deleteUserProfile()
-                                dismiss()
+                            profileViewModel.logOutAlert = false
+                            DispatchQueue.main.async {
+//                                dismiss()
+                                profileViewModel.deleteUserProfile()
+                                
+                            }
                         }
                         
                         ButtonView(title: "Отмена") {
                             profileViewModel.logOutTaped()
-                            dismiss()
+//                            dismiss()
                         }
                         
                     }
@@ -79,7 +83,7 @@ struct ProfileView: View {
                     .presentationDetents([.height(200)])
                 }
                 NavigationLink(
-                    destination: LoginView(isLoggedIn: $profileViewModel.logOut),
+                    destination: LoginView(),
                     isActive: $profileViewModel.logOut
                 ) {
                     EmptyView()
@@ -93,9 +97,8 @@ struct ProfileView: View {
             ) {
                 EmptyView()
             }
-            
-            
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
