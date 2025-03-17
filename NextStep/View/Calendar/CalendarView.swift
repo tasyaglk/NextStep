@@ -57,22 +57,13 @@ struct Header: View {
             }) {
                 HStack(spacing: 16) {
                     Text("Calendar")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(.blackColor)
+                        .font(customFont: .onestBold, size: 20)
+                        .foregroundStyle(Color.blackColor)
                 }
             }
             
             Spacer()
             
-//            Button(action: {
-//                isShowingEventModal = true
-//            }) {
-//                Image(systemName: "plus")
-//                    .foregroundColor(.blackColor)
-//                    .frame(width: 40, height: 40)
-//                    .font(.system(size: 24))
-//            }
         }
         .padding(.horizontal)
     }

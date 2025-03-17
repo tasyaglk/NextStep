@@ -52,7 +52,8 @@ struct LoginView: View {
                         )
                         .autocapitalization(.none)
                         .keyboardType(.emailAddress)
-                        .font(.custom("Onest-Regular", size: 14))                    
+                        .font(.custom("Onest-Regular", size: 14))
+                    
                     PasswordFieldView(
                         isPasswordVisible: $isPasswordVisible,
                         hint: "password",

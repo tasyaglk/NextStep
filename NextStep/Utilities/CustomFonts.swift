@@ -12,6 +12,7 @@ enum CustomFonts: String {
     case onestBold = "Onest-Bold"
     case onestRegular = "Onest-Regular"
     case onestExtraBold = "Onest-ExtraBold"
+    case onestSemiBold = "Onest-SemiBold"
 }
 
 extension Font {

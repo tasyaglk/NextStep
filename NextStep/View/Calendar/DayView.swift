@@ -41,7 +41,7 @@ struct DayView: View {
         if isToday {
             return .appTeal
         }
-        return isWeekend ? .blackColor : .grayColor
+        return isWeekend ? .grayColor : .blackColor
     }
     
     private var borderColor: Color {
@@ -54,12 +54,10 @@ struct DayView: View {
     var body: some View {
         VStack(spacing: 8) {
             Text(weekdayString)
-                .font(.caption)
-                .fontWeight(isSelected ? .semibold : .regular)
+                .font(customFont: isSelected ? .onestSemiBold : .onestRegular, size: 12)
             
             Text(dayString)
-                .font(.title3)
-                .fontWeight(isSelected ? .bold : .semibold)
+                .font(customFont: isSelected ? .onestBold : .onestSemiBold, size: 20)
         }
         .frame(maxWidth: .infinity)
         .foregroundColor(textColor)

@@ -44,9 +44,8 @@ struct WeekView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 16) {
                 Text("\(monthYearString(for: getDateForWeek(weekOffset)))")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(.blackColor)
+                    .font(customFont: .onestBold, size: 20)
+                    .foregroundStyle(Color.blackColor)
                 
                 Image(systemName: "chevron.down")
                     .foregroundColor(.grayColor)
@@ -65,7 +64,8 @@ struct WeekView: View {
                         Image(systemName: "calendar")
                             .font(.system(size: 12))
                         Text("Today")
-                            .font(.subheadline)
+                            .font(customFont: .onestRegular, size: 15)
+                            .foregroundStyle(Color.blackColor)
                     }
                     .padding(8)
                     .background(

@@ -24,9 +24,8 @@ struct TimelineHourView: View {
             Text(timeString)
             Text(amPm)
         }
-        .font(.footnote)
-        .fontWeight(.semibold)
-        .foregroundColor(.blackColor)
+        .font(.custom("Onest-SemiBold", size: 14))
+        .foregroundStyle(Color.blackColor)
         .frame(height: 30)
         .id("hour-\(hour)")
     }

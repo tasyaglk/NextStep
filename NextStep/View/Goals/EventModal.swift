@@ -37,31 +37,32 @@ struct EventModal: View {
             }
         }
 
-    private let segments = ["Event", "Reminder"]
+//    private let segments = ["Event", "Reminder"]
     
     var body: some View {
         NavigationView {
             List {
-                Picker("Type", selection: $selectedSegment) {
-                    ForEach(0...1, id: \.self) { index in
-                        Text(segments[index]).tag(index)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .listRowBackground(Color.clear)
+//                Picker("Type", selection: $selectedSegment) {
+//                    ForEach(0...1, id: \.self) { index in
+//                        Text(segments[index]).tag(index)
+//                    }
+//                }
+//                .pickerStyle(.segmented)
+//                .listRowBackground(Color.clear)
                 
                 Section {
                     TextField("Title", text: $title)
+                        .customTextFieldStyle()
                     TextField("Description", text: $description)
-                    TextField("Location", text: $location)
+                        .customTextFieldStyle()
                 }
                 .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
                 
                 Section {
-                    Toggle("All Day", isOn: $isAllDay)
-                    
                     HStack {
                         Text("Starts")
+                            .font(customFont: .onestRegular, size: 16)
+                            .foregroundStyle(Color.blackColor)
                         Spacer()
                         DatePicker(
                             "",
@@ -73,6 +74,8 @@ struct EventModal: View {
                     
                     HStack {
                         Text("Ends")
+                            .font(customFont: .onestRegular, size: 16)
+                            .foregroundStyle(Color.blackColor)
                         Spacer()
                         DatePicker(
                             "",
@@ -82,87 +85,43 @@ struct EventModal: View {
                         )
                         .labelsHidden()
                     }
-                    
-                    HStack {
-                        Text("Travel Time")
-                        Spacer()
-                        Text("None")
-                            .foregroundColor(.gray)
-                    }
                 }
                 .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
                 
-             
-                
-                Section {
-                        HStack {
-                            Text("Calendar")
-                            Spacer()
-                            Circle()
-                                .fill(Color.red)
-                                .frame(width: 10, height: 10)
-                            Text("Home")
-                                .foregroundColor(.gray)
-                        }
-                    
-                        HStack {
-                            Text("Invitees")
-                            Spacer()
-                            Text("None")
-                                .foregroundColor(.gray)
-                        }
-                }
-                .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
-                
-                Section {
-                   
-                        HStack {
-                            Text("Alert")
-                            Spacer()
-                            Text("None")
-                                .foregroundColor(.gray)
-                        }
-                }
-                .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
-                
-                Section {
-                    Button(action: {
-                        addTask()
-                    }) {
-                        Text("Add attachment...")
-                    }
-                }
-                .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
-                
-                Section {
-                    TextField("URL", text: $url)
-                    TextField("Notes", text: $notes, axis: .vertical)
-                        .frame(minHeight: 100, alignment: .top)
-                }
-                .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
-                
+//                Section {
+//                    TextField("URL", text: $url)
+//                    TextField("Notes", text: $notes, axis: .vertical)
+//                        .frame(minHeight: 100, alignment: .top)
+//                }
+//                .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
+//                
                 ColorPicker("Task Color", selection: $color)
+                    .font(.custom("Onest-Regular", size: 16))
+                    .foregroundStyle(Color.blackColor)
             }
             .listStyle(.insetGrouped)
             .scrollContentBackground(.hidden)
             .background(Color(UIColor.systemGroupedBackground))
             .navigationTitle("New Event")
+            .font(.custom("Onest-Bold", size: 24))
+            .foregroundStyle(Color.blackColor)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel", role: .cancel) {
                         dismiss()
                     }
+                    .font(.custom("Onest-SemiBold", size: 16))
                     .foregroundColor(.red)
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {
-//                        dismiss()
                         addTask()
                         
                         dismiss()
                     }
+                    .font(.custom("Onest-SemiBold", size: 16))
                     .foregroundColor(.red)
                 }
             }

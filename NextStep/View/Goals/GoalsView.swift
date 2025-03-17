@@ -41,12 +41,16 @@ struct GoalsView: View {
                                 editTask(task)
                             } label: {
                                 Label("Edit", systemImage: "pencil")
+                                    .font(.custom("Onest-Regular", size: 16))
+                                    .foregroundStyle(Color.blackColor)
                             }
                             
                             Button(role: .destructive) {
                                 viewModel.deleteTask(task)
                             } label: {
                                 Label("Delete", systemImage: "trash")
+                                    .font(.custom("Onest-Regular", size: 16))
+                                    .foregroundStyle(Color.blackColor)
                             }
                         }
                 }
@@ -95,3 +99,6 @@ struct GoalsView: View {
         isShowingEventModal = true
     }
 }
+
+
+

@@ -14,13 +14,12 @@ struct TaskView: View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 8) {
                 Text(task.title)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.blackColor)
+                    .font(customFont: .onestSemiBold, size: 16)
+                    .foregroundStyle(Color.blackColor)
                 
                 Text(task.description)
-                    .font(.caption)
-                    .foregroundColor(.grayColor)
+                    .font(customFont: .onestRegular, size: 14)
+                    .foregroundStyle(Color.grayColor)
             }
             Spacer()
             

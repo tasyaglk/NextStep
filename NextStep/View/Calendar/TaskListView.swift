@@ -28,12 +28,11 @@ struct TaskListView: View {
         VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 8) {
                 Text(dateFormatter.string(from: selectedDate))
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.blackColor)
+                    .font(customFont: .onestSemiBold, size: 18)
+                    .foregroundStyle(Color.blackColor)
                 
                 Text("You have 5 tasks scheduled for today")
-                    .font(.callout)
+                    .font(customFont: .onestRegular, size: 14)
                     .foregroundColor(.grayColor)
             }
             GeometryReader { geometry in

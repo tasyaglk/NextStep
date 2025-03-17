@@ -48,9 +48,8 @@ struct CurrentTimeIndicator: View {
                         .frame(width: 35, height: 20)
                     
                     Text(timeString)
-                        .font(.caption2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.blackColor)
+                        .font(customFont: .onestSemiBold, size: 11)
+                        .foregroundStyle(Color.blackColor)
                 }
                 .offset(y: indicatorOffset)
             }
