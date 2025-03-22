@@ -13,6 +13,7 @@ struct GoalsView: View {
     @State private var selectedTask: CalendarTask?
     @EnvironmentObject var viewModel: GoalsViewModel
     
+    
     private var filteredTasks: [CalendarTask] {
         viewModel.tasks
             .filter {

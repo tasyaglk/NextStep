@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EventModal: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel = GoalsViewModel()
+    @EnvironmentObject var viewModel: GoalsViewModel
     var taskToEdit: CalendarTask?
     var onSave: ((CalendarTask) -> Void)?
     
