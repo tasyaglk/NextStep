@@ -10,8 +10,8 @@ import SwiftData
 
 @main
 struct NextStepApp: App {
-    @StateObject private var viewModel = GoalsViewModel()
-    
+//    @StateObject private var viewModel = GoalsViewModel()
+    @StateObject private var goalsViewModel = GoalsViewModel()
     @State private var isLoggedIn = false
     
     var body: some Scene {
@@ -23,7 +23,7 @@ struct NextStepApp: App {
                     TabBarView()
                 }
             }
-            .environmentObject(viewModel)
+            .environmentObject(goalsViewModel)
             .navigationViewStyle(.stack)
         }
     }

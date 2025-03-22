@@ -44,6 +44,16 @@ extension Color {
         })
     }
     
+    var toHex: String? {
+            guard let components = UIColor(self).cgColor.components, components.count >= 3 else {
+                return nil
+            }
+            let r = components[0]
+            let g = components[1]
+            let b = components[2]
+            return String(format: "#%02lX%02lX%02lX", lround(Double(r * 255)), lround(Double(g * 255)), lround(Double(b * 255)))
+        }
+    
     static func adaptive(light: String, dark: String) -> Color {
         Color(uiColor: .adaptiveColor(lightHex: light, darkHex: dark))
     }

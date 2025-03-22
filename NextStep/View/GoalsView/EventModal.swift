@@ -9,8 +9,9 @@ import SwiftUI
 
 struct EventModal: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel: GoalsViewModel
+    @StateObject var viewModel = GoalsViewModel()
     var taskToEdit: CalendarTask?
+    var onSave: ((CalendarTask) -> Void)?
     
     @State private var title: String = ""
     @State private var description: String = ""
@@ -18,15 +19,26 @@ struct EventModal: View {
     @State private var endDate: Date = Date()
     @State private var selectedColor: Color = .blue
     
-    init(taskToEdit: CalendarTask? = nil) {
+//    var reloadData: ((CalendarTask) -> Void)?
+    
+    init(taskToEdit: CalendarTask? = nil, onSave: ((CalendarTask) -> Void)? = nil) {
         self.taskToEdit = taskToEdit
         if let task = taskToEdit {
             _title = State(initialValue: task.title)
             _description = State(initialValue: task.description)
             _startDate = State(initialValue: task.startTime)
-            _endDate = State(initialValue: task.startTime.addingTimeInterval(task.duration))
-            _selectedColor = State(initialValue: task.color)
+
+            // Преобразуем duration из строки в TimeInterval
+            if let duration = TimeInterval(task.duration) {
+                _endDate = State(initialValue: task.startTime.addingTimeInterval(duration))
+            } else {
+                _endDate = State(initialValue: task.startTime) // Если ошибка, используем startTime
+            }
+
+            // Преобразуем цвет из HEX-строки в Color
+            _selectedColor = State(initialValue: Color(hex: task.color) ?? .blue)
         }
+        self.onSave = onSave
     }
     
     var body: some View {
@@ -81,20 +93,30 @@ struct EventModal: View {
     }
     
     private func saveTask() {
-        let duration = endDate.timeIntervalSince(startDate)
+        // Преобразуем duration в строку формата ISO 8601
+        let durationString = ISO8601DurationFormatter.string(from: endDate.timeIntervalSince(startDate))
+
+        // Преобразуем выбранный цвет в HEX-строку
+        let colorString = selectedColor.toHex ?? "#000000" // Если преобразование не удается, используем черный цвет по умолчанию
+
         let task = CalendarTask(
             id: taskToEdit?.id ?? UUID(),
+            userId: UserService.userID, // Укажите правильный user_id, если он доступен
             title: title,
             description: description,
             startTime: startDate,
-            duration: duration,
-            color: selectedColor
+            duration: durationString,
+            color: colorString,
+            isPinned: taskToEdit?.isPinned ?? false
         )
-        
+
         if taskToEdit != nil {
             viewModel.updateTask(task)
         } else {
             viewModel.addTask(task)
         }
+        onSave?(task)
+//        onSave?(task)
     }
+
 }

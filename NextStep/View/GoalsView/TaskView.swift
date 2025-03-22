@@ -23,16 +23,26 @@ struct TaskView: View {
             }
             Spacer()
             
-            Button(action: {
-                print("complete")
-            }) {
-                Image(systemName: "plus.circle.fill")
-                    .foregroundColor(.appContainer)
-                    .font(.system(size: 32))
+            VStack {
+                
+                
+                Button(action: {
+                    print("complete")
+                }) {
+                    Image(systemName: "plus.circle.fill")
+                        .foregroundColor(.appContainer)
+                        .font(.system(size: 32))
+                }
+                
+                if task.isPinned {
+                    Image(systemName: "pin.fill")
+                        .rotationEffect(.degrees(45))
+                        .foregroundColor(.appContainer)
+                } 
             }
         }
         .padding()
-        .background(task.color)
+        .background(Color(hex: task.color))
         .cornerRadius(10)
     }
 }

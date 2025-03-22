@@ -96,5 +96,9 @@ class LoginViewModel: ObservableObject {
             UserDefaults.standard.set(data, forKey: "userProfile")
         }
         UserService.isLoggedIn = true
+        UserService.userID = userInfo.id
+        print("---")
+        print(UserService.userID)
+        print("---")
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 class ProfileViewModel: ObservableObject {
-    @Published var userInfo: UserProfile = UserProfile(name: "Pupa", surname: "Zalupa", email: "pupaZalupa@mail.ru")
+    @Published var userInfo: UserProfile = UserProfile(id: 1, name: "Pupa", surname: "Zalupa", email: "pupaZalupa@mail.ru")
     @Published var logOutAlert: Bool = false
     @Published var changePassword: Bool = false
     @Published var logOut: Bool = false

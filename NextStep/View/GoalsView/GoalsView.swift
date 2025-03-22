@@ -14,14 +14,19 @@ struct GoalsView: View {
     @EnvironmentObject var viewModel: GoalsViewModel
     
     private var filteredTasks: [CalendarTask] {
-        if searchText.isEmpty {
-            return viewModel.tasks
-        } else {
-            return viewModel.tasks.filter {
+        viewModel.tasks
+            .filter {
+                searchText.isEmpty ||
                 $0.title.localizedCaseInsensitiveContains(searchText) ||
                 $0.description.localizedCaseInsensitiveContains(searchText)
             }
-        }
+            .sorted {
+                // Сначала закрепленные, затем по времени
+                if $0.isPinned != $1.isPinned {
+                    return $0.isPinned
+                }
+                return $0.startTime < $1.startTime
+            }
     }
     
     var body: some View {
@@ -37,6 +42,15 @@ struct GoalsView: View {
                         .padding(.top, 8)
                         .transition(.opacity)
                         .contextMenu {
+//                            Button {
+//                                viewModel.togglePin(for: task)
+//                            } label: {
+//                                Label(
+//                                    task.isPinned ? "Открепить" : "Закрепить",
+//                                    systemImage: task.isPinned ? "pin.slash" : "pin"
+//                                )
+//                            }
+                            
                             Button {
                                 selectedTask = task
                                 isShowingEventModal = true
@@ -45,11 +59,11 @@ struct GoalsView: View {
                             }
                             
                             Button(role: .destructive) {
-                               
-                                    viewModel.deleteTask(task)
-                                    if selectedTask?.id == task.id {
-                                        selectedTask = nil
-                                    }
+                                
+                                viewModel.deleteTask(task)
+                                if selectedTask?.id == task.id {
+                                    selectedTask = nil
+                                }
                                 
                             } label: {
                                 Label("Удалить", systemImage: "trash")
@@ -63,15 +77,22 @@ struct GoalsView: View {
                         .padding()
                 }
             }
-//            .animation(.default, value: viewModel.tasks)
+            //            .animation(.default, value: viewModel.tasks)
             .padding()
         }
         .sheet(isPresented: $isShowingEventModal) {
-            EventModal(taskToEdit: selectedTask)
+            EventModal(taskToEdit: selectedTask)  { newTask in
+                viewModel.tasks.append(newTask) // Добавляем задачу через ViewModel
+            }
                 .environmentObject(viewModel)
                 .onDisappear { selectedTask = nil }
         }
+        .onAppear {
+            viewModel.loadTasks(for: UserService.userID)
+            print(viewModel.tasks)
+        }
     }
+    
     
     private var Header: some View {
         HStack {
@@ -86,4 +107,5 @@ struct GoalsView: View {
         }
         .padding()
     }
+        
 }

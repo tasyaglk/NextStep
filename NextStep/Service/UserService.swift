@@ -9,6 +9,7 @@ import Foundation
 
 enum UserDefaultsKeys: String {
     case userLoggedIn
+    case userID
 }
 
 class UserService {
@@ -18,6 +19,15 @@ class UserService {
         }
         set {
             setValue(value: newValue, for: .userLoggedIn)
+        }
+    }
+    
+    static var userID: Int {
+        get {
+            getValue(for: .userID) ?? 1
+        }
+        set {
+            setValue(value: newValue, for: .userID)
         }
     }
 }

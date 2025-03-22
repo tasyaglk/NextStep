@@ -14,6 +14,7 @@ struct TimelineView: View {
         VStack(alignment: .trailing, spacing: hourSpacing) {
             ForEach(0..<25) { hour in
                 TimelineHourView(hour: hour)
+//                _ = print(hour * hourSpacing + 30)
             }
         }
         .padding(.bottom, 40)

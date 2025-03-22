@@ -43,18 +43,22 @@ class RegistrationViewModel: ObservableObject {
             return
         }
         
-        register(name: name, surname: surname, email: email, password: password) { success in
-            DispatchQueue.main.async {
-                if success {
-                    self.isSignUp = true
-                } else {
-                    self.alertMessage = "Ошибка регистрации. Попробуйте снова."
-                    self.showAlert = true
+        register(name: name, surname: surname, email: email, password: password) { [weak self] userId in
+                DispatchQueue.main.async {
+                    if let userId = userId {
+                        self?.saveUserInfo(name: self?.name ?? "",
+                                          surname: self?.surname ?? "",
+                                          email: self?.email ?? "",
+                                          id: userId)
+                        self?.isSignUp = true
+                    } else {
+                        self?.alertMessage = "Ошибка регистрации. Попробуйте снова."
+                        self?.showAlert = true
+                    }
                 }
             }
-        }
         
-        saveUserInfo(name: name, surname: surname, email: email)
+//        saveUserInfo(name: name, surname: surname, email: email)
     }
     
     func isPasswordValid(_ password: String) -> Bool {
@@ -69,7 +73,7 @@ class RegistrationViewModel: ObservableObject {
         return emailPredicate.evaluate(with: email)
     }
     
-    private func register(name: String, surname: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
+    private func register(name: String, surname: String, email: String, password: String, completion: @escaping (Int?) -> Void) {
         let url = URL(string: "http://localhost:8080/register")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -87,23 +91,37 @@ class RegistrationViewModel: ObservableObject {
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("Error: \(error)")
-                completion(false)
+                completion(nil)
                 return
             }
             
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                completion(true)
-            } else {
-                completion(false)
+            guard let httpResponse = response as? HTTPURLResponse,
+                  httpResponse.statusCode == 200,
+                  let data = data else {
+                completion(nil)
+                return
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data) as? [String: Int]
+                let userId = json?["id"]
+                completion(userId)
+            } catch {
+                print("Decoding error: \(error)")
+                completion(nil)
             }
         }.resume()
     }
     
-    private func saveUserInfo(name: String, surname: String, email: String) {
-        let user = UserProfile(name: name, surname: surname, email: email)
+    private func saveUserInfo(name: String, surname: String, email: String, id: Int) {
+        let user = UserProfile(id: id, name: name, surname: surname, email: email)
         if let data = try? JSONEncoder().encode(user) {
             UserDefaults.standard.set(data, forKey: "userProfile")
             UserService.isLoggedIn = true
+            UserService.userID = id
+            print("---")
+            print(UserService.userID)
+            print("---")
         }
     }
 }

@@ -31,7 +31,7 @@ struct TaskListView: View {
                     .font(customFont: .onestSemiBold, size: 18)
                     .foregroundStyle(Color.blackColor)
                 
-                Text("You have 5 tasks scheduled for today")
+                Text("You have \(viewModel.tasks.count) tasks scheduled for today")
                     .font(customFont: .onestRegular, size: 14)
                     .foregroundColor(.grayColor)
             }
@@ -40,9 +40,9 @@ struct TaskListView: View {
                     ScrollView(.vertical, showsIndicators: false) {
                         HStack(alignment: .top, spacing: 16) {
                             
-                            TimelineView(hourSpacing: hourSpacing)
+//                            TimelineView(hourSpacing: hourSpacing)
                             
-                            CurrentTimeIndicator(hourSpacing: hourSpacing)
+//                            CurrentTimeIndicator(hourSpacing: hourSpacing)
                             
                             VStack(spacing: hourSpacing) {
                                 ForEach(viewModel.tasks) { task in
