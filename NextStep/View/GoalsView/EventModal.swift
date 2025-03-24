@@ -107,7 +107,8 @@ struct EventModal: View {
             startTime: startDate,
             duration: durationString,
             color: colorString,
-            isPinned: taskToEdit?.isPinned ?? false
+            isPinned: taskToEdit?.isPinned ?? false,
+            isCompleted: taskToEdit?.isCompleted ?? false
         )
 
         if taskToEdit != nil {

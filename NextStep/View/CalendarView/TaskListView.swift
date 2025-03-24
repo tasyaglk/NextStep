@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskListView: View {
     @EnvironmentObject var viewModel: GoalsViewModel
-//    var tasks: [CalendarTask] = CalendarTask.sampleTasks
+    //    var tasks: [CalendarTask] = CalendarTask.sampleTasks
     let selectedDate: Date
     
     @State private var initialScrollPerformed = false
@@ -23,7 +23,14 @@ struct TaskListView: View {
     private var hourSpacing: CGFloat {
         defaultHourSpacing * timeSlotScale
     }
+    
+    private var filteredTasks: [CalendarTask] {
+        viewModel.tasks.filter { task in
+            Calendar.current.isDate(task.startTime, inSameDayAs: selectedDate)
+        }
+    }
 
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 8) {
@@ -31,7 +38,7 @@ struct TaskListView: View {
                     .font(customFont: .onestSemiBold, size: 18)
                     .foregroundStyle(Color.blackColor)
                 
-                Text("You have \(viewModel.tasks.count) tasks scheduled for today")
+                Text("You have \(filteredTasks.count) tasks scheduled for today")
                     .font(customFont: .onestRegular, size: 14)
                     .foregroundColor(.grayColor)
             }
@@ -40,14 +47,11 @@ struct TaskListView: View {
                     ScrollView(.vertical, showsIndicators: false) {
                         HStack(alignment: .top, spacing: 16) {
                             
-//                            TimelineView(hourSpacing: hourSpacing)
-                            
-//                            CurrentTimeIndicator(hourSpacing: hourSpacing)
-                            
                             VStack(spacing: hourSpacing) {
-                                ForEach(viewModel.tasks) { task in
-                                    TaskView(task: task)
+                                ForEach(filteredTasks) { task in
+                                    TaskView(task: task, isUsualView: false, isCompleted: task.isCompleted)
                                 }
+                                Spacer()
                             }
                         }
                         .frame(minHeight: geometry.size.height)
@@ -67,9 +71,9 @@ struct TaskListView: View {
                 }
             }
         }
-//        .onAppear {
-//            tasks = CalendarTask.sampleTasks
-//        }
+        //        .onAppear {
+        //            tasks = CalendarTask.sampleTasks
+        //        }
         .padding()
         .background(
             ZStack {

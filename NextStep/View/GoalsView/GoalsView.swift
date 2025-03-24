@@ -39,18 +39,10 @@ struct GoalsView: View {
             
             ScrollView {
                 ForEach(filteredTasks) { task in
-                    TaskView(task: task)
+                    TaskView(task: task, isUsualView: true, isCompleted: task.isCompleted)
                         .padding(.top, 8)
                         .transition(.opacity)
                         .contextMenu {
-//                            Button {
-//                                viewModel.togglePin(for: task)
-//                            } label: {
-//                                Label(
-//                                    task.isPinned ? "Открепить" : "Закрепить",
-//                                    systemImage: task.isPinned ? "pin.slash" : "pin"
-//                                )
-//                            }
                             
                             Button {
                                 selectedTask = task
@@ -90,7 +82,7 @@ struct GoalsView: View {
         }
         .onAppear {
             viewModel.loadTasks(for: UserService.userID)
-            print(viewModel.tasks)
+//            print(viewModel.tasks)
         }
     }
     

@@ -19,6 +19,7 @@ class GoalsViewModel: ObservableObject {
                 switch result {
                 case .success(let tasks):
                     self?.tasks = tasks
+                    self?.tasks = tasks.sorted(by: { $0.startTime < $1.startTime })
                 case .failure(let error):
                     self?.errorMessage = error.localizedDescription
                 }
@@ -48,7 +49,6 @@ class GoalsViewModel: ObservableObject {
                 case .success:
                     if let index = self?.tasks.firstIndex(where: { $0.id == task.id }) {
                         self?.tasks[index] = task
-                        self?.loadTasks(for: UserService.userID)
                     }
                 case .failure(let error):
                     self?.errorMessage = error.localizedDescription

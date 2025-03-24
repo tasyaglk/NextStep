@@ -10,7 +10,7 @@ import SwiftUI
 struct CalendarView: View {
     @State private var isShowingEventModal = false
     @State private var selectedDate = Date()
-    
+    @EnvironmentObject var viewModel: GoalsViewModel
     var body: some View {
         NavigationView {
             ZStack {
@@ -23,17 +23,21 @@ struct CalendarView: View {
                         .padding(.bottom, 4)
                     
                     TaskListView(selectedDate: selectedDate)
+                        .onAppear {
+                            viewModel.loadTasks(for: UserService.userID)
+                        }
                 }
                 .padding(.top)
             }
         }
-        //        .sheet(isPresented: $isShowingEventModal) {
-        //            EventModal()
-        //                .presentationDetents([.large])
-        //                .presentationDragIndicator(.visible)
-        //        }
+        .onAppear {
+            viewModel.loadTasks(for: UserService.userID)
+        }
+//        .onChange(of: selectedDate) { newDate in
+////            viewModel.saveAllChanges()
+//            viewModel.loadTasks(for: UserService.userID)
+//        }
     }
-    
 }
 
 struct Header: View {
@@ -44,13 +48,11 @@ struct Header: View {
             
             Spacer()
             
-            
             HStack(spacing: 16) {
                 Text("Calendar")
                     .font(customFont: .onestBold, size: 20)
                     .foregroundStyle(Color.blackColor)
             }
-            
             
             Spacer()
             

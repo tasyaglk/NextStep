@@ -16,6 +16,7 @@ struct CalendarTask: Codable, Identifiable {
     var duration: String
     var color: String
     var isPinned: Bool
+    var isCompleted: Bool
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -26,6 +27,7 @@ struct CalendarTask: Codable, Identifiable {
         case duration
         case color
         case isPinned = "is_pinned"
+        case isCompleted = "is_completed"
     }
 }
 

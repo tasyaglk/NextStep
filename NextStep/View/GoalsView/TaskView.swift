@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct TaskView: View {
-    let task: CalendarTask
+    var task: CalendarTask
+    let isUsualView: Bool
+    @EnvironmentObject var viewModel: GoalsViewModel
+    @State var isCompleted: Bool 
     
     var body: some View {
         HStack(alignment: .top) {
@@ -25,22 +28,31 @@ struct TaskView: View {
             
             VStack {
                 
-                
-                Button(action: {
-                    print("complete")
-                }) {
-                    Image(systemName: "plus.circle.fill")
-                        .foregroundColor(.appContainer)
-                        .font(.system(size: 32))
+                if isUsualView {
+                    if task.isPinned {
+                        Image(systemName: "pin.fill")
+                            .rotationEffect(.degrees(45))
+                            .foregroundColor(.appContainer)
+                    }
+                } else {
+                    Button(action: {
+                        var updatedTask = task
+                        updatedTask.isCompleted = !task.isCompleted
+                        viewModel.updateTask(updatedTask)
+                        isCompleted.toggle()
+                    }) {
+                        Image(systemName: isCompleted ? "checkmark.circle.fill" : "plus.circle.fill")
+                            .foregroundColor(.appContainer)
+                            .font(.system(size: 32))
+                    }
                 }
                 
-                if task.isPinned {
-                    Image(systemName: "pin.fill")
-                        .rotationEffect(.degrees(45))
-                        .foregroundColor(.appContainer)
-                } 
             }
         }
+        .onAppear {
+            isCompleted = task.isCompleted
+        }
+//        .onChange(of: <#T##Equatable#>, <#T##action: (Equatable, Equatable) -> Void##(Equatable, Equatable) -> Void##(_ oldValue: Equatable, _ newValue: Equatable) -> Void#>)
         .padding()
         .background(Color(hex: task.color))
         .cornerRadius(10)
