@@ -23,8 +23,3 @@ struct UnvisiblePasswordField: View {
             .font(.custom("Onest-Regular", size: 14))
     }
 }
-
-//#Preview {
-//    @Binding var password: String = projectedValue
-//    UnvisiblePasswordField(hint: "Password", password: $password)
-//}

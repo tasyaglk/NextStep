@@ -7,20 +7,12 @@
 
 import Foundation
 
-//extension JSONDecoder {
-//    static let apiDecoder: JSONDecoder = {
-//        let decoder = JSONDecoder()
-//        decoder.dateDecodingStrategy = .iso8601
-//        decoder.keyDecodingStrategy = .convertFromSnakeCase
-//        return decoder
-//    }()
-//}
-//
 //extension JSONEncoder {
-//    static let apiEncoder: JSONEncoder = {
+//    static var custom: JSONEncoder {
 //        let encoder = JSONEncoder()
 //        encoder.dateEncodingStrategy = .iso8601
 //        encoder.keyEncodingStrategy = .convertToSnakeCase
+//        encoder.outputFormatting = .prettyPrinted
 //        return encoder
-//    }()
+//    }
 //}

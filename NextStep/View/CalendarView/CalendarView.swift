@@ -24,19 +24,19 @@ struct CalendarView: View {
                     
                     TaskListView(selectedDate: selectedDate)
                         .onAppear {
-                            viewModel.loadTasks(for: UserService.userID)
+                            Task {
+                                await viewModel.loadGoals()
+                            }
                         }
                 }
                 .padding(.top)
             }
         }
         .onAppear {
-            viewModel.loadTasks(for: UserService.userID)
+            Task {
+                await viewModel.loadGoals()
+            }
         }
-//        .onChange(of: selectedDate) { newDate in
-////            viewModel.saveAllChanges()
-//            viewModel.loadTasks(for: UserService.userID)
-//        }
     }
 }
 

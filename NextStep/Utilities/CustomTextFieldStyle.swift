@@ -11,7 +11,6 @@ struct CustomTextFieldStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("Onest-Regular", size: 16))
-//            .background(Color.textBackgroundField)
     }
 }
 

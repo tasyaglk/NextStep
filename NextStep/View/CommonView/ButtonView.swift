@@ -35,7 +35,3 @@ struct ButtonView: View {
         self.height = height
     }
 }
-
-//#Preview {
-//    ButtonView(title: "lol")
-//}

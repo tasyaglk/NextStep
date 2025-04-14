@@ -45,14 +45,33 @@ extension Color {
     }
     
     var toHex: String? {
-            guard let components = UIColor(self).cgColor.components, components.count >= 3 else {
-                return nil
-            }
-            let r = components[0]
-            let g = components[1]
-            let b = components[2]
-            return String(format: "#%02lX%02lX%02lX", lround(Double(r * 255)), lround(Double(g * 255)), lround(Double(b * 255)))
+        let uic = UIColor(self)
+        guard let components = uic.cgColor.components, components.count >= 3 else {
+            return nil
         }
+        let r = Float(components[0])
+        let g = Float(components[1])
+        let b = Float(components[2])
+        return String(format: "#%02lX%02lX%02lX",
+                      lroundf(r * 255),
+                      lroundf(g * 255),
+                      lroundf(b * 255))
+    }
+    
+    init?(hex: String) {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
+        
+        var rgb: UInt64 = 0
+        
+        Scanner(string: hexSanitized).scanHexInt64(&rgb)
+        
+        let r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
+        let g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
+        let b = CGFloat(rgb & 0x0000FF) / 255.0
+        
+        self.init(red: r, green: g, blue: b)
+    }
     
     static func adaptive(light: String, dark: String) -> Color {
         Color(uiColor: .adaptiveColor(lightHex: light, darkHex: dark))
@@ -102,4 +121,6 @@ extension UIColor {
         }
     }
 }
+
+
 

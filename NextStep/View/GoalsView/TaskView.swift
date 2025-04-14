@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TaskView: View {
-    var task: CalendarTask
+    let task: Goal
     let isUsualView: Bool
+    let isCompleted: Bool
     @EnvironmentObject var viewModel: GoalsViewModel
-    @State var isCompleted: Bool 
     
     var body: some View {
         HStack(alignment: .top) {
@@ -19,15 +19,11 @@ struct TaskView: View {
                 Text(task.title)
                     .font(customFont: .onestSemiBold, size: 16)
                     .foregroundStyle(Color.blackColor)
-                
-                Text(task.description)
-                    .font(customFont: .onestRegular, size: 14)
-                    .foregroundStyle(Color.grayColor)
             }
+            
             Spacer()
             
             VStack {
-                
                 if isUsualView {
                     if task.isPinned {
                         Image(systemName: "pin.fill")
@@ -35,24 +31,19 @@ struct TaskView: View {
                             .foregroundColor(.appContainer)
                     }
                 } else {
-                    Button(action: {
-                        var updatedTask = task
-                        updatedTask.isCompleted = !task.isCompleted
-                        viewModel.updateTask(updatedTask)
-                        isCompleted.toggle()
-                    }) {
-                        Image(systemName: isCompleted ? "checkmark.circle.fill" : "plus.circle.fill")
+                    Button {
+                        Task {
+                            var updatedTask = task
+                            await viewModel.updateGoal(updatedTask)
+                        }
+                    } label: {
+                        Image("plus.circle.fill")
                             .foregroundColor(.appContainer)
                             .font(.system(size: 32))
                     }
                 }
-                
             }
         }
-        .onAppear {
-            isCompleted = task.isCompleted
-        }
-//        .onChange(of: <#T##Equatable#>, <#T##action: (Equatable, Equatable) -> Void##(Equatable, Equatable) -> Void##(_ oldValue: Equatable, _ newValue: Equatable) -> Void#>)
         .padding()
         .background(Color(hex: task.color))
         .cornerRadius(10)

@@ -10,8 +10,6 @@ import SwiftUI
 struct TabBarView: View {
     @State private var selectedIndex: Int = 0
     @StateObject private var profileViewModel = ProfileViewModel()
-//    @StateObject private var goalsViewModel = GoalsViewModel()
-//    @StateObject private var eventStore = EventStore()
     
     var body: some View {
         TabView(selection: $selectedIndex) {

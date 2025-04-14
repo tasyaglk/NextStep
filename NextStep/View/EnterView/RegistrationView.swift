@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RegistrationView: View {
     @StateObject private var viewModel = RegistrationViewModel()
-//    @StateObject private var goalsViewModel = GoalsViewModel()
     @State private var isSignUpViewPresented = false
     @State var isPasswordVisible: Bool = false
     @State var isConfirmPasswordVisible: Bool = false
@@ -47,7 +46,6 @@ struct RegistrationView: View {
                         )
                         .autocapitalization(.none)
                         .font(.custom("Onest-Regular", size: 14))
-//                        .shadow(color: .gray.opacity(0.2), radius: 3, x: 0, y: 3)
                     
                     TextField("фамилия", text: $viewModel.surname)
                         .padding()
@@ -59,7 +57,6 @@ struct RegistrationView: View {
                         )
                         .autocapitalization(.none)
                         .font(.custom("Onest-Regular", size: 14))
-//                        .shadow(color: .gray.opacity(0.2), radius: 3, x: 0, y: 3)
                     
                     TextField("почта", text: $viewModel.email)
                         .padding()
@@ -72,7 +69,6 @@ struct RegistrationView: View {
                         .autocapitalization(.none)
                         .keyboardType(.emailAddress)
                         .font(.custom("Onest-Regular", size: 14))
-//                        .shadow(color: .gray.opacity(0.2), radius: 3, x: 0, y: 3)
                     PasswordFieldView(
                         isPasswordVisible: $isPasswordVisible,
                         hint: "пароль",

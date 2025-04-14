@@ -57,8 +57,6 @@ class RegistrationViewModel: ObservableObject {
                     }
                 }
             }
-        
-//        saveUserInfo(name: name, surname: surname, email: email)
     }
     
     func isPasswordValid(_ password: String) -> Bool {

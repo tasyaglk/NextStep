@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TaskListView: View {
     @EnvironmentObject var viewModel: GoalsViewModel
-    //    var tasks: [CalendarTask] = CalendarTask.sampleTasks
     let selectedDate: Date
     
     @State private var initialScrollPerformed = false
@@ -24,8 +23,8 @@ struct TaskListView: View {
         defaultHourSpacing * timeSlotScale
     }
     
-    private var filteredTasks: [CalendarTask] {
-        viewModel.tasks.filter { task in
+    private var filteredTasks: [Goal] {
+        viewModel.goals.filter { task in
             Calendar.current.isDate(task.startTime, inSameDayAs: selectedDate)
         }
     }
@@ -49,7 +48,7 @@ struct TaskListView: View {
                             
                             VStack(spacing: hourSpacing) {
                                 ForEach(filteredTasks) { task in
-                                    TaskView(task: task, isUsualView: false, isCompleted: task.isCompleted)
+                                    TaskView(task: task, isUsualView: false, isCompleted: false)
                                 }
                                 Spacer()
                             }
@@ -71,9 +70,6 @@ struct TaskListView: View {
                 }
             }
         }
-        //        .onAppear {
-        //            tasks = CalendarTask.sampleTasks
-        //        }
         .padding()
         .background(
             ZStack {

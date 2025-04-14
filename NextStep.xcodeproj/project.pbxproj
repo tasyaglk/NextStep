@@ -65,6 +65,9 @@
 		008F6CAE2D8A3A98004E241F /* JSONExstention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6CAD2D8A3A98004E241F /* JSONExstention.swift */; };
 		008F6D2E2D8D7885004E241F /* GoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6D2D2D8D7885004E241F /* GoalService.swift */; };
 		008F6D302D8EEE72004E241F /* ISO8601DurationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6D2F2D8EEE72004E241F /* ISO8601DurationFormatter.swift */; };
+		008F6E182D9F1086004E241F /* Subtask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6E172D9F1086004E241F /* Subtask.swift */; };
+		008F6E192D9F1086004E241F /* Subtask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6E172D9F1086004E241F /* Subtask.swift */; };
+		008F6E1A2D9F1086004E241F /* Subtask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6E172D9F1086004E241F /* Subtask.swift */; };
 		00E63BDE2D75F97C004585DE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BDD2D75F97C004585DE /* ChatView.swift */; };
 		00E63BDF2D75F97C004585DE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BDD2D75F97C004585DE /* ChatView.swift */; };
 		00E63BE02D75F97C004585DE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63BDD2D75F97C004585DE /* ChatView.swift */; };
@@ -102,9 +105,9 @@
 		00E63C302D870CEF004585DE /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2F2D870CEF004585DE /* TaskView.swift */; };
 		00E63C312D870CEF004585DE /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2F2D870CEF004585DE /* TaskView.swift */; };
 		00E63C322D870CEF004585DE /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2F2D870CEF004585DE /* TaskView.swift */; };
-		00E63C342D870D09004585DE /* CalendarTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C332D870D09004585DE /* CalendarTask.swift */; };
-		00E63C352D870D09004585DE /* CalendarTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C332D870D09004585DE /* CalendarTask.swift */; };
-		00E63C362D870D09004585DE /* CalendarTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C332D870D09004585DE /* CalendarTask.swift */; };
+		00E63C342D870D09004585DE /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C332D870D09004585DE /* Goal.swift */; };
+		00E63C352D870D09004585DE /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C332D870D09004585DE /* Goal.swift */; };
+		00E63C362D870D09004585DE /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C332D870D09004585DE /* Goal.swift */; };
 		00E63C3D2D871685004585DE /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C3C2D871685004585DE /* GoalsView.swift */; };
 		00E63C3E2D871685004585DE /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C3C2D871685004585DE /* GoalsView.swift */; };
 		00E63C3F2D871685004585DE /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C3C2D871685004585DE /* GoalsView.swift */; };
@@ -169,6 +172,7 @@
 		008F6CAD2D8A3A98004E241F /* JSONExstention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONExstention.swift; sourceTree = "<group>"; };
 		008F6D2D2D8D7885004E241F /* GoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalService.swift; sourceTree = "<group>"; };
 		008F6D2F2D8EEE72004E241F /* ISO8601DurationFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DurationFormatter.swift; sourceTree = "<group>"; };
+		008F6E172D9F1086004E241F /* Subtask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtask.swift; sourceTree = "<group>"; };
 		00E63BDD2D75F97C004585DE /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		00E63BE52D75FA50004585DE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		00E63BFB2D79E43D004585DE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -186,7 +190,7 @@
 		00E63C272D870AF4004585DE /* TimelineHourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineHourView.swift; sourceTree = "<group>"; };
 		00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeIndicator.swift; sourceTree = "<group>"; };
 		00E63C2F2D870CEF004585DE /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
-		00E63C332D870D09004585DE /* CalendarTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTask.swift; sourceTree = "<group>"; };
+		00E63C332D870D09004585DE /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		00E63C3C2D871685004585DE /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		00E63C402D871F98004585DE /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
 		00E63C422D876D09004585DE /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -299,8 +303,9 @@
 		003070182D355EB300CD8516 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				00E63C332D870D09004585DE /* CalendarTask.swift */,
+				00E63C332D870D09004585DE /* Goal.swift */,
 				0030704E2D35901E00CD8516 /* UserProfile.swift */,
+				008F6E172D9F1086004E241F /* Subtask.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -652,6 +657,7 @@
 				0073230E2D3AC90500297828 /* ChangePasswordView.swift in Sources */,
 				00E63C182D870A69004585DE /* WeekRowView.swift in Sources */,
 				00E63BFE2D79EA8F004585DE /* RegistrationView.swift in Sources */,
+				008F6E192D9F1086004E241F /* Subtask.swift in Sources */,
 				00E63C3E2D871685004585DE /* GoalsView.swift in Sources */,
 				00306FED2D355D3800CD8516 /* Item.swift in Sources */,
 				00E63C002D79EAF3004585DE /* RegistrationViewModel.swift in Sources */,
@@ -662,7 +668,7 @@
 				007323102D3AC90C00297828 /* PasswordViewModel.swift in Sources */,
 				007323142D3AD1B800297828 /* VisiblePasswordField.swift in Sources */,
 				0030701B2D355ECB00CD8516 /* TabBarView.swift in Sources */,
-				00E63C352D870D09004585DE /* CalendarTask.swift in Sources */,
+				00E63C352D870D09004585DE /* Goal.swift in Sources */,
 				00E63C452D87964D004585DE /* CustomTextFieldStyle.swift in Sources */,
 				00E63C162D870A45004585DE /* WeekView.swift in Sources */,
 				008F6D302D8EEE72004E241F /* ISO8601DurationFormatter.swift in Sources */,
@@ -683,7 +689,7 @@
 				003070482D357AA100CD8516 /* ProfileView.swift in Sources */,
 				00E63C192D870A69004585DE /* WeekRowView.swift in Sources */,
 				00E63C1D2D870A7C004585DE /* DayView.swift in Sources */,
-				00E63C342D870D09004585DE /* CalendarTask.swift in Sources */,
+				00E63C342D870D09004585DE /* Goal.swift in Sources */,
 				00E63C242D870AD6004585DE /* TimelineView.swift in Sources */,
 				00E63C142D870A45004585DE /* WeekView.swift in Sources */,
 				00E63BDE2D75F97C004585DE /* ChatView.swift in Sources */,
@@ -691,6 +697,7 @@
 				00E63C3D2D871685004585DE /* GoalsView.swift in Sources */,
 				00E63C282D870AF4004585DE /* TimelineHourView.swift in Sources */,
 				00E63C2D2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
+				008F6E182D9F1086004E241F /* Subtask.swift in Sources */,
 				00306FFC2D355D3900CD8516 /* NextStepTests.swift in Sources */,
 				0030704C2D35803D00CD8516 /* CalendarView.swift in Sources */,
 			);
@@ -701,6 +708,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E63C2C2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
+				008F6E1A2D9F1086004E241F /* Subtask.swift in Sources */,
 				00E63C152D870A45004585DE /* WeekView.swift in Sources */,
 				00E63C1E2D870A7C004585DE /* DayView.swift in Sources */,
 				00E63C3F2D871685004585DE /* GoalsView.swift in Sources */,
@@ -711,7 +719,7 @@
 				003070492D357AA100CD8516 /* ProfileView.swift in Sources */,
 				003070512D35901E00CD8516 /* UserProfile.swift in Sources */,
 				00E63C262D870AD6004585DE /* TimelineView.swift in Sources */,
-				00E63C362D870D09004585DE /* CalendarTask.swift in Sources */,
+				00E63C362D870D09004585DE /* Goal.swift in Sources */,
 				00E63C2A2D870AF4004585DE /* TimelineHourView.swift in Sources */,
 				0030704D2D35803D00CD8516 /* CalendarView.swift in Sources */,
 				00E63BDF2D75F97C004585DE /* ChatView.swift in Sources */,

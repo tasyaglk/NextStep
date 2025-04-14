@@ -61,13 +61,11 @@ struct ProfileView: View {
                                 .foregroundStyle(Color.grayColor)
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 8)
-//                                .multilineTextAlignment(.center)
                             Spacer()
                         }
                         ButtonView(title: "Выйти из аккаунта") {
                             profileViewModel.logOutAlert = false
                             DispatchQueue.main.async {
-//                                dismiss()
                                 profileViewModel.deleteUserProfile()
                                 
                             }
@@ -75,7 +73,6 @@ struct ProfileView: View {
                         
                         ButtonView(title: "Отмена") {
                             profileViewModel.logOutTaped()
-//                            dismiss()
                         }
                         
                     }

@@ -14,18 +14,17 @@ struct SearchBar: View {
         HStack {
             TextField("Поиск...", text: $text)
                 .font(.custom("Onest-Regular", size: 16))
-                .foregroundStyle(Color.grayColor)
+                .foregroundStyle(Color.black)
                 .padding(8)
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 35)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
-                .padding(.horizontal, 15)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.gray)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, 20)
+                            .padding(.leading, 10)
                         
                         if !text.isEmpty {
                             Button {
@@ -33,7 +32,7 @@ struct SearchBar: View {
                             } label: {
                                 Image(systemName: "xmark.circle.fill")
                                     .foregroundColor(.gray)
-                                    .padding(.trailing, 20)
+                                    .padding(.trailing, 10)
                             }
                         }
                     }

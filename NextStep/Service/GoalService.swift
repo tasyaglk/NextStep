@@ -5,186 +5,89 @@
 //  Created by Тася Галкина on 21.03.2025.
 //
 
-import SwiftUI
+import Foundation
+import Combine
 
-class GoalsAPI {
-    static let shared = GoalsAPI()
-    private let baseURL = URL(string: "http://localhost:8080")!
-    @StateObject var viewModel = GoalsViewModel()
-    
-    private init() {}
-    
-    func fetchGoals(for userId: Int, completion: @escaping (Result<[CalendarTask], Error>) -> Void) {
-        let url = baseURL.appendingPathComponent("goals")
-        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
-        components?.queryItems = [URLQueryItem(name: "user_id", value: "\(userId)")]
-        
-        guard let finalURL = components?.url else { return }
-        
-        URLSession.shared.dataTask(with: finalURL) { data, response, error in
-            if let error = error {
-                print("Ошибка запроса: \(error.localizedDescription)")
-                return
-            }
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                        guard httpResponse.statusCode == 200 else {
-                            print("Ошибка сервера: \(httpResponse.statusCode)")
-                            return
-                        }
-                    }
-            
-            guard let data = data else {
-                print("Нет данных")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            do {
-                let tasks = try decoder.decode([CalendarTask].self, from: data)
-                print("Успешно получены задачи: \(tasks)")
-//                self.viewModel.tasks = tasks
-                DispatchQueue.main.async {
-                    completion(.success(tasks))
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    print("Ошибка декодирования: \(error.localizedDescription)")
-                    completion(.failure(error))
-                }
-            }
-            
+final class GoalService {
+    private let baseURL = "http://localhost:8080/goals"
 
-        }.resume()
+    func fetchGoals(for userId: Int) async throws -> [Goal] {
+        var components = URLComponents(string: baseURL)!
+        components.queryItems = [URLQueryItem(name: "user_id", value: "\(userId)")]
 
+        let (data, _) = try await URLSession.shared.data(from: components.url!)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try decoder.decode([Goal].self, from: data)
     }
-    
-    func addGoal(task: CalendarTask, completion: @escaping (Result<CalendarTask, Error>) -> Void) {
-        let url = baseURL.appendingPathComponent("goals")
+
+    func createGoal(goal: Goal) async throws {
+        let encoder = JSONEncoder()
         
-        // Создание URL запроса
-        var request = URLRequest(url: url)
+        encoder.dateEncodingStrategy = .iso8601
+        
+        let jsonData = try encoder.encode(goal)
+        
+        if let jsonString = String(data: jsonData, encoding: .utf8) {
+            print("JSON: \(jsonString)")
+        }
+        
+        var request = URLRequest(url: URL(string: "http://localhost:8080/goals")!)
         request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
         
-        // Кодируем данные задачи в JSON
-        let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .iso8601
-        do {
-            let jsonData = try encoder.encode(task)
-            request.httpBody = jsonData
-        } catch {
-            print("Ошибка кодирования данных: \(error.localizedDescription)")
-            completion(.failure(error))
-            return
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+            print("success")
+        } else {
+            print("error: \(String(data: data, encoding: .utf8) ?? "")")
         }
-        
-        // Выполняем запрос
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Ошибка запроса: \(error.localizedDescription)")
-                completion(.failure(error))
-                return
-            }
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                guard httpResponse.statusCode == 200 else {
-                    print("Ошибка сервера: \(httpResponse.statusCode)")
-                    completion(.failure(NSError(domain: "ServerError", code: httpResponse.statusCode, userInfo: nil)))
-                    return
-                }
-            }
-            
-            guard let data = data else {
-                print("Нет данных")
-                completion(.failure(NSError(domain: "DataError", code: 0, userInfo: nil)))
-                return
-            }
-            
-            // Декодируем ответ
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            DispatchQueue.main.async {
-                do {
-                    let newTask = try decoder.decode(CalendarTask.self, from: data)
-                    print("Успешно добавлена цель: \(newTask)")
-                    completion(.success(newTask))
-                } catch {
-                    print("Ошибка декодирования: \(error.localizedDescription)")
-                    completion(.failure(error))
-                }
-            }
-            
-        }.resume()
     }
 
-    
-    func updateGoal(_ task: CalendarTask, completion: @escaping (Result<Void, Error>) -> Void) {
-        // Убедитесь, что вы передаете правильный ID задачи для обновления
-        let url = baseURL.appendingPathComponent("goals")
-        
-        var request = URLRequest(url: url)
+    func updateGoal(_ goal: Goal) async throws {
+        var request = URLRequest(url: URL(string: "\(baseURL)/\(goal.id)")!)
         request.httpMethod = "PUT"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // Кодируем объект задачи в JSON
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
-        do {
-            let body = try encoder.encode(task)
-            request.httpBody = body
-        } catch {
-            print("Ошибка кодирования: \(error.localizedDescription)")
-            completion(.failure(error))
-            return
-        }
+        let encodedGoal = try encoder.encode(goal)
         
-        // Выполняем запрос
-        URLSession.shared.dataTask(with: request) { _, response, error in
-            if let error = error {
-                print("Ошибка запроса: \(error.localizedDescription)")
-                completion(.failure(error))
-                return
-            }
+        if let jsonString = String(data: encodedGoal, encoding: .utf8) {
+            print("JSON:\n\(jsonString)")
+        }
+
+        request.httpBody = encodedGoal
+
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
             
             if let httpResponse = response as? HTTPURLResponse {
-                guard httpResponse.statusCode == 200 else {
-                    print("Ошибка сервера: \(httpResponse.statusCode)")
-                    completion(.failure(NSError(domain: "ServerError", code: httpResponse.statusCode, userInfo: nil)))
-                    return
+                print("\(httpResponse.statusCode)")
+                if httpResponse.statusCode != 200 {
+                    throw NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: "Server returned error code: \(httpResponse.statusCode)"])
                 }
             }
-            
-            // Успешное обновление
-            DispatchQueue.main.async {
-                print("Задача успешно обновлена")
-                completion(.success(()))
+
+            if let responseBody = String(data: data, encoding: .utf8) {
+                print("JSON:\n \(responseBody)")
             }
-            
-        }.resume()
+
+        } catch {
+            print("error \(error.localizedDescription)")
+            throw error
+        }
     }
 
-    
-    func deleteGoal(id: UUID, userId: Int, completion: @escaping (Result<Void, Error>) -> Void) {
-        var components = URLComponents(url: baseURL.appendingPathComponent("goals"), resolvingAgainstBaseURL: false)
-        components?.queryItems = [
-            URLQueryItem(name: "id", value: id.uuidString),
-            URLQueryItem(name: "user_id", value: "\(userId)")
-        ]
-        
-        guard let finalURL = components?.url else { return }
-        var request = URLRequest(url: finalURL)
+
+    func deleteGoal(id: UUID, userId: Int) async throws {
+        var components = URLComponents(string: "\(baseURL)/\(id)")!
+        components.queryItems = [URLQueryItem(name: "user_id", value: "\(userId)")]
+
+        var request = URLRequest(url: components.url!)
         request.httpMethod = "DELETE"
-        
-        URLSession.shared.dataTask(with: request) { _, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            DispatchQueue.main.async {
-                completion(.success(()))
-            }
-        }.resume()
+        _ = try await URLSession.shared.data(for: request)
     }
 }

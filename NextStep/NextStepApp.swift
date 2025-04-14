@@ -10,7 +10,6 @@ import SwiftData
 
 @main
 struct NextStepApp: App {
-//    @StateObject private var viewModel = GoalsViewModel()
     @StateObject private var goalsViewModel = GoalsViewModel()
     @State private var isLoggedIn = false
     

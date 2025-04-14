@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
-//    @StateObject private var goalsViewModel = GoalsViewModel()
     @State var isLoggedIn = false
     @State private var isSignUpViewPresented = false
     @State var isPasswordVisible: Bool = false
@@ -70,10 +69,6 @@ struct LoginView: View {
                             viewModel.loginUser()
                             print(viewModel.isLoggedIn)
                         }
-                        
-//                        ButtonView(title: "Apple login") {
-//                            print("apple")
-//                        }
                     }
                     
                     
@@ -100,9 +95,6 @@ struct LoginView: View {
                 .alert(isPresented: $viewModel.showAlert) {
                     Alert(title: Text("Сообщение"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
                 }
-//                .onChange(of: viewModel.isLoggedIn) { newValue in
-//                    isLoggedIn = newValue
-//                }
                 .clipShape(
                     UnevenRoundedRectangle(
                         topLeadingRadius: 48,
@@ -126,9 +118,7 @@ struct LoginView: View {
                 ) {
                     EmptyView()
                 }
-                
             }
-//            .background(Color.white)
         }
         .navigationBarBackButtonHidden()
     }

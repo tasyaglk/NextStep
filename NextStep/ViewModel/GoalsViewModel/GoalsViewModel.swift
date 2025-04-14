@@ -8,63 +8,45 @@
 import SwiftUI
 import Combine
 
+@MainActor
 class GoalsViewModel: ObservableObject {
-    @Published var tasks: [CalendarTask] = []
-    @Published var errorMessage: String?
-    private var cancellables = Set<AnyCancellable>()
-    
-    func loadTasks(for userId: Int) {
-        GoalsAPI.shared.fetchGoals(for: userId) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let tasks):
-                    self?.tasks = tasks
-                    self?.tasks = tasks.sorted(by: { $0.startTime < $1.startTime })
-                case .failure(let error):
-                    self?.errorMessage = error.localizedDescription
-                }
-            }
+    @Published var goals: [Goal] = []
+
+    private let service = GoalService()
+    private let userId = UserService.userID 
+
+    func loadGoals() async {
+        do {
+            goals = try await service.fetchGoals(for: userId)
+        } catch {
+            print("Ошибка загрузки целей: \(error)")
         }
     }
 
-    
-    func addTask(_ task: CalendarTask) {
-        GoalsAPI.shared.addGoal(task: task) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    self?.tasks.append(task)
-                    self?.loadTasks(for: UserService.userID)
-                case .failure(let error):
-                    self?.errorMessage = error.localizedDescription
-                }
-            }
+    func addGoal(_ goal: Goal) async {
+        do {
+            try await service.createGoal(goal: goal)
+            await loadGoals()
+        } catch {
+            print("Ошибка создания цели: \(error)")
         }
     }
-    
-    func updateTask(_ task: CalendarTask) {
-        GoalsAPI.shared.updateGoal(task) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    if let index = self?.tasks.firstIndex(where: { $0.id == task.id }) {
-                        self?.tasks[index] = task
-                    }
-                case .failure(let error):
-                    self?.errorMessage = error.localizedDescription
-                }
-            }
+
+    func updateGoal(_ goal: Goal) async {
+        do {
+            try await service.updateGoal(goal)
+            await loadGoals()
+        } catch {
+            print("Ошибка обновления цели: \(error)")
         }
     }
-    
-    func deleteTask(_ task: CalendarTask) {
-        GoalsAPI.shared.deleteGoal(id: task.id, userId: task.userId) { [weak self] result in
-            switch result {
-            case .success:
-                self?.tasks.removeAll { $0.id == task.id }
-            case .failure(let error):
-                self?.errorMessage = error.localizedDescription
-            }
+
+    func deleteGoal(_ goal: Goal) async {
+        do {
+            try await service.deleteGoal(id: goal.id, userId: userId)
+            await loadGoals()
+        } catch {
+            print("Ошибка удаления цели: \(error)")
         }
     }
 }
