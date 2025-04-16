@@ -23,10 +23,12 @@ struct TaskListView: View {
         defaultHourSpacing * timeSlotScale
     }
     
-    private var filteredTasks: [Goal] {
-        viewModel.goals.filter { task in
-            Calendar.current.isDate(task.startTime, inSameDayAs: selectedDate)
-        }
+    private var filteredTasks: [Subtask] {
+        viewModel.subtasks
+            .filter { subTask in
+                Calendar.current.isDate(subTask.deadline, inSameDayAs: selectedDate)
+            }
+            .sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
     }
 
     
@@ -48,7 +50,7 @@ struct TaskListView: View {
                             
                             VStack(spacing: hourSpacing) {
                                 ForEach(filteredTasks) { task in
-                                    TaskView(task: task, isUsualView: false, isCompleted: false)
+                                    SubtaskView(subtask: task) // чекнуть модель и тд
                                 }
                                 Spacer()
                             }
@@ -68,6 +70,11 @@ struct TaskListView: View {
                         }
                     }
                 }
+            }
+        }
+        .onAppear {
+            Task {
+                await viewModel.loadSubtasks()
             }
         }
         .padding()

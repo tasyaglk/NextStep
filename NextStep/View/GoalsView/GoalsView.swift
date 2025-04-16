@@ -36,9 +36,17 @@ struct GoalsView: View {
                 
                 ScrollView {
                     ForEach(filteredTasks) { task in
-                        TaskView(task: task, isUsualView: true, isCompleted: false)
+                        TaskView(task: task)
                             .padding(.top, 8)
                             .contextMenu {
+                                Button {
+                                    Task {
+                                        await viewModel.togglePin(for: task)
+                                    }
+                                } label: {
+                                    Label(task.isPinned ? "Открепить" : "Закрепить", systemImage: task.isPinned ? "pin.slash" : "pin")
+                                }
+
                                 Button {
                                     selectedTask = task
                                     isShowingEventModal = true
@@ -68,6 +76,7 @@ struct GoalsView: View {
             .sheet(isPresented: $isShowingEventModal) {
                 EventModal(taskToEdit: selectedTask)
                     .environmentObject(viewModel)
+                    .onDisappear { selectedTask = nil }
             }
             .onAppear {
                 Task {

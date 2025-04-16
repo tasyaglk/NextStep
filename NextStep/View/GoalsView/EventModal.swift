@@ -10,68 +10,50 @@ import SwiftUI
 struct EventModal: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: GoalsViewModel
+    
     var taskToEdit: Goal?
     var onSave: ((Goal) -> Void)?
     
-    @State private var title: String = ""
-    @State private var description: String = ""
-    @State private var startDate: Date = Date()
-    @State private var endDate: Date = Date()
-    @State private var subtasks: [Subtask] = []
-    @State private var selectedColor: Color = .blue
+    @StateObject private var editor = GoalEditorViewModel()
     
     @State private var newSubtaskTitle = ""
     @State private var newSubtaskDate = Date()
     
     init(taskToEdit: Goal? = nil, onSave: ((Goal) -> Void)? = nil) {
         self.taskToEdit = taskToEdit
-        if let task = taskToEdit {
-            _title = State(initialValue: task.title)
-            _startDate = State(initialValue: task.startTime)
-
-            if let duration = TimeInterval(task.duration) {
-                _endDate = State(initialValue: task.startTime.addingTimeInterval(duration))
-            } else {
-                _endDate = State(initialValue: task.startTime)
-            }
-            _subtasks = State(initialValue: task.subtasks ?? [])
-            _selectedColor = State(initialValue: Color(hex: task.color) ?? .blue)
-        }
         self.onSave = onSave
+        _editor = StateObject(wrappedValue: GoalEditorViewModel(goal: taskToEdit))
     }
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Название цели", text: $title)
-                    
+                    TextField("Название цели", text: $editor.title)
                 }
                 .font(.custom("Onest-Regular", size: 16))
                 .foregroundStyle(Color.blackColor)
                 
                 Section {
-                    DatePicker("Начало", selection: $startDate, displayedComponents: [.date, .hourAndMinute])
+                    DatePicker("Начало", selection: $editor.startDate, displayedComponents: [.date, .hourAndMinute])
                         .font(.custom("Onest-Regular", size: 16))
                         .foregroundStyle(Color.blackColor)
-                    DatePicker("Окончание", selection: $endDate, in: startDate..., displayedComponents: [.date, .hourAndMinute])
+                    DatePicker("Окончание", selection: $editor.endDate, in: editor.startDate..., displayedComponents: [.date, .hourAndMinute])
                         .font(.custom("Onest-Regular", size: 16))
                         .foregroundStyle(Color.blackColor)
                 }
                 .listRowSeparator(.hidden)
                 
-                Section  {
+                Section {
                     Text("Подзадачи")
                         .font(.custom("Onest-Regular", size: 16))
                         .foregroundStyle(Color.blackColor)
                     
-                    ForEach($subtasks) { $subtask in
-                        HStack {
-                            DatePicker(subtask.title, selection: $subtask.deadline, in: Date()...)
-                        }
+                    ForEach($editor.subtasks) { $subtask in
+                        DatePicker(subtask.title, selection: $subtask.deadline, in: editor.startDate...)
                     }
                     .onDelete { indices in
-                        subtasks.remove(atOffsets: indices)
+                        editor.subtasks.remove(atOffsets: indices)
                     }
                     
                     HStack {
@@ -80,18 +62,11 @@ struct EventModal: View {
                             .foregroundStyle(Color.blackColor)
                         DatePicker("", selection: $newSubtaskDate, displayedComponents: [.date, .hourAndMinute])
                         
-                        Button(action: {
-                            let newSubtask = Subtask(
-                                id: UUID(),
-                                title: newSubtaskTitle,
-                                deadline: newSubtaskDate,
-                                isCompleted: false
-                            )
-                            subtasks.append(newSubtask)
+                        Button {
+                            editor.addSubtask(title: newSubtaskTitle, deadline: newSubtaskDate)
                             newSubtaskTitle = ""
                             newSubtaskDate = Date()
-                            print(newSubtask)
-                        }) {
+                        } label: {
                             Image(systemName: "plus.circle.fill")
                         }
                         .disabled(newSubtaskTitle.isEmpty)
@@ -99,63 +74,40 @@ struct EventModal: View {
                 }
                 .listRowSeparator(.hidden)
                 
-                
                 Section {
-                    ColorPicker("Цвет задачи", selection: $selectedColor)
-                        .font(.custom("Onest-Regular", size: 16))
-                        .foregroundStyle(Color.blackColor)
+                    ColorPicker("Цвет задачи", selection: $editor.selectedColor)
                 }
             }
+            .onChange(of: editor.selectedColor) { _ in
+                editor.updateSubtaskColors()
+                
+            }
             .navigationTitle(taskToEdit == nil ? "Новая цель" : "Редактировать")
-            .foregroundStyle(Color.blackColor)
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Отмена") {
                         dismiss()
                     }
-                    .font(.custom("Onest-SemiBold", size: 16))
                     .foregroundColor(.appTeal)
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
                     Button(taskToEdit == nil ? "Добавить" : "Сохранить") {
-                        saveTask()
+                        let goal = editor.buildGoal(existingGoal: taskToEdit)
+                        
+                        if taskToEdit != nil {
+                            Task { await viewModel.updateGoal(goal) }
+                        } else {
+                            Task { await viewModel.addGoal(goal) }
+                        }
+                        
+                        onSave?(goal)
                         dismiss()
                     }
-                    .font(.custom("Onest-SemiBold", size: 16))
+                    .disabled(editor.title.isEmpty)
                     .foregroundColor(.appTeal)
-                    .disabled(title.isEmpty)
                 }
             }
         }
-    }
-    
-    private func saveTask() {
-        let durationString = ISO8601DurationFormatter.string(from: endDate.timeIntervalSince(startDate))
-
-        let colorString = selectedColor.toHex ?? "#000000"
-
-        let task = Goal(
-            id: taskToEdit?.id ?? UUID(),
-            userId: UserService.userID,
-            title: title,
-            startTime: startDate,
-            duration: durationString,
-            color: colorString,
-            isPinned: taskToEdit?.isPinned ?? false,
-            subtasks: subtasks.filter { !$0.title.isEmpty }
-        )
-
-        if taskToEdit != nil {
-            Task {
-               await viewModel.updateGoal(task)
-            }
-        } else {
-            Task {
-                await viewModel.addGoal(task)
-            }
-        }
-        onSave?(task)
     }
 }

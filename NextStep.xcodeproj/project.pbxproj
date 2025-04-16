@@ -56,6 +56,10 @@
 		003070502D35901E00CD8516 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0030704E2D35901E00CD8516 /* UserProfile.swift */; };
 		003070512D35901E00CD8516 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0030704E2D35901E00CD8516 /* UserProfile.swift */; };
 		003070532D380E2300CD8516 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003070522D380E2300CD8516 /* ProfileViewModel.swift */; };
+		003103B32DAE58AF0058CACD /* SubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003103B22DAE58AF0058CACD /* SubtaskView.swift */; };
+		003103B42DAE58AF0058CACD /* SubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003103B22DAE58AF0058CACD /* SubtaskView.swift */; };
+		003103B52DAE58AF0058CACD /* SubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003103B22DAE58AF0058CACD /* SubtaskView.swift */; };
+		003103B92DAE8DE10058CACD /* GoalEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003103B82DAE8DE10058CACD /* GoalEditorViewModel.swift */; };
 		0073230C2D3A984300297828 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073230B2D3A984300297828 /* ButtonView.swift */; };
 		0073230E2D3AC90500297828 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073230D2D3AC90500297828 /* ChangePasswordView.swift */; };
 		007323102D3AC90C00297828 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073230F2D3AC90C00297828 /* PasswordViewModel.swift */; };
@@ -163,6 +167,8 @@
 		0030704E2D35901E00CD8516 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		003070522D380E2300CD8516 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		003070542D3814B300CD8516 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		003103B22DAE58AF0058CACD /* SubtaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskView.swift; sourceTree = "<group>"; };
+		003103B82DAE8DE10058CACD /* GoalEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalEditorViewModel.swift; sourceTree = "<group>"; };
 		0073230B2D3A984300297828 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		0073230D2D3AC90500297828 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		0073230F2D3AC90C00297828 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
@@ -383,6 +389,7 @@
 				00E63C232D870AD6004585DE /* TimelineView.swift */,
 				00E63C172D870A69004585DE /* WeekRowView.swift */,
 				00E63C132D870A45004585DE /* WeekView.swift */,
+				003103B22DAE58AF0058CACD /* SubtaskView.swift */,
 			);
 			path = CalendarView;
 			sourceTree = "<group>";
@@ -469,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				00E63C402D871F98004585DE /* GoalsViewModel.swift */,
+				003103B82DAE8DE10058CACD /* GoalEditorViewModel.swift */,
 			);
 			path = GoalsViewModel;
 			sourceTree = "<group>";
@@ -633,11 +641,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003103B32DAE58AF0058CACD /* SubtaskView.swift in Sources */,
 				00E63C292D870AF4004585DE /* TimelineHourView.swift in Sources */,
 				003070472D357AA100CD8516 /* ProfileView.swift in Sources */,
 				00E63C1C2D870A7C004585DE /* DayView.swift in Sources */,
 				00E63C222D870AB2004585DE /* TaskListView.swift in Sources */,
 				00E63C2E2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
+				003103B92DAE8DE10058CACD /* GoalEditorViewModel.swift in Sources */,
 				00E63C0C2D8433A2004585DE /* UserService.swift in Sources */,
 				00E63C102D870072004585DE /* EventModal.swift in Sources */,
 				00E63C122D8709AE004585DE /* CalendarViewModel.swift in Sources */,
@@ -683,6 +693,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003103B52DAE58AF0058CACD /* SubtaskView.swift in Sources */,
 				00E63C0F2D870072004585DE /* EventModal.swift in Sources */,
 				00E63C312D870CEF004585DE /* TaskView.swift in Sources */,
 				003070502D35901E00CD8516 /* UserProfile.swift in Sources */,
@@ -710,6 +721,7 @@
 				00E63C2C2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
 				008F6E1A2D9F1086004E241F /* Subtask.swift in Sources */,
 				00E63C152D870A45004585DE /* WeekView.swift in Sources */,
+				003103B42DAE58AF0058CACD /* SubtaskView.swift in Sources */,
 				00E63C1E2D870A7C004585DE /* DayView.swift in Sources */,
 				00E63C3F2D871685004585DE /* GoalsView.swift in Sources */,
 				00E63C302D870CEF004585DE /* TaskView.swift in Sources */,

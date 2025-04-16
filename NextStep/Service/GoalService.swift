@@ -90,4 +90,46 @@ final class GoalService {
         request.httpMethod = "DELETE"
         _ = try await URLSession.shared.data(for: request)
     }
+    
+    func fetchAllSubtasks() async throws -> [Subtask] {
+        guard let url = URL(string: "http://localhost:8080/subtasks") else {
+            throw URLError(.badURL)
+        }
+
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        
+        return try decoder.decode([Subtask].self, from: data)
+    }
+    
+    func updateSubtaskCompletion(_ subtask: Subtask) async throws {
+        guard let url = URL(string: "http://localhost:8080/subtasks/\(subtask.id)/complete") else { return }
+        print(url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        let encodedSubtask = try encoder.encode(subtask)
+        
+        if let jsonString = String(data: encodedSubtask, encoding: .utf8) {
+            print("🚀 JSON отправляемый на сервер:")
+            print(jsonString)
+        }
+
+        request.httpBody = encodedSubtask
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        if let responseBody = String(data: data, encoding: .utf8) {
+            print("JSON:\n \(responseBody)")
+        }
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw URLError(.badServerResponse)
+        }
+    }
+
+
 }

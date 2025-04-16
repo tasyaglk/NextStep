@@ -12,11 +12,13 @@ struct Subtask: Identifiable, Codable, Hashable {
     var title: String
     var deadline: Date
     var isCompleted: Bool
+    var color: String
     
     enum CodingKeys: String, CodingKey {
-            case id
-            case title
-            case deadline
-            case isCompleted = "is_completed"
-        }
+        case id
+        case title
+        case deadline
+        case isCompleted = "is_completed"
+        case color
+    }
 }
