@@ -16,6 +16,7 @@ struct Goal: Identifiable, Codable, Hashable {
     var color: String
     var isPinned: Bool
     var subtasks: [Subtask]?
+    var completedSubtaskCount: Int
     
     enum CodingKeys: String, CodingKey {
             case id
@@ -26,6 +27,7 @@ struct Goal: Identifiable, Codable, Hashable {
             case color
             case isPinned = "is_pinned"
             case subtasks
+            case completedSubtaskCount = "completed_subtask_count"
         }
 }
 
