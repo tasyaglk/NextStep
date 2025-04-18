@@ -30,21 +30,24 @@ class GoalEditorViewModel: ObservableObject {
         }
     }
 
-    func addSubtask(title: String, deadline: Date) {
+    func addSubtask(title: String, deadline: Date, goalName: String) {
         let subtask = Subtask(
             id: UUID(),
             title: title,
             deadline: deadline,
             isCompleted: false,
-            color: selectedColor.toHex ?? "#000000"
+            color: selectedColor.toHex ?? "#000000",
+            goalName: goalName
         )
         subtasks.append(subtask)
     }
 
-    func updateSubtaskColors() {
+    func updateSubtask() {
         let hex = selectedColor.toHex ?? "#000000"
+        let goalName = title
         for i in subtasks.indices {
             subtasks[i].color = hex
+            subtasks[i].goalName = goalName
         }
     }
 

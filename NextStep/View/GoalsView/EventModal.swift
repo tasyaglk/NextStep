@@ -63,11 +63,12 @@ struct EventModal: View {
                         DatePicker("", selection: $newSubtaskDate, displayedComponents: [.date, .hourAndMinute])
                         
                         Button {
-                            editor.addSubtask(title: newSubtaskTitle, deadline: newSubtaskDate)
+                            editor.addSubtask(title: newSubtaskTitle, deadline: newSubtaskDate, goalName: editor.title)
                             newSubtaskTitle = ""
                             newSubtaskDate = Date()
                         } label: {
                             Image(systemName: "plus.circle.fill")
+                                .backgroundStyle(Color.appTeal)
                         }
                         .disabled(newSubtaskTitle.isEmpty)
                     }
@@ -79,7 +80,11 @@ struct EventModal: View {
                 }
             }
             .onChange(of: editor.selectedColor) { _ in
-                editor.updateSubtaskColors()
+                editor.updateSubtask()
+                
+            }
+            .onChange(of: editor.title) { _ in
+                editor.updateSubtask()
                 
             }
             .navigationTitle(taskToEdit == nil ? "Новая цель" : "Редактировать")

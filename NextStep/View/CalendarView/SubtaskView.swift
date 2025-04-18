@@ -17,13 +17,16 @@ struct SubtaskView: View {
                 Text(subtask.title)
                     .font(customFont: .onestSemiBold, size: 16)
                     .foregroundStyle(Color.blackColor)
+                
+                Text(subtask.goalName)
+                    .font(customFont: .onestRegular, size: 16)
+                    .foregroundStyle(Color.grayColor)
             }
             
             Spacer()
             
             VStack {
                 Button {
-                    print("hui")
                     Task {
                         await viewModel.toggleSubtaskCompletion(subtask)
                     }

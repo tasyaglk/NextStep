@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AD6E84B4-F08A-4AE3-A1DC-6BF89C73B817"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
@@ -18,43 +18,13 @@
             endingLineNumber = "32"
             landmarkName = "loadSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AD6E84B4-F08A-4AE3-A1DC-6BF89C73B817 - b40780b32cea9731"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32">
-               </Location>
-               <Location
-                  uuid = "AD6E84B4-F08A-4AE3-A1DC-6BF89C73B817 - 68d2290f6ea145aa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "470120DC-1043-4A37-8BBD-9C1661798097"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
@@ -64,71 +34,13 @@
             endingLineNumber = "33"
             landmarkName = "loadSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "470120DC-1043-4A37-8BBD-9C1661798097 - 68d2290f6ea145e8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-               <Location
-                  uuid = "470120DC-1043-4A37-8BBD-9C1661798097 - 9ad06b2e2370abc5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-               <Location
-                  uuid = "470120DC-1043-4A37-8BBD-9C1661798097 - 5da8d1dcd88995ea"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-               <Location
-                  uuid = "470120DC-1043-4A37-8BBD-9C1661798097 - 4bd585b29d843dd5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FF427513-D566-4B64-92FA-BE1C59CDEF85"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
@@ -138,71 +50,13 @@
             endingLineNumber = "34"
             landmarkName = "loadSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FF427513-D566-4B64-92FA-BE1C59CDEF85 - 68d2290f6ea145e8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-               <Location
-                  uuid = "FF427513-D566-4B64-92FA-BE1C59CDEF85 - 9ad06b2e2370abc5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-               <Location
-                  uuid = "FF427513-D566-4B64-92FA-BE1C59CDEF85 - 5da8d1dcd88995ea"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-               <Location
-                  uuid = "FF427513-D566-4B64-92FA-BE1C59CDEF85 - 4bd585b29d843dd5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AD839A1F-4287-4B94-9426-6CF8E64AACE6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
@@ -218,7 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "471A50D6-E993-4DFA-945A-85DFEE0315F5"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
@@ -234,7 +88,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B95AB085-F00E-4733-B89B-A0F3AE1A7858"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
@@ -244,57 +98,13 @@
             endingLineNumber = "36"
             landmarkName = "loadSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B95AB085-F00E-4733-B89B-A0F3AE1A7858 - 5da8d1dcd889952c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36">
-               </Location>
-               <Location
-                  uuid = "B95AB085-F00E-4733-B89B-A0F3AE1A7858 - 4bd585b29d843d13"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36">
-               </Location>
-               <Location
-                  uuid = "B95AB085-F00E-4733-B89B-A0F3AE1A7858 - 4bd585b29d843d13"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4D1127E9-A6AA-4864-8E5B-149913AE04EA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
@@ -304,43 +114,13 @@
             endingLineNumber = "38"
             landmarkName = "loadSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4D1127E9-A6AA-4864-8E5B-149913AE04EA - 5da8d1dcd8899281"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39">
-               </Location>
-               <Location
-                  uuid = "4D1127E9-A6AA-4864-8E5B-149913AE04EA - 4bd585b29d843abe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "173B31FF-877B-42B4-AF15-176851638094"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
@@ -350,43 +130,13 @@
             endingLineNumber = "39"
             landmarkName = "loadSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "173B31FF-877B-42B4-AF15-176851638094 - 5da8d1dcd8899281"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39">
-               </Location>
-               <Location
-                  uuid = "173B31FF-877B-42B4-AF15-176851638094 - 4bd585b29d843abe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.GoalsViewModel.loadSubtasks() async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3F913343-B197-4153-940D-9117C2F4313E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -396,43 +146,13 @@
             endingLineNumber = "94"
             landmarkName = "fetchAllSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3F913343-B197-4153-940D-9117C2F4313E - 22361c976555bf4a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "94"
-                  endingLineNumber = "94">
-               </Location>
-               <Location
-                  uuid = "3F913343-B197-4153-940D-9117C2F4313E - 70f33b78bf3b4a20"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "94"
-                  endingLineNumber = "94">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D2288FCA-B73F-4E25-88F6-8969E452C42C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -448,7 +168,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "95A622F7-F153-4BB7-A28A-82CFDB1CFF34"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -464,7 +184,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B64FD48D-1171-49E0-A02E-187CE58A7E78"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -474,71 +194,13 @@
             endingLineNumber = "97"
             landmarkName = "fetchAllSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B64FD48D-1171-49E0-A02E-187CE58A7E78 - 70f33b78bf3b4ac5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-               <Location
-                  uuid = "B64FD48D-1171-49E0-A02E-187CE58A7E78 - 4300482e8cd8e272"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-               <Location
-                  uuid = "B64FD48D-1171-49E0-A02E-187CE58A7E78 - 1c7d48dc01e28ec7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-               <Location
-                  uuid = "B64FD48D-1171-49E0-A02E-187CE58A7E78 - 56247e8dd6fd60c6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9E26BBA6-8E74-49A3-834A-457B0B68B9F8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -548,71 +210,13 @@
             endingLineNumber = "98"
             landmarkName = "fetchAllSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9E26BBA6-8E74-49A3-834A-457B0B68B9F8 - 70f33b78bf3b4ac5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-               <Location
-                  uuid = "9E26BBA6-8E74-49A3-834A-457B0B68B9F8 - 4300482e8cd8e272"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-               <Location
-                  uuid = "9E26BBA6-8E74-49A3-834A-457B0B68B9F8 - 1c7d48dc01e28ec7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-               <Location
-                  uuid = "9E26BBA6-8E74-49A3-834A-457B0B68B9F8 - 56247e8dd6fd60c6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "61759977-C404-41BC-BD80-0B78BDC8FFF5"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -622,71 +226,13 @@
             endingLineNumber = "99"
             landmarkName = "fetchAllSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "61759977-C404-41BC-BD80-0B78BDC8FFF5 - 70f33b78bf3b4ac5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-               <Location
-                  uuid = "61759977-C404-41BC-BD80-0B78BDC8FFF5 - 4300482e8cd8e272"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-               <Location
-                  uuid = "61759977-C404-41BC-BD80-0B78BDC8FFF5 - 1c7d48dc01e28ec7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-               <Location
-                  uuid = "61759977-C404-41BC-BD80-0B78BDC8FFF5 - 56247e8dd6fd60c6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3CCB1FDD-DFEF-4D1F-A614-9EC7C93F9009"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -702,7 +248,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CE1588FC-BF0B-4A9B-B539-D733E3654F3D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -718,7 +264,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3CAA48E5-A3DD-4B11-BFB6-51FCBC87F588"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -734,7 +280,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5429AC74-8665-4277-84AF-103A9F3C4900"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -744,57 +290,13 @@
             endingLineNumber = "104"
             landmarkName = "fetchAllSubtasks()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5429AC74-8665-4277-84AF-103A9F3C4900 - 70f33b78bf3b496e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104">
-               </Location>
-               <Location
-                  uuid = "5429AC74-8665-4277-84AF-103A9F3C4900 - 1c7d48dc01e28d6c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104">
-               </Location>
-               <Location
-                  uuid = "5429AC74-8665-4277-84AF-103A9F3C4900 - 56247e8dd6fd636d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.GoalService.fetchAllSubtasks() async throws -&gt; Swift.Array&lt;NextStep.Subtask&gt;"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Service/GoalService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "48264786-A377-417E-8413-C0F8E036C4F0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/Service/GoalService.swift"
@@ -803,6 +305,54 @@
             startingLineNumber = "102"
             endingLineNumber = "102"
             landmarkName = "fetchAllSubtasks()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "55B4A5DF-92A2-4EAB-8CFF-784B4C9C3111"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStep/ViewModel/GoalsViewModel/GoalEditorViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "updateSubtask()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "60B131E4-B5FF-44C4-A0DF-A2241B2321A0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStep/ViewModel/GoalsViewModel/GoalEditorViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "updateSubtask()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE62F59F-5207-4F12-A356-A47EFB0036EB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStep/ViewModel/GoalsViewModel/GoalEditorViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "updateSubtask()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

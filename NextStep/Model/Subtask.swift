@@ -13,6 +13,7 @@ struct Subtask: Identifiable, Codable, Hashable {
     var deadline: Date
     var isCompleted: Bool
     var color: String
+    var goalName: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -20,5 +21,6 @@ struct Subtask: Identifiable, Codable, Hashable {
         case deadline
         case isCompleted = "is_completed"
         case color
+        case goalName = "goal_name"
     }
 }
