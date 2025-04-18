@@ -60,6 +60,7 @@ class GoalsViewModel: ObservableObject {
         do {
             try await service.deleteGoal(id: goal.id, userId: userId)
             await loadGoals()
+            await loadSubtasks()
         } catch {
             print("Ошибка удаления цели: \(error)")
         }

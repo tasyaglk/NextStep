@@ -68,6 +68,9 @@ struct TaskListView: View {
                             initialScrollPerformed = true
                             
                         }
+                        Task {
+                            await viewModel.loadSubtasks()
+                        }
                     }
                 }
             }

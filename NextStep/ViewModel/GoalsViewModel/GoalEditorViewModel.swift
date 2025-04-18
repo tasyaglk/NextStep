@@ -61,7 +61,8 @@ class GoalEditorViewModel: ObservableObject {
             duration: durationString,
             color: selectedColor.toHex ?? "#000000",
             isPinned: existingGoal?.isPinned ?? false,
-            subtasks: subtasks
+            subtasks: subtasks,
+            completedSubtaskCount: 0
         )
     }
 }

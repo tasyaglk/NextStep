@@ -71,6 +71,7 @@ struct GoalsView: View {
                             .padding()
                     }
                 }
+                .id(viewModel.goals.count)
             }
             .padding(.horizontal, 8)
             .sheet(isPresented: $isShowingEventModal) {

@@ -32,11 +32,11 @@ struct CalendarView: View {
                 .padding(.top)
             }
         }
-        .onAppear {
-            Task {
-                await viewModel.loadGoals()
-            }
-        }
+//        .onAppear {
+//            Task {
+//                await viewModel.loadSubtasks()
+//            }
+//        }
     }
 }
 
