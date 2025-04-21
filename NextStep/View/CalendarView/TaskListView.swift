@@ -28,19 +28,24 @@ struct TaskListView: View {
             .filter { subTask in
                 Calendar.current.isDate(subTask.deadline, inSameDayAs: selectedDate)
             }
-            .sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
+            .sorted { $0.deadline < $1.deadline }
     }
 
+    var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMMM d, yyyy"
+        return formatter
+    }()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 8) {
                 Text(dateFormatter.string(from: selectedDate))
-                    .font(customFont: .onestSemiBold, size: 18)
+                    .font(customFont: .onestSemiBold, size: 20)
                     .foregroundStyle(Color.blackColor)
                 
                 Text("You have \(filteredTasks.count) tasks scheduled for today")
-                    .font(customFont: .onestRegular, size: 14)
+                    .font(customFont: .onestRegular, size: 16)
                     .foregroundColor(.grayColor)
             }
             GeometryReader { geometry in
@@ -50,27 +55,23 @@ struct TaskListView: View {
                             
                             VStack(spacing: hourSpacing) {
                                 ForEach(filteredTasks) { task in
-                                    SubtaskView(subtask: task) // чекнуть модель и тд
+                                    SubtaskView(
+                                        subtask: task,
+                                        onToggleCompletion: { subtask in
+                                            print("???")
+                                            print(subtask)
+                                            print("???")
+                                            await viewModel.toggleSubtaskCompletion(subtask)
+                                            print("+++")
+                                            print(subtask)
+                                            print("+++")
+                                        }
+                                    )
                                 }
                                 Spacer()
                             }
                         }
                         .frame(minHeight: geometry.size.height)
-                    }
-                    .onAppear {
-                        if !initialScrollPerformed {
-                            let calendar = Calendar.current
-                            let currentHour = calendar.component(.hour, from: Date())
-                            
-                            let targetHour = max(currentHour - 2, 0)
-                            
-                            scrollProxy.scrollTo("hour-\(targetHour)", anchor: .top)
-                            initialScrollPerformed = true
-                            
-                        }
-                        Task {
-                            await viewModel.loadSubtasks()
-                        }
                     }
                 }
             }
@@ -81,12 +82,12 @@ struct TaskListView: View {
             }
         }
         .padding()
-        .background(
-            ZStack {
-                Color.appContainer
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.grayColor, lineWidth: 1)
-            }
+        .background(.white
+//            ZStack {
+//                Color.appContainer
+//                RoundedRectangle(cornerRadius: 20)
+//                    .stroke(Color.grayColor, lineWidth: 1)
+//            }
         )
         .cornerRadius(20)
         .gesture(
@@ -127,11 +128,4 @@ struct TaskListView: View {
         ), value: timeSlotScale)
         
     }
-    
-    var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, MMMM d, yyyy"
-        return formatter
-    }()
-    
 }

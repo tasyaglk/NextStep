@@ -68,7 +68,7 @@ struct EventModal: View {
                             newSubtaskDate = Date()
                         } label: {
                             Image(systemName: "plus.circle.fill")
-                                .backgroundStyle(Color.appTeal)
+                                .foregroundColor(.appTeal)
                         }
                         .disabled(newSubtaskTitle.isEmpty)
                     }
@@ -76,7 +76,9 @@ struct EventModal: View {
                 .listRowSeparator(.hidden)
                 
                 Section {
-                    ColorPicker("Цвет задачи", selection: $editor.selectedColor)
+//                    ColorPicker("Цвет задачи", selection: $editor.selectedColor)
+                        ColorSelectorView(selectedColor: $editor.selectedColor)
+                    
                 }
             }
             .onChange(of: editor.selectedColor) { _ in
@@ -93,7 +95,8 @@ struct EventModal: View {
                     Button("Отмена") {
                         dismiss()
                     }
-                    .foregroundColor(.appTeal)
+                    .foregroundColor(.blackColor)
+                    .font(.custom("Onest-Regular", size: 16))
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
@@ -110,7 +113,8 @@ struct EventModal: View {
                         dismiss()
                     }
                     .disabled(editor.title.isEmpty)
-                    .foregroundColor(.appTeal)
+                    .foregroundColor(.blackColor)
+                    .font(.custom("Onest-Regular", size: 16))
                 }
             }
         }

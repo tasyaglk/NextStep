@@ -19,16 +19,16 @@ struct Goal: Identifiable, Codable, Hashable {
     var completedSubtaskCount: Int
     
     enum CodingKeys: String, CodingKey {
-            case id
-            case userId = "user_id"
-            case title
-            case startTime = "start_time"
-            case duration
-            case color
-            case isPinned = "is_pinned"
-            case subtasks
-            case completedSubtaskCount = "completed_subtask_count"
-        }
+        case id
+        case userId = "user_id"
+        case title
+        case startTime = "start_time"
+        case duration
+        case color
+        case isPinned = "is_pinned"
+        case subtasks
+        case completedSubtaskCount = "completed_subtask_count"
+    }
 }
 
 

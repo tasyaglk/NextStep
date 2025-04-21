@@ -18,8 +18,8 @@ class GoalsViewModel: ObservableObject {
     @Published var endDate: Date = Date()
     @Published var selectedColor: Color = .blue
 
-    private let service = GoalService()
-    private let userId = UserService.userID 
+     let service = GoalService()
+     let userId = UserService.userID 
 
     func loadGoals() async {
         do {
@@ -31,7 +31,7 @@ class GoalsViewModel: ObservableObject {
     
     func loadSubtasks() async {
         do {
-            subtasks = try await service.fetchAllSubtasks()
+            subtasks = try await service.fetchAllSubtasks(for: userId)
             print(subtasks)
         } catch {
             print("Ошибка загрузки подзадач: \(error)")
@@ -97,5 +97,4 @@ class GoalsViewModel: ObservableObject {
                 }
         }
     }
-
 }

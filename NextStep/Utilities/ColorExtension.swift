@@ -27,7 +27,7 @@ extension Color {
     static let appPink = Color.adaptive(light: "F08CD6", dark: "F08CD6")
     static let appOrange = Color.adaptive(light: "EABE92", dark: "EABE92")
     static let appBlue = Color.adaptive(light: "90A1E2", dark: "90A1E2")
-    static let appTeal = Color.adaptive(light: "60A9CB", dark: "60A9CB")
+    static let appTeal = Color.adaptive(light: "B5DEFF", dark: "B5DEFF")
 
     
 }

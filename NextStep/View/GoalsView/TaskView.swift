@@ -11,11 +11,13 @@ struct TaskView: View {
     let task: Goal
     @EnvironmentObject var viewModel: GoalsViewModel
     
+    
     var body: some View {
+        
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 8) {
                 Text(task.title)
-                    .font(customFont: .onestSemiBold, size: 16)
+                    .font(customFont: .onestSemiBold, size: 20)
                     .foregroundStyle(Color.blackColor)
             }
             

@@ -1,15 +1,14 @@
 //
-//  SubtaskView.swift
+//  SubtaskStatistics.swift
 //  NextStep
 //
-//  Created by Тася Галкина on 15.04.2025.
+//  Created by Тася Галкина on 21.04.2025.
 //
 
 import SwiftUI
 
-struct SubtaskView: View {
-    let subtask: Subtask
-    @EnvironmentObject var viewModel: GoalsViewModel
+struct SubtaskStatistics: View {
+     var subtask: Subtask
     
     let onToggleCompletion: (Subtask) async -> Void
     
@@ -41,9 +40,15 @@ struct SubtaskView: View {
                 
                 Spacer()
                 
-                Text(subtask.deadline, style: .time)
-                    .font(customFont: .onestSemiBold, size: 20)
-                    .foregroundStyle(Color.white)
+                VStack(alignment: .trailing) {
+                    Text(subtask.deadline, style: .date)
+                        .font(customFont: .onestSemiBold, size: 20)
+                        .foregroundStyle(Color.white)
+                        
+                        Text(subtask.deadline, style: .time)
+                            .font(customFont: .onestSemiBold, size: 20)
+                            .foregroundStyle(Color.white)
+                }
                 
             }
         }

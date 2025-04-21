@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Subtask: Identifiable, Codable, Hashable {
+struct Subtask: Identifiable, Codable, Hashable, Equatable {
     var id: UUID
     var title: String
     var deadline: Date

@@ -70,7 +70,7 @@ struct WeekView: View {
                     .padding(8)
                     .background(
                         ZStack {
-                            Color.appContainer
+                            Color.white
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color.grayColor, lineWidth: 1)
                         }

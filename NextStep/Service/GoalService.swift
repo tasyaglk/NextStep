@@ -14,6 +14,8 @@ final class GoalService {
     func fetchGoals(for userId: Int) async throws -> [Goal] {
         var components = URLComponents(string: baseURL)!
         components.queryItems = [URLQueryItem(name: "user_id", value: "\(userId)")]
+        
+        print(UserService.userID)
 
         let (data, _) = try await URLSession.shared.data(from: components.url!)
         let decoder = JSONDecoder()
@@ -91,15 +93,20 @@ final class GoalService {
         _ = try await URLSession.shared.data(for: request)
     }
     
-    func fetchAllSubtasks() async throws -> [Subtask] {
-        guard let url = URL(string: "http://localhost:8080/subtasks") else {
+    func fetchAllSubtasks(for userId: Int) async throws -> [Subtask] {
+        var components = URLComponents(string: "http://localhost:8080/subtasks")
+        components?.queryItems = [
+            URLQueryItem(name: "userId", value: "\(userId)")
+        ]
+        
+        guard let url = components?.url else {
             throw URLError(.badURL)
         }
 
         let (data, _) = try await URLSession.shared.data(from: url)
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-        
+
         return try decoder.decode([Subtask].self, from: data)
     }
     
@@ -115,8 +122,8 @@ final class GoalService {
         let encodedSubtask = try encoder.encode(subtask)
         
         if let jsonString = String(data: encodedSubtask, encoding: .utf8) {
-            print("🚀 JSON отправляемый на сервер:")
-            print(jsonString)
+//            print("🚀 JSON отправляемый на сервер:")
+//            print(jsonString)
         }
 
         request.httpBody = encodedSubtask
@@ -130,6 +137,16 @@ final class GoalService {
             throw URLError(.badServerResponse)
         }
     }
-
+    
+    func fetchSubtasksByGoalId(forGoalID goalID: UUID) async throws -> [Subtask] {
+        let url = URL(string: "http://localhost:8080/goals/\(goalID)/subtasks")!
+        
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        
+        return try decoder.decode([Subtask].self, from: data)
+    }
 
 }

@@ -59,14 +59,15 @@ struct DayView: View {
             Text(dayString)
                 .font(customFont: isSelected ? .onestBold : .onestSemiBold, size: 20)
         }
+        .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 8)
         .frame(maxWidth: .infinity)
         .foregroundColor(textColor)
         .padding(.vertical, 8)
         .background(
             ZStack {
-                Color(isSelected ? Color.appTeal : Color.appContainer)
+                Color(isSelected ? Color.appTeal : Color.white)
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(borderColor, lineWidth: isToday ? 2 : 1)
+                    .stroke(.gray, lineWidth: isToday ? 2 : 1)
             }
         )
         .cornerRadius(10)
