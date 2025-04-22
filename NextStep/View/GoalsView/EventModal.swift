@@ -64,6 +64,8 @@ struct EventModal: View {
                         
                         Button {
                             editor.addSubtask(title: newSubtaskTitle, deadline: newSubtaskDate, goalName: editor.title)
+                            
+                            
                             newSubtaskTitle = ""
                             newSubtaskDate = Date()
                         } label: {

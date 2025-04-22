@@ -74,6 +74,7 @@
 		007323162D3AD28900297828 /* PasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007323152D3AD28900297828 /* PasswordFieldView.swift */; };
 		0075D5DE2DB690D800FD0C7C /* ColorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5DD2DB690D800FD0C7C /* ColorSelectorView.swift */; };
 		0075D5E02DB6E20500FD0C7C /* SubtaskStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5DF2DB6E20500FD0C7C /* SubtaskStatistics.swift */; };
+		0075D5EB2DB7079C00FD0C7C /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5EA2DB7079C00FD0C7C /* CalendarManager.swift */; };
 		008F6CAE2D8A3A98004E241F /* JSONExstention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6CAD2D8A3A98004E241F /* JSONExstention.swift */; };
 		008F6D2E2D8D7885004E241F /* GoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6D2D2D8D7885004E241F /* GoalService.swift */; };
 		008F6D302D8EEE72004E241F /* ISO8601DurationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6D2F2D8EEE72004E241F /* ISO8601DurationFormatter.swift */; };
@@ -189,6 +190,7 @@
 		007323152D3AD28900297828 /* PasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFieldView.swift; sourceTree = "<group>"; };
 		0075D5DD2DB690D800FD0C7C /* ColorSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorView.swift; sourceTree = "<group>"; };
 		0075D5DF2DB6E20500FD0C7C /* SubtaskStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskStatistics.swift; sourceTree = "<group>"; };
+		0075D5EA2DB7079C00FD0C7C /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		008F6CAD2D8A3A98004E241F /* JSONExstention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONExstention.swift; sourceTree = "<group>"; };
 		008F6D2D2D8D7885004E241F /* GoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalService.swift; sourceTree = "<group>"; };
 		008F6D2F2D8EEE72004E241F /* ISO8601DurationFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DurationFormatter.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 		0075D5E92DB7077900FD0C7C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				0075D5EA2DB7079C00FD0C7C /* CalendarManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				00E63BE02D75F97C004585DE /* ChatView.swift in Sources */,
 				00306FEB2D355D3800CD8516 /* ContentView.swift in Sources */,
 				003070202D356ED300CD8516 /* CustomFonts.swift in Sources */,
+				0075D5EB2DB7079C00FD0C7C /* CalendarManager.swift in Sources */,
 				00E63BE62D75FA50004585DE /* LoginView.swift in Sources */,
 				008F6CAE2D8A3A98004E241F /* JSONExstention.swift in Sources */,
 				007323162D3AD28900297828 /* PasswordFieldView.swift in Sources */,

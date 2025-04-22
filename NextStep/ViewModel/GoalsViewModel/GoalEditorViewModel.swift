@@ -53,7 +53,9 @@ class GoalEditorViewModel: ObservableObject {
 
     func buildGoal(existingGoal: Goal?) -> Goal {
         let durationString = ISO8601DurationFormatter.string(from: endDate.timeIntervalSince(startDate))
-        return Goal(
+        
+        
+        var createdGoal = Goal(
             id: existingGoal?.id ?? UUID(),
             userId: UserService.userID,
             title: title,
@@ -64,6 +66,19 @@ class GoalEditorViewModel: ObservableObject {
             subtasks: subtasks,
             completedSubtaskCount: 0
         )
+        
+        for subtask in createdGoal.subtasks ?? [] {
+            CalendarManager().addEvent(for: subtask) { result in
+                        switch result {
+                        case .success:
+                            print("Событие добавлено в календарь")
+                        case .failure(let error):
+                            print("Ошибка добавления в календарь: \(error.localizedDescription)")
+                        }
+                    }
+            }
+        
+        return createdGoal
     }
 }
 
