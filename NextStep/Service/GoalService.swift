@@ -102,11 +102,13 @@ final class GoalService {
         guard let url = components?.url else {
             throw URLError(.badURL)
         }
+        
+        print(url)
 
         let (data, _) = try await URLSession.shared.data(from: url)
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-
+     
         return try decoder.decode([Subtask].self, from: data)
     }
     

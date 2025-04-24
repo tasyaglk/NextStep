@@ -39,9 +39,11 @@ class GoalsViewModel: ObservableObject {
     }
 
     func addGoal(_ goal: Goal) async {
+        print(goal)
         do {
             try await service.createGoal(goal: goal)
             await loadGoals()
+            CalendarManager.shared.synchronizeSubtasks(goal: goal, completion: {_ in })
         } catch {
             print("Ошибка создания цели: \(error)")
         }
@@ -51,6 +53,7 @@ class GoalsViewModel: ObservableObject {
         do {
             try await service.updateGoal(goal)
             await loadGoals()
+            CalendarManager.shared.synchronizeSubtasks(goal: goal, completion: {_ in })
         } catch {
             print("Ошибка обновления цели: \(error)")
         }

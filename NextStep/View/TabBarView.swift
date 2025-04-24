@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     @State private var selectedIndex: Int = 0
     @StateObject private var profileViewModel = ProfileViewModel()
+    @StateObject private var chatViewModel = ChatViewModel(userId: UserService.userID)
     
     var body: some View {
         TabView(selection: $selectedIndex) {
@@ -28,7 +29,7 @@ struct TabBarView: View {
                 .tag(1)
             
             
-            ChatView()
+            ChatView(viewModel: chatViewModel)
                 .tabItem {
                     Image(systemName: "message.fill")
                     Text("chats")

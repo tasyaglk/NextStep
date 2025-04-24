@@ -75,6 +75,14 @@
 		0075D5DE2DB690D800FD0C7C /* ColorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5DD2DB690D800FD0C7C /* ColorSelectorView.swift */; };
 		0075D5E02DB6E20500FD0C7C /* SubtaskStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5DF2DB6E20500FD0C7C /* SubtaskStatistics.swift */; };
 		0075D5EB2DB7079C00FD0C7C /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5EA2DB7079C00FD0C7C /* CalendarManager.swift */; };
+		0075D5F12DBA740A00FD0C7C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F02DBA740A00FD0C7C /* ChatMessage.swift */; };
+		0075D5F22DBA740A00FD0C7C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F02DBA740A00FD0C7C /* ChatMessage.swift */; };
+		0075D5F32DBA740A00FD0C7C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F02DBA740A00FD0C7C /* ChatMessage.swift */; };
+		0075D5F62DBA746300FD0C7C /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F52DBA746300FD0C7C /* ChatViewModel.swift */; };
+		0075D5F82DBA747900FD0C7C /* DeepSeekAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F72DBA747900FD0C7C /* DeepSeekAPIManager.swift */; };
+		0075D5FA2DBA749600FD0C7C /* DeepSeekModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F92DBA749600FD0C7C /* DeepSeekModels.swift */; };
+		0075D5FB2DBA749600FD0C7C /* DeepSeekModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F92DBA749600FD0C7C /* DeepSeekModels.swift */; };
+		0075D5FC2DBA749600FD0C7C /* DeepSeekModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F92DBA749600FD0C7C /* DeepSeekModels.swift */; };
 		008F6CAE2D8A3A98004E241F /* JSONExstention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6CAD2D8A3A98004E241F /* JSONExstention.swift */; };
 		008F6D2E2D8D7885004E241F /* GoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6D2D2D8D7885004E241F /* GoalService.swift */; };
 		008F6D302D8EEE72004E241F /* ISO8601DurationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F6D2F2D8EEE72004E241F /* ISO8601DurationFormatter.swift */; };
@@ -191,6 +199,10 @@
 		0075D5DD2DB690D800FD0C7C /* ColorSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorView.swift; sourceTree = "<group>"; };
 		0075D5DF2DB6E20500FD0C7C /* SubtaskStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskStatistics.swift; sourceTree = "<group>"; };
 		0075D5EA2DB7079C00FD0C7C /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		0075D5F02DBA740A00FD0C7C /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		0075D5F52DBA746300FD0C7C /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		0075D5F72DBA747900FD0C7C /* DeepSeekAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepSeekAPIManager.swift; sourceTree = "<group>"; };
+		0075D5F92DBA749600FD0C7C /* DeepSeekModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepSeekModels.swift; sourceTree = "<group>"; };
 		008F6CAD2D8A3A98004E241F /* JSONExstention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONExstention.swift; sourceTree = "<group>"; };
 		008F6D2D2D8D7885004E241F /* GoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalService.swift; sourceTree = "<group>"; };
 		008F6D2F2D8EEE72004E241F /* ISO8601DurationFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DurationFormatter.swift; sourceTree = "<group>"; };
@@ -330,6 +342,8 @@
 				00E63C332D870D09004585DE /* Goal.swift */,
 				0030704E2D35901E00CD8516 /* UserProfile.swift */,
 				008F6E172D9F1086004E241F /* Subtask.swift */,
+				0075D5F02DBA740A00FD0C7C /* ChatMessage.swift */,
+				0075D5F92DBA749600FD0C7C /* DeepSeekModels.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +351,7 @@
 		003070192D355EB800CD8516 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0075D5F42DBA745900FD0C7C /* ChatViewModel */,
 				003103BF2DB39A5B0058CACD /* StatisticsViewModel */,
 				00E63C4A2D884051004585DE /* GoalsViewModel */,
 				00E63C492D884042004585DE /* ProfileViewModel */,
@@ -412,8 +427,17 @@
 			isa = PBXGroup;
 			children = (
 				0075D5EA2DB7079C00FD0C7C /* CalendarManager.swift */,
+				0075D5F72DBA747900FD0C7C /* DeepSeekAPIManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		0075D5F42DBA745900FD0C7C /* ChatViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0075D5F52DBA746300FD0C7C /* ChatViewModel.swift */,
+			);
+			path = ChatViewModel;
 			sourceTree = "<group>";
 		};
 		00E63BE12D75F9F2004585DE /* ProfileView */ = {
@@ -693,6 +717,7 @@
 				003103C52DB40AF00058CACD /* CardStyle.swift in Sources */,
 				003103C32DB39A9E0058CACD /* ProgressRing.swift in Sources */,
 				00E63C292D870AF4004585DE /* TimelineHourView.swift in Sources */,
+				0075D5F82DBA747900FD0C7C /* DeepSeekAPIManager.swift in Sources */,
 				003070472D357AA100CD8516 /* ProfileView.swift in Sources */,
 				00E63C1C2D870A7C004585DE /* DayView.swift in Sources */,
 				00E63C222D870AB2004585DE /* TaskListView.swift in Sources */,
@@ -722,15 +747,18 @@
 				00E63BFE2D79EA8F004585DE /* RegistrationView.swift in Sources */,
 				0075D5E02DB6E20500FD0C7C /* SubtaskStatistics.swift in Sources */,
 				008F6E192D9F1086004E241F /* Subtask.swift in Sources */,
+				0075D5F62DBA746300FD0C7C /* ChatViewModel.swift in Sources */,
 				00E63C3E2D871685004585DE /* GoalsView.swift in Sources */,
 				00306FED2D355D3800CD8516 /* Item.swift in Sources */,
 				00E63C002D79EAF3004585DE /* RegistrationViewModel.swift in Sources */,
 				00E63C412D871F98004585DE /* GoalsViewModel.swift in Sources */,
 				0030704B2D35803D00CD8516 /* CalendarView.swift in Sources */,
+				0075D5FB2DBA749600FD0C7C /* DeepSeekModels.swift in Sources */,
 				003070532D380E2300CD8516 /* ProfileViewModel.swift in Sources */,
 				0030701E2D356EBA00CD8516 /* ColorExtension.swift in Sources */,
 				007323102D3AC90C00297828 /* PasswordViewModel.swift in Sources */,
 				007323142D3AD1B800297828 /* VisiblePasswordField.swift in Sources */,
+				0075D5F12DBA740A00FD0C7C /* ChatMessage.swift in Sources */,
 				0030701B2D355ECB00CD8516 /* TabBarView.swift in Sources */,
 				00E63C352D870D09004585DE /* Goal.swift in Sources */,
 				00E63C452D87964D004585DE /* CustomTextFieldStyle.swift in Sources */,
@@ -760,6 +788,8 @@
 				00E63BDE2D75F97C004585DE /* ChatView.swift in Sources */,
 				00E63C212D870AB2004585DE /* TaskListView.swift in Sources */,
 				00E63C3D2D871685004585DE /* GoalsView.swift in Sources */,
+				0075D5FC2DBA749600FD0C7C /* DeepSeekModels.swift in Sources */,
+				0075D5F22DBA740A00FD0C7C /* ChatMessage.swift in Sources */,
 				00E63C282D870AF4004585DE /* TimelineHourView.swift in Sources */,
 				00E63C2D2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
 				008F6E182D9F1086004E241F /* Subtask.swift in Sources */,
@@ -773,12 +803,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0075D5F32DBA740A00FD0C7C /* ChatMessage.swift in Sources */,
 				00E63C2C2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
 				008F6E1A2D9F1086004E241F /* Subtask.swift in Sources */,
 				00E63C152D870A45004585DE /* WeekView.swift in Sources */,
 				003103B42DAE58AF0058CACD /* SubtaskView.swift in Sources */,
 				00E63C1E2D870A7C004585DE /* DayView.swift in Sources */,
 				00E63C3F2D871685004585DE /* GoalsView.swift in Sources */,
+				0075D5FA2DBA749600FD0C7C /* DeepSeekModels.swift in Sources */,
 				00E63C302D870CEF004585DE /* TaskView.swift in Sources */,
 				00E63C0E2D870072004585DE /* EventModal.swift in Sources */,
 				00E63C202D870AB2004585DE /* TaskListView.swift in Sources */,
