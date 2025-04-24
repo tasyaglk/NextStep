@@ -24,6 +24,24 @@ class CalendarManager {
         }
     }
     
+    // Получаем события из календаря за период
+    func fetchEvents(from startDate: Date, to endDate: Date) async throws -> [(start: Date, end: Date)] {
+        guard try await requestCalendarAccess() else {
+            throw NSError(domain: "CalendarAccessError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Нет доступа к календарю"])
+        }
+        
+        let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
+        let events = eventStore.events(matching: predicate)
+        
+        let busySlots = events.compactMap { event -> (start: Date, end: Date)? in
+            guard let start = event.startDate, let end = event.endDate else { return nil }
+            return (start: start, end: end)
+        }
+        
+        print("Fetched busy slots: \(busySlots.map { "[\($0.start), \($0.end)]" })")
+        return busySlots
+    }
+    
     // Добавляем событие для подзадачи
     func addEvent(for subtask: Subtask) async throws -> String {
         guard try await requestCalendarAccess() else {
@@ -55,9 +73,9 @@ class CalendarManager {
                let event = eventStore.event(withIdentifier: eventID) {
                 do {
                     try eventStore.remove(event, span: .thisEvent)
-//                    print("✅ Удалено событие: \(String(describing: event.title))")
+                    print("✅ Удалено событие: \(String(describing: event.title))")
                 } catch {
-//                    print("❌ Ошибка удаления события: \(error.localizedDescription)")
+                    print("❌ Ошибка удаления события: \(error.localizedDescription)")
                     throw error
                 }
             }
@@ -75,7 +93,7 @@ class CalendarManager {
                 subtask.calendarEventID = eventID
                 updatedSubtasks.append(subtask)
             } catch {
-//                print("❌ Ошибка добавления события для подзадачи '\(subtask.title)': \(error.localizedDescription)")
+                print("❌ Ошибка добавления события для подзадачи '\(subtask.title)': \(error.localizedDescription)")
                 throw error
             }
         }

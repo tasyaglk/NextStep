@@ -94,13 +94,30 @@ class DeepSeekAPIManager {
         return prompt
     }
     
-    func generateSchedule(steps: [String], availability: String, frequency: String, feedback: String? = nil) async throws -> String {
+    func generateSchedule(
+        steps: [String],
+        availability: String,
+        frequency: String,
+        feedback: String?,
+        busySlots: [(start: Date, end: Date)]
+    ) async throws -> String {
+        // Форматируем занятые слоты в читаемый текст
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy 'с' HH:mm 'до' HH:mm"
+        dateFormatter.timeZone = TimeZone.current
+        let busySlotsText = busySlots.map { slot in
+            dateFormatter.string(from: slot.start) + " до " + dateFormatter.string(from: slot.end)
+        }.joined(separator: "\n")
+        
         var prompt = """
         Одобренные шаги для выполнения (не добавляй новые шаги, используй только эти):
         \(steps.joined(separator: "\n"))
         
         Доступность пользователя: \(availability)
         Частота занятий: \(frequency)
+        
+        Занятые временные слоты (избегай их при планировании):
+        \(busySlotsText.isEmpty ? "Нет занятых слотов" : busySlotsText)
         
         Создай расписание в формате (это очень важно):
         Задача - ДД-ММ-ГГГГ в ЧЧ:мм
@@ -109,6 +126,7 @@ class DeepSeekAPIManager {
         - Используй ТОЛЬКО предоставленные шаги, не придумывай новые.
         - Минимальная длительность каждого задания должна быть 1 час.
         - Доступность и частоту, указанные пользователем.
+        - Занятые временные слоты (не назначай задачи на эти периоды).
         - Реальные сроки выполнения задач.
         - Перерывы между задачами.
         - Текущая дата: \(DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .none)).
@@ -120,7 +138,9 @@ class DeepSeekAPIManager {
         
         prompt += "\nВыведи только расписание, без дополнительных комментариев."
         
-        return try await sendRequest(prompt: prompt)
+        let response = try await sendRequest(prompt: prompt)
+        print("Schedule response: \(response)")
+        return response
     }
     
     private func sendRequest(prompt: String) async throws -> String {
@@ -158,6 +178,9 @@ class DeepSeekAPIManager {
         ]
         
         request.httpBody = try JSONSerialization.data(withJSONObject: parameters)
+        if let jsonString = String(data: request.httpBody!, encoding: .utf8) {
+            print("JSON (sendRequest): \(jsonString)")
+        }
         return request
     }
     
@@ -190,5 +213,4 @@ class DeepSeekAPIManager {
         }
     }
 }
-
 

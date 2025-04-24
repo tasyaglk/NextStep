@@ -97,10 +97,10 @@ class ChatViewModel: ObservableObject {
         let goal = createGoal()
         Task {
             do {
-//                print("Saving goal: \(goal)")
-//                print("Subtasks IDs: \(goal.subtasks?.map { $0.id } ?? [])")
+                print("Saving goal: \(goal)")
+                print("Subtasks IDs: \(goal.subtasks?.map { $0.id } ?? [])")
                 let updatedGoal = try await calendarManager.synchronizeSubtasks(goal: goal)
-//                print("Updated goal with calendarEventIDs: \(updatedGoal.subtasks?.map { ($0.id, $0.calendarEventID ?? "nil") } ?? [])")
+                print("Updated goal with calendarEventIDs: \(updatedGoal.subtasks?.map { ($0.id, $0.calendarEventID ?? "nil") } ?? [])")
                 try await goalService.createGoal(goal: updatedGoal)
                 await MainActor.run {
                     messages.append(ChatMessage(
@@ -121,7 +121,7 @@ class ChatViewModel: ObservableObject {
                     ))
                     scrollToBottom()
                 }
-//                print("Error saving goal: \(error)")
+                print("Error saving goal: \(error)")
             }
         }
     }
@@ -468,11 +468,17 @@ class ChatViewModel: ObservableObject {
         
         Task {
             do {
+                // Получаем занятые слоты за следующий месяц
+                let startDate = Date()
+                let endDate = Calendar.current.date(byAdding: .month, value: 1, to: startDate)!
+                let busySlots = try await calendarManager.fetchEvents(from: startDate, to: endDate)
+                
                 let schedule = try await apiManager.generateSchedule(
                     steps: currentSteps,
                     availability: availability,
                     frequency: frequency,
-                    feedback: scheduleRegenerationFeedback
+                    feedback: scheduleRegenerationFeedback,
+                    busySlots: busySlots
                 )
                 
                 await MainActor.run {
@@ -501,12 +507,21 @@ class ChatViewModel: ObservableObject {
                     state = .showingSchedule(steps: currentSteps)
                     scrollToBottom()
                 }
+                print("Error generating schedule: \(error)")
             }
         }
     }
     
     private func generateSchedule() {
-        guard !currentSteps.isEmpty else { return }
+        guard !currentSteps.isEmpty else {
+            messages.append(ChatMessage(
+                content: "⚠️ Нет шагов для создания расписания.",
+                isUser: false,
+                isTypingIndicator: false
+            ))
+            scrollToBottom()
+            return
+        }
         
         isLoading = true
         messages.append(ChatMessage(
@@ -518,11 +533,17 @@ class ChatViewModel: ObservableObject {
         
         Task {
             do {
+                // Получаем занятые слоты за следующий месяц
+                let startDate = Date()
+                let endDate = Calendar.current.date(byAdding: .month, value: 1, to: startDate)!
+                let busySlots = try await calendarManager.fetchEvents(from: startDate, to: endDate)
+                
                 let schedule = try await apiManager.generateSchedule(
                     steps: currentSteps,
                     availability: availability,
                     frequency: frequency,
-                    feedback: scheduleRegenerationFeedback
+                    feedback: scheduleRegenerationFeedback,
+                    busySlots: busySlots
                 )
                 
                 await MainActor.run {
@@ -551,6 +572,7 @@ class ChatViewModel: ObservableObject {
                     state = .showingSchedule(steps: currentSteps)
                     scrollToBottom()
                 }
+                print("Error generating schedule: \(error)")
             }
         }
     }
