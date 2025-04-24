@@ -29,7 +29,7 @@ class GoalStatisticsViewModel: ObservableObject {
             let subtasks = try await service.fetchSubtasksByGoalId(forGoalID: goal.id)
             self.subtasks = subtasks
         } catch {
-            print("Ошибка при загрузке подзадач: \(error.localizedDescription)")
+//            print("Ошибка при загрузке подзадач: \(error.localizedDescription)")
         }
     }
 
@@ -37,7 +37,7 @@ class GoalStatisticsViewModel: ObservableObject {
         do {
             try await service.updateSubtaskCompletion(subtask)
         } catch {
-            print("Ошибка обновления подзадачи: \(error)")
+//            print("Ошибка обновления подзадачи: \(error)")
         }
         await refreshGoal()
     }
@@ -53,7 +53,7 @@ class GoalStatisticsViewModel: ObservableObject {
 
             }
         } catch {
-            print("Ошибка обновления целей: \(error)")
+//            print("Ошибка обновления целей: \(error)")
         }
     }
 }

@@ -117,9 +117,9 @@ class RegistrationViewModel: ObservableObject {
             UserDefaults.standard.set(data, forKey: "userProfile")
             UserService.isLoggedIn = true
             UserService.userID = id
-            print("---")
-            print(UserService.userID)
-            print("---")
+//            print("---")
+//            print(UserService.userID)
+//            print("---")
         }
     }
 }

@@ -1,10 +1,3 @@
-//
-//  GoalService.swift
-//  NextStep
-//
-//  Created by Тася Галкина on 21.03.2025.
-//
-
 import Foundation
 import Combine
 
@@ -15,9 +8,14 @@ final class GoalService {
         var components = URLComponents(string: baseURL)!
         components.queryItems = [URLQueryItem(name: "user_id", value: "\(userId)")]
         
-        print(UserService.userID)
+//        print("Fetching goals for userID: \(userId)")
 
-        let (data, _) = try await URLSession.shared.data(from: components.url!)
+        let (data, response) = try await URLSession.shared.data(from: components.url!)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            let errorMessage = String(data: data, encoding: .utf8) ?? "Неизвестная ошибка сервера"
+            throw NSError(domain: "ServerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Не удалось загрузить цели: \(errorMessage)"])
+        }
+        
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         return try decoder.decode([Goal].self, from: data)
@@ -25,26 +23,23 @@ final class GoalService {
 
     func createGoal(goal: Goal) async throws {
         let encoder = JSONEncoder()
-        
         encoder.dateEncodingStrategy = .iso8601
-        
         let jsonData = try encoder.encode(goal)
         
         if let jsonString = String(data: jsonData, encoding: .utf8) {
-            print("JSON: \(jsonString)")
+//            print("JSON (createGoal): \(jsonString)")
         }
         
-        var request = URLRequest(url: URL(string: "http://localhost:8080/goals")!)
+        var request = URLRequest(url: URL(string: baseURL)!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
         
         let (data, response) = try await URLSession.shared.data(for: request)
         
-        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-            print("success")
-        } else {
-            print("error: \(String(data: data, encoding: .utf8) ?? "")")
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            let errorMessage = String(data: data, encoding: .utf8) ?? "Неизвестная ошибка сервера"
+            throw NSError(domain: "ServerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Не удалось создать цель: \(errorMessage)"])
         }
     }
 
@@ -58,31 +53,22 @@ final class GoalService {
         let encodedGoal = try encoder.encode(goal)
         
         if let jsonString = String(data: encodedGoal, encoding: .utf8) {
-            print("JSON:\n\(jsonString)")
+//            print("JSON (updateGoal): \(jsonString)")
         }
 
         request.httpBody = encodedGoal
 
-        do {
-            let (data, response) = try await URLSession.shared.data(for: request)
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                print("\(httpResponse.statusCode)")
-                if httpResponse.statusCode != 200 {
-                    throw NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: "Server returned error code: \(httpResponse.statusCode)"])
-                }
-            }
-
-            if let responseBody = String(data: data, encoding: .utf8) {
-                print("JSON:\n \(responseBody)")
-            }
-
-        } catch {
-            print("error \(error.localizedDescription)")
-            throw error
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            let errorMessage = String(data: data, encoding: .utf8) ?? "Неизвестная ошибка сервера"
+            throw NSError(domain: "ServerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Не удалось обновить цель: \(errorMessage)"])
+        }
+        
+        if let responseBody = String(data: data, encoding: .utf8) {
+//            print("Response (updateGoal): \(responseBody)")
         }
     }
-
 
     func deleteGoal(id: UUID, userId: Int) async throws {
         var components = URLComponents(string: "\(baseURL)/\(id)")!
@@ -90,7 +76,13 @@ final class GoalService {
 
         var request = URLRequest(url: components.url!)
         request.httpMethod = "DELETE"
-        _ = try await URLSession.shared.data(for: request)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            let errorMessage = String(data: data, encoding: .utf8) ?? "Неизвестная ошибка сервера"
+            throw NSError(domain: "ServerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Не удалось удалить цель: \(errorMessage)"])
+        }
     }
     
     func fetchAllSubtasks(for userId: Int) async throws -> [Subtask] {
@@ -103,18 +95,25 @@ final class GoalService {
             throw URLError(.badURL)
         }
         
-        print(url)
+//        print("Fetching subtasks: \(url)")
 
-        let (data, _) = try await URLSession.shared.data(from: url)
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            let errorMessage = String(data: data, encoding: .utf8) ?? "Неизвестная ошибка сервера"
+            throw NSError(domain: "ServerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Не удалось загрузить подзадачи: \(errorMessage)"])
+        }
+        
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-     
         return try decoder.decode([Subtask].self, from: data)
     }
     
     func updateSubtaskCompletion(_ subtask: Subtask) async throws {
-        guard let url = URL(string: "http://localhost:8080/subtasks/\(subtask.id)/complete") else { return }
-        print(url)
+        guard let url = URL(string: "http://localhost:8080/subtasks/\(subtask.id)/complete") else {
+            throw URLError(.badURL)
+        }
+        
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -124,31 +123,35 @@ final class GoalService {
         let encodedSubtask = try encoder.encode(subtask)
         
         if let jsonString = String(data: encodedSubtask, encoding: .utf8) {
-//            print("🚀 JSON отправляемый на сервер:")
-//            print(jsonString)
+//            print("JSON (updateSubtaskCompletion): \(jsonString)")
         }
 
         request.httpBody = encodedSubtask
         
         let (data, response) = try await URLSession.shared.data(for: request)
-        if let responseBody = String(data: data, encoding: .utf8) {
-            print("JSON:\n \(responseBody)")
-        }
         
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw URLError(.badServerResponse)
+            let errorMessage = String(data: data, encoding: .utf8) ?? "Неизвестная ошибка сервера"
+            throw NSError(domain: "ServerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Не удалось обновить подзадачу: \(errorMessage)"])
+        }
+        
+        if let responseBody = String(data: data, encoding: .utf8) {
+//            print("Response (updateSubtaskCompletion): \(responseBody)")
         }
     }
     
     func fetchSubtasksByGoalId(forGoalID goalID: UUID) async throws -> [Subtask] {
         let url = URL(string: "http://localhost:8080/goals/\(goalID)/subtasks")!
         
-        let (data, _) = try await URLSession.shared.data(from: url)
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            let errorMessage = String(data: data, encoding: .utf8) ?? "Неизвестная ошибка сервера"
+            throw NSError(domain: "ServerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Не удалось загрузить подзадачи: \(errorMessage)"])
+        }
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-        
         return try decoder.decode([Subtask].self, from: data)
     }
-
 }

@@ -68,17 +68,6 @@ class GoalEditorViewModel: ObservableObject {
             completedSubtaskCount: 0
         )
         
-//        for subtask in createdGoal.subtasks ?? [] {
-//                CalendarManager().addSubtaskEvent(subtask: subtask) { result in
-//                        switch result {
-//                        case .success:
-//                            print("Событие добавлено в календарь")
-//                        case .failure(let error):
-//                            print("Ошибка добавления в календарь: \(error.localizedDescription)")
-//                        }
-//                    }
-//            }
-        
         return createdGoal
     }
 }

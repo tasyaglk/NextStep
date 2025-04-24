@@ -67,8 +67,6 @@ struct GoalStatisticsView: View {
                             subtask: subtask,
                             onToggleCompletion: { subtask in
                                 await viewModel.toggleCompletion(for: subtask)
-                                print(subtask)
-                                print("---")
                             }
                         )
                         .id(subtask.id.uuidString + "\(subtask.isCompleted)")

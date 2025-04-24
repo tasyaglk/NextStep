@@ -29,8 +29,8 @@ class ChatViewModel: ObservableObject {
     
     private let userId: Int
     private let apiManager = DeepSeekAPIManager.shared
-    
-    let service = GoalService()
+    private let goalService = GoalService()
+    private let calendarManager = CalendarManager.shared
     
     init(userId: Int) {
         self.userId = userId
@@ -75,7 +75,7 @@ class ChatViewModel: ObservableObject {
         showInputField = true
         state = .waitingForSchedulePreferences
         messages.append(ChatMessage(
-            content: "Когда вы можете заниматься (например, по будням с 18:00 до 20:00) и как часто (например, 3 раза в неделю)?",
+            content: "Когда вы можете заниматься (например, 'по будням с 18:00 до 20:00') и как часто (например, '3 раза в неделю')?",
             isUser: false,
             isTypingIndicator: false
         ))
@@ -96,18 +96,33 @@ class ChatViewModel: ObservableObject {
     func saveAndResetChat() {
         let goal = createGoal()
         Task {
-            await addGoal(goal)
-        }
-        resetChat()
-    }
-    
-    func addGoal(_ goal: Goal) async {
-        print(goal)
-        do {
-            try await service.createGoal(goal: goal)
-            CalendarManager.shared.synchronizeSubtasks(goal: goal, completion: {_ in })
-        } catch {
-            print("Ошибка создания цели: \(error)")
+            do {
+//                print("Saving goal: \(goal)")
+//                print("Subtasks IDs: \(goal.subtasks?.map { $0.id } ?? [])")
+                let updatedGoal = try await calendarManager.synchronizeSubtasks(goal: goal)
+//                print("Updated goal with calendarEventIDs: \(updatedGoal.subtasks?.map { ($0.id, $0.calendarEventID ?? "nil") } ?? [])")
+                try await goalService.createGoal(goal: updatedGoal)
+                await MainActor.run {
+                    messages.append(ChatMessage(
+                        content: "✅ Цель и расписание успешно сохранены в календарь!",
+                        isUser: false,
+                        isTypingIndicator: false
+                    ))
+                    resetChat()
+                }
+            } catch {
+                let errorDesc = error.localizedDescription
+                let errorMessage = errorDesc.contains("subtasks_pkey") ? "❌ Конфликт подзадач, попробуйте снова" : "❌ Ошибка сохранения: \(errorDesc)"
+                await MainActor.run {
+                    messages.append(ChatMessage(
+                        content: errorMessage,
+                        isUser: false,
+                        isTypingIndicator: false
+                    ))
+                    scrollToBottom()
+                }
+//                print("Error saving goal: \(error)")
+            }
         }
     }
     
@@ -259,7 +274,7 @@ class ChatViewModel: ObservableObject {
         userGoal = reformulatedGoal
         
         messages.append(ChatMessage(
-            content: "Отлично! Ваша цель: \(reformulatedGoal). Что вы уже знаете по этой теме?",
+            content: "Отлично! Ваша цель: '\(reformulatedGoal)'. Что вы уже знаете по этой теме?",
             isUser: false,
             isTypingIndicator: false
         ))

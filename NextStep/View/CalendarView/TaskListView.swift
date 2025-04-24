@@ -58,15 +58,10 @@ struct TaskListView: View {
                                     SubtaskView(
                                         subtask: task,
                                         onToggleCompletion: { subtask in
-                                            print("???")
-                                            print(subtask)
-                                            print("???")
                                             await viewModel.toggleSubtaskCompletion(subtask)
-                                            print("+++")
-                                            print(subtask)
-                                            print("+++")
                                         }
                                     )
+                                    .id(task.id.uuidString + "\(task.isCompleted)")
                                 }
                                 Spacer()
                             }

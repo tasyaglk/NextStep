@@ -18,7 +18,7 @@ struct TaskView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(task.title)
                     .font(customFont: .onestSemiBold, size: 20)
-                    .foregroundStyle(Color.blackColor)
+                    .foregroundStyle(Color.white)
             }
             
             Spacer()
@@ -27,7 +27,7 @@ struct TaskView: View {
                 if task.isPinned {
                     Image(systemName: "pin.fill")
                         .rotationEffect(.degrees(45))
-                        .foregroundColor(.appContainer)
+                        .foregroundColor(.white)
                 }
             }
         }
