@@ -56,7 +56,12 @@ struct EventModal: View {
                             .foregroundStyle(Color.blackColor)
                     }
                     .onDelete { indices in
-                        editor.subtasks.remove(atOffsets: indices)
+                        Task {
+                            await editor.removeSubtask(atOffsets: indices)
+                            if editor.errorMessage != nil {
+                                showErrorAlert = true
+                            }
+                        }
                     }
                     
                     HStack {
@@ -110,15 +115,22 @@ struct EventModal: View {
                             return
                         }
                         Task {
-                            if taskToEdit != nil {
-                                await viewModel.updateGoal(goal)
-                            } else {
-                                await viewModel.addGoal(goal)
-                            }
-                            if viewModel.errorMessage == nil {
-                                onSave?(goal)
-                                dismiss()
-                            } else {
+                            do {
+                                // Очищаем события удалённых подзадач
+                                try await editor.cleanupDeletedSubtaskEvents()
+                                if taskToEdit != nil {
+                                    await viewModel.updateGoal(goal)
+                                } else {
+                                    await viewModel.addGoal(goal)
+                                }
+                                if viewModel.errorMessage == nil {
+                                    onSave?(goal)
+                                    dismiss()
+                                } else {
+                                    showErrorAlert = true
+                                }
+                            } catch {
+                                editor.errorMessage = "Ошибка очистки событий: \(error.localizedDescription)"
                                 showErrorAlert = true
                             }
                         }

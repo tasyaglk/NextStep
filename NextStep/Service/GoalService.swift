@@ -1,5 +1,9 @@
-import Foundation
-import Combine
+//
+//  GoalService.swift
+//  NextStep
+//
+//  Created by Тася Галкина on 21.03.2025.
+//
 
 import Foundation
 import Combine
@@ -48,12 +52,10 @@ final class GoalService {
     }
 
     func updateGoal(_ goal: Goal) async throws {
-        // Удаляем старую цель, если это редактирование
         if let existingGoal = try await fetchGoals(for: goal.userId).first(where: { $0.id == goal.id }) {
             try await deleteGoal(id: goal.id, userId: goal.userId)
         }
         
-        // Синхронизируем календарь и создаём новую цель
         let updatedGoal = try await calendarManager.synchronizeSubtasks(goal: goal)
         try await createGoal(goal: updatedGoal)
         
@@ -146,19 +148,18 @@ final class GoalService {
     }
     
     func deleteSubtask(id: UUID, userId: Int) async throws {
-        // Получаем подзадачу перед удалением, чтобы получить calendarEventID
         let subtasks = try await fetchAllSubtasks(for: userId)
         if let subtask = subtasks.first(where: { $0.id == id }) {
-            // Удаляем событие из календаря
             do {
                 try await calendarManager.removeEvent(for: subtask)
+                print("✅ Attempted to remove event for subtask: \(subtask.title), eventID: \(subtask.calendarEventID ?? "nil")")
             } catch {
-                print("⚠️ Ошибка удаления события из календаря: \(error.localizedDescription)")
-                // Продолжаем удаление с сервера, даже если календарь не очистился
+                print("⚠️ Ошибка удаления события из календаря для подзадачи \(subtask.title): \(error.localizedDescription)")
             }
+        } else {
+            print("ℹ️ Подзадача с id \(id) не найдена")
         }
         
-        // Удаляем подзадачу с сервера
         var components = URLComponents(string: "http://localhost:8080/subtasks/\(id)")!
         components.queryItems = [URLQueryItem(name: "userId", value: "\(userId)")]
         
@@ -176,6 +177,6 @@ final class GoalService {
             throw NSError(domain: "ServerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Не удалось удалить подзадачу: \(errorMessage)"])
         }
         
-        print("✅ Подзадача удалена: \(id)")
+        print("✅ Подзадача удалена с сервера: \(id)")
     }
 }

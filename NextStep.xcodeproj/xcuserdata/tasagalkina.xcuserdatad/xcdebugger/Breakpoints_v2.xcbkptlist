@@ -18,36 +18,6 @@
             endingLineNumber = "66"
             landmarkName = "removeEvent(for:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0E977531-6C7E-4462-915E-14EABBC9C8F5 - 5547430b87a183e3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-               <Location
-                  uuid = "0E977531-6C7E-4462-915E-14EABBC9C8F5 - 5d47be7b97d73c26"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -64,64 +34,6 @@
             endingLineNumber = "67"
             landmarkName = "removeEvent(for:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8D27FCEE-097A-400A-9DF9-76A5C1C9C618 - 5d47be7b97d733fd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67">
-               </Location>
-               <Location
-                  uuid = "8D27FCEE-097A-400A-9DF9-76A5C1C9C618 - 183111aa53e18751"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-               <Location
-                  uuid = "8D27FCEE-097A-400A-9DF9-76A5C1C9C618 - c672409ca7ec028"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-               <Location
-                  uuid = "8D27FCEE-097A-400A-9DF9-76A5C1C9C618 - 9796e9271fd12229"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,36 +114,6 @@
             endingLineNumber = "72"
             landmarkName = "removeEvent(for:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4EFF7A2B-9043-44C7-B0CE-D0F7533EBD7E - c672409ca7ec0ac"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72">
-               </Location>
-               <Location
-                  uuid = "4EFF7A2B-9043-44C7-B0CE-D0F7533EBD7E - c672409ca7ec0ac"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -296,92 +178,6 @@
             endingLineNumber = "76"
             landmarkName = "removeEvent(for:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - 5547430b87a183e3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-               <Location
-                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - 5d47be7b97d73c26"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-               <Location
-                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - 183111aa53e18751"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-               <Location
-                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - c672409ca7ec028"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-               <Location
-                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - c672409ca7ec028"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-               <Location
-                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - 9796e9271fd12229"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -494,36 +290,6 @@
             endingLineNumber = "83"
             landmarkName = "removeEvent(for:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AADD4050-A3BE-4BCC-9366-B7173FCE0574 - c672409ca7ec103"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83">
-               </Location>
-               <Location
-                  uuid = "AADD4050-A3BE-4BCC-9366-B7173FCE0574 - 9796e9271fd12302"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -540,64 +306,6 @@
             endingLineNumber = "88"
             landmarkName = "deleteGoal(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "ED59B150-BD8E-4189-993D-FD99909755C6 - 4ff6c85bc7672372"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for NextStep.GoalsViewModel.deleteGoal(NextStep.Goal) async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88">
-               </Location>
-               <Location
-                  uuid = "ED59B150-BD8E-4189-993D-FD99909755C6 - 5988ad4968081af9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for NextStep.GoalsViewModel.deleteGoal(NextStep.Goal) async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88">
-               </Location>
-               <Location
-                  uuid = "ED59B150-BD8E-4189-993D-FD99909755C6 - 1e5e4bec587966b0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for NextStep.GoalsViewModel.deleteGoal(NextStep.Goal) async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88">
-               </Location>
-               <Location
-                  uuid = "ED59B150-BD8E-4189-993D-FD99909755C6 - 1ae08a48ebfdfc6b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(8) suspend resume partial function for NextStep.GoalsViewModel.deleteGoal(NextStep.Goal) async -&gt; ()"
-                  moduleName = "NextStep.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -14,6 +14,8 @@ class GoalEditorViewModel: ObservableObject {
     @Published var selectedColor: Color = .blue
     @Published var subtasks: [Subtask] = []
     @Published var errorMessage: String?
+    private var deletedSubtaskEventIDs: [String] = [] // Храним calendarEventID удалённых подзадач
+    private let calendarManager = CalendarManager.shared
 
     init(goal: Goal? = nil) {
         if let goal = goal {
@@ -48,10 +50,27 @@ class GoalEditorViewModel: ObservableObject {
             isCompleted: false,
             color: selectedColor.toHex ?? "#000000",
             goalName: goalName,
-            calendarEventID: nil // Используем nil вместо ""
+            calendarEventID: nil
         )
         subtasks.append(subtask)
         errorMessage = nil
+    }
+
+    func removeSubtask(atOffsets indices: IndexSet) async {
+        // Собираем calendarEventID удаляемых подзадач
+        let subtasksToDelete = indices.map { subtasks[$0] }
+        for subtask in subtasksToDelete {
+            if let eventID = subtask.calendarEventID, !eventID.isEmpty {
+                deletedSubtaskEventIDs.append(eventID)
+                do {
+                    try await calendarManager.removeEvent(for: subtask)
+                } catch {
+                    errorMessage = "Ошибка удаления события подзадачи: \(error.localizedDescription)"
+                    print("⚠️ Failed to remove event for subtask \(subtask.title): \(error)")
+                }
+            }
+        }
+        subtasks.remove(atOffsets: indices)
     }
 
     func updateSubtask() {
@@ -90,40 +109,22 @@ class GoalEditorViewModel: ObservableObject {
         errorMessage = nil
         return createdGoal
     }
+
+    func cleanupDeletedSubtaskEvents() async throws {
+        // Удаляем события для подзадач, которые были удалены ранее
+        for eventID in deletedSubtaskEventIDs {
+            let subtask = Subtask(
+                id: UUID(),
+                title: "Deleted",
+                deadline: Date(),
+                isCompleted: false,
+                color: "#000000",
+                goalName: "",
+                calendarEventID: eventID
+            )
+            try await calendarManager.removeEvent(for: subtask)
+        }
+        deletedSubtaskEventIDs.removeAll()
+    }
 }
 
-//// Расширение для работы с цветами
-//extension Color {
-//    init?(hex: String) {
-//        let hex = hex.trimmingCharacters(in: CharacterSet(charactersIn: "#"))
-//        var rgb: UInt64 = 0
-//        guard Scanner(string: hex).scanHexInt64(&rgb), hex.count == 6 else { return nil }
-//        self.init(
-//            red: Double((rgb >> 16) & 0xFF) / 255.0,
-//            green: Double((rgb >> 8) & 0xFF) / 255.0,
-//            blue: Double(rgb & 0xFF) / 255.0
-//        )
-//    }
-//
-//    var toHex: String? {
-//        let uiColor = UIColor(self)
-//        var red: CGFloat = 0
-//        var green: CGFloat = 0
-//        var blue: CGFloat = 0
-//        var alpha: CGFloat = 0
-//        guard uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha) else { return nil }
-//        return String(format: "#%02X%02X%02X", Int(red * 255), Int(green * 255), Int(blue * 255))
-//    }
-//}
-//
-//// Расширение для парсинга duration (если нужно для сервера)
-//extension TimeInterval {
-//    init?(_ duration: String) {
-//        let components = duration.components(separatedBy: CharacterSet(charactersIn: "hms"))
-//        guard components.count >= 3,
-//              let hours = Double(components[0]),
-//              let minutes = Double(components[1]),
-//              let seconds = Double(components[2]) else { return nil }
-//        self = hours * 3600 + minutes * 60 + seconds
-//    }
-//}
