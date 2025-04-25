@@ -76,7 +76,8 @@ struct ChatView: View {
                     ProgressView()
                 } else {
                     Image(systemName: "arrow.up.circle.fill")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.blueMainColor)
+                        .frame(height: 44)
                 }
             }
             .disabled(viewModel.newMessage.isEmpty || viewModel.isLoading)
@@ -140,7 +141,7 @@ struct MessageBubble: View {
                 Spacer()
                 Text(message.content)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color.blueMainColor)
                     .foregroundColor(.white)
                     .cornerRadius(15)
             } else {

@@ -80,7 +80,7 @@ struct EventModal: View {
                             }
                         } label: {
                             Image(systemName: "plus.circle.fill")
-                                .foregroundColor(.appTeal)
+                                .foregroundColor(.blueMainColor)
                         }
                         .disabled(newSubtaskTitle.isEmpty)
                     }
@@ -147,9 +147,9 @@ struct EventModal: View {
                     dismissButton: .default(Text("OK"))
                 )
             }
-//            .alert(item: $viewModel.successMessage) { success in
-//                Alert(title: Text("Успех"), message: Text(success))
-//            }
+            //            .alert(item: $viewModel.successMessage) { success in
+            //                Alert(title: Text("Успех"), message: Text(success))
+            //            }
         }
     }
 }

@@ -38,13 +38,13 @@ struct CurrentTimeIndicator: View {
                     .cornerRadius(2)
                 
                 Rectangle()
-                    .fill(Color.appTeal)
+                    .fill(Color.blueMainColor)
                     .frame(width: 4, height: indicatorOffset + 10)
                     .cornerRadius(2)
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 4)
-                        .fill(Color.appTeal)
+                        .fill(Color.blueMainColor)
                         .frame(width: 35, height: 20)
                     
                     Text(timeString)

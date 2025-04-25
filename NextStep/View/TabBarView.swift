@@ -12,39 +12,58 @@ struct TabBarView: View {
     @StateObject private var profileViewModel = ProfileViewModel()
     @StateObject private var chatViewModel = ChatViewModel(userId: UserService.userID)
     
+    // Цвета для иконок и текста
+    private let activeColor: Color = Color.blueMainColor // Цвет для активной вкладки
+    private let inactiveColor: Color = .gray.opacity(0.6) // Цвет для неактивной вкладки
+    
     var body: some View {
         TabView(selection: $selectedIndex) {
             CalendarView()
                 .tabItem {
-                    Image(systemName: "calendar")
-                    Text("calendar")
+                    VStack {
+                        Image(systemName: "calendar")
+                            .foregroundStyle(selectedIndex == 0 ? activeColor : inactiveColor)
+                        Text("calendar")
+                            .foregroundStyle(selectedIndex == 0 ? activeColor : inactiveColor)
+                    }
                 }
                 .tag(0)
             
             GoalsView()
                 .tabItem {
-                    Image(systemName: "trophy.fill")
-                    Text("goals")
+                    VStack {
+                        Image(systemName: "trophy.fill")
+                            .foregroundStyle(selectedIndex == 1 ? activeColor : inactiveColor)
+                        Text("goals")
+                            .foregroundStyle(selectedIndex == 1 ? activeColor : inactiveColor)
+                    }
                 }
                 .tag(1)
             
-            
             ChatView(viewModel: chatViewModel)
                 .tabItem {
-                    Image(systemName: "message.fill")
-                    Text("chats")
+                    VStack {
+                        Image(systemName: "message.fill")
+                            .foregroundStyle(selectedIndex == 2 ? activeColor : inactiveColor)
+                        Text("chats")
+                            .foregroundStyle(selectedIndex == 2 ? activeColor : inactiveColor)
+                    }
                 }
                 .tag(2)
             
             ProfileView(profileViewModel: profileViewModel)
                 .tabItem {
-                    Image(systemName: "person.fill")
-                    Text("profile")
+                    VStack {
+                        Image(systemName: "person.fill")
+                            .foregroundStyle(selectedIndex == 3 ? activeColor : inactiveColor)
+                        Text("profile")
+                            .foregroundStyle(selectedIndex == 3 ? activeColor : inactiveColor)
+                    }
                 }
                 .tag(3)
         }
+        .tint(.blueMainColor)
         .navigationBarBackButtonHidden()
-        .background(Color.lightBlue)
         .clipShape(
             UnevenRoundedRectangle(
                 topLeadingRadius: 12,

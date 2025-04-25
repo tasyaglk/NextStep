@@ -39,16 +39,16 @@ struct DayView: View {
             return .white
         }
         if isToday {
-            return .appTeal
+            return .blueMainColor
         }
         return isWeekend ? .grayColor : .blackColor
     }
     
     private var borderColor: Color {
         if isSelected {
-            return .appTeal
+            return .blueMainColor
         }
-        return isToday ? .appTeal : .grayColor
+        return isToday ? .blueMainColor : .grayColor
     }
     
     var body: some View {
@@ -65,7 +65,7 @@ struct DayView: View {
         .padding(.vertical, 8)
         .background(
             ZStack {
-                Color(isSelected ? Color.appTeal : Color.white)
+                Color(isSelected ? Color.blueMainColor : Color.white)
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(.gray, lineWidth: isToday ? 2 : 1)
             }

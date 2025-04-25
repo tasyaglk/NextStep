@@ -55,6 +55,6 @@ struct SubtaskStatistics: View {
         .padding()
         .background(Color(hex: subtask.color))
         .cornerRadius(10)
-        .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 2)
+        .shadow(color: .black.opacity(0.2), radius: 6, x: 0, y: 2)
     }
 }

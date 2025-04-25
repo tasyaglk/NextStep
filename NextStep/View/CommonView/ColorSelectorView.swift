@@ -9,30 +9,37 @@ import SwiftUI
 
 struct ColorSelectorView: View {
     @Binding var selectedColor: Color
-    let availableColors: [Color] = [.red, .green, .blue, .pink, .purple] //  добавить норм цвета алло
-
+    let availableColors: [Color] = [.blueMainColor, .yellowMainColor, .redMainColor, .greenMainColor, .pink, .purple] //  добавить норм цвета алло
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Цвет задачи")
                 .font(.headline)
-
+                .foregroundColor(.primary)
+            
             HStack {
                 ForEach(availableColors, id: \.self) { color in
                     Circle()
                         .fill(color)
-                        .frame(width: selectedColor == color ? 36 : 28,
-                               height: selectedColor == color ? 36 : 28)
+                        .frame(width: 32, height: 32) // Фиксированный размер
                         .overlay(
-                            Circle()
-                                .stroke(Color.black.opacity(0.2), lineWidth: 1)
+                            Group {
+                                if selectedColor == color {
+                                    Circle()
+                                        .stroke(Color.white, lineWidth: 3)
+                                        .scaleEffect(0.75) 
+                                }
+                            }
                         )
                         .onTapGesture {
                             selectedColor = color
+                            print("✅ Выбран цвет: \(color)")
                         }
                         .padding(4)
                 }
             }
         }
+        .padding(.vertical, 4)
     }
 }
 
