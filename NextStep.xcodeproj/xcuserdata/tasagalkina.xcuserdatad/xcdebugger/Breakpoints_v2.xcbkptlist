@@ -7,209 +7,597 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "55ECB6FD-E675-430A-85C0-FE727C4A19BF"
-            shouldBeEnabled = "No"
+            uuid = "0E977531-6C7E-4462-915E-14EABBC9C8F5"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalEditorViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "addSubtask(title:deadline:goalName:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "removeEvent(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0E977531-6C7E-4462-915E-14EABBC9C8F5 - 5547430b87a183e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+               <Location
+                  uuid = "0E977531-6C7E-4462-915E-14EABBC9C8F5 - 5d47be7b97d73c26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D27FCEE-097A-400A-9DF9-76A5C1C9C618"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStep/Managers/CalendarManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "removeEvent(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8D27FCEE-097A-400A-9DF9-76A5C1C9C618 - 5d47be7b97d733fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67">
+               </Location>
+               <Location
+                  uuid = "8D27FCEE-097A-400A-9DF9-76A5C1C9C618 - 183111aa53e18751"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+               <Location
+                  uuid = "8D27FCEE-097A-400A-9DF9-76A5C1C9C618 - c672409ca7ec028"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+               <Location
+                  uuid = "8D27FCEE-097A-400A-9DF9-76A5C1C9C618 - 9796e9271fd12229"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2EA88DCA-5B7F-460E-ADFE-9EE521E8C9E0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStep/Managers/CalendarManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "removeEvent(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2F0B3AB3-5014-47B4-BC29-938D417D730C"
+            uuid = "3BF7EE10-1C2B-4F9D-AB40-9B85CC7A5574"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "addGoal(_:)"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "removeEvent(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C6E1CCB3-5AF4-43C8-937B-3DF1C5F1A454"
+            uuid = "B3E8AE7E-0D64-42FE-922C-7C8186763F49"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "addGoal(_:)"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "removeEvent(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "46CAEBCC-663B-48BC-A507-246BBBDE3331"
+            uuid = "3DAEF920-2AD1-4592-A76E-AB63B96C362B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "addGoal(_:)"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "removeEvent(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "10171934-E8F4-4DBB-A442-3B71E00FF81B"
+            uuid = "4EFF7A2B-9043-44C7-B0CE-D0F7533EBD7E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "addGoal(_:)"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "removeEvent(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4EFF7A2B-9043-44C7-B0CE-D0F7533EBD7E - c672409ca7ec0ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72">
+               </Location>
+               <Location
+                  uuid = "4EFF7A2B-9043-44C7-B0CE-D0F7533EBD7E - c672409ca7ec0ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CBD96FCC-A610-4E28-9CF4-8EDBF6E63E2A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStep/Managers/CalendarManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "removeEvent(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "424F2962-5278-4A9E-9FDB-BFCD2D37F4B5"
+            uuid = "E585745E-0E7B-48A0-A047-FE71FD080575"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "addGoal(_:)"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "removeEvent(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "74E0588B-FD58-4426-A24E-7999BBA6B64C"
+            uuid = "AC9157B4-050A-4430-BDB3-B285F4C0B508"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "GoalsViewModel"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "280869D3-DD70-47AE-8EED-78CEB5EF96CF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "loadSubtasks()"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "removeEvent(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D01D3C8E-0251-4F9E-BD06-9E9C617D58DE"
+            uuid = "5CB740FB-D54B-486B-853E-9D95129A5411"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "GoalsViewModel"
-            landmarkType = "3">
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "removeEvent(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - 5547430b87a183e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+               <Location
+                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - 5d47be7b97d73c26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+               <Location
+                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - 183111aa53e18751"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+               <Location
+                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - c672409ca7ec028"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+               <Location
+                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - c672409ca7ec028"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+               <Location
+                  uuid = "5CB740FB-D54B-486B-853E-9D95129A5411 - 9796e9271fd12229"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B31661A8-0C35-4E09-8C6F-F2A5E79D1FAC"
+            uuid = "61B139E7-77C9-4761-AD34-9C21176198C3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "toggleSubtaskCompletion(_:)"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "removeEvent(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "391A19DF-C3C9-4919-AD03-0C35658D2003"
+            uuid = "A1128399-876E-48EF-924C-A05A5B2C7075"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "toggleSubtaskCompletion(_:)"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "removeEvent(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D2A6BEDC-B069-4AC2-920C-0F135C514B71"
+            uuid = "1CA1CFFA-042B-4993-B0E9-994240799103"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+            filePath = "NextStep/Managers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "toggleSubtaskCompletion(_:)"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "removeEvent(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "81456EC5-FB1C-44F8-BA16-0C2E592338DD"
+            uuid = "979E7C2D-F12C-4231-A48C-E5E358DA28DB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStep/Managers/CalendarManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "removeEvent(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C25E43B-12B2-42B8-8ECF-F879F7168B5F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStep/Managers/CalendarManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "removeEvent(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "42DB00A4-F55C-4F23-BFF4-8566B2F225A1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStep/Managers/CalendarManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "removeEvent(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AADD4050-A3BE-4BCC-9366-B7173FCE0574"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStep/Managers/CalendarManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "removeEvent(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AADD4050-A3BE-4BCC-9366-B7173FCE0574 - c672409ca7ec103"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83">
+               </Location>
+               <Location
+                  uuid = "AADD4050-A3BE-4BCC-9366-B7173FCE0574 - 9796e9271fd12302"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for NextStep.CalendarManager.removeEvent(for: NextStep.Subtask) async throws -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/Managers/CalendarManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED59B150-BD8E-4189-993D-FD99909755C6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "toggleSubtaskCompletion(_:)"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "deleteGoal(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ED59B150-BD8E-4189-993D-FD99909755C6 - 4ff6c85bc7672372"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for NextStep.GoalsViewModel.deleteGoal(NextStep.Goal) async -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88">
+               </Location>
+               <Location
+                  uuid = "ED59B150-BD8E-4189-993D-FD99909755C6 - 5988ad4968081af9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for NextStep.GoalsViewModel.deleteGoal(NextStep.Goal) async -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88">
+               </Location>
+               <Location
+                  uuid = "ED59B150-BD8E-4189-993D-FD99909755C6 - 1e5e4bec587966b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for NextStep.GoalsViewModel.deleteGoal(NextStep.Goal) async -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88">
+               </Location>
+               <Location
+                  uuid = "ED59B150-BD8E-4189-993D-FD99909755C6 - 1ae08a48ebfdfc6b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) suspend resume partial function for NextStep.GoalsViewModel.deleteGoal(NextStep.Goal) async -&gt; ()"
+                  moduleName = "NextStep.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tasagalkina/Desktop/%D0%92%D0%9A%D0%A0/NextStep/NextStep/ViewModel/GoalsViewModel/GoalsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -62,6 +62,26 @@ class CalendarManager {
         return eventID
     }
     
+    // Удаляем событие для одной подзадачи
+    func removeEvent(for subtask: Subtask) async throws {
+        guard try await requestCalendarAccess() else {
+            throw NSError(domain: "CalendarAccessError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Нет доступа к календарю"])
+        }
+        
+        if let eventID = subtask.calendarEventID,
+           let event = eventStore.event(withIdentifier: eventID) {
+            do {
+                try eventStore.remove(event, span: .thisEvent)
+                print("✅ Удалено событие для подзадачи: \(String(describing: event.title))")
+            } catch {
+                print("❌ Ошибка удаления события для подзадачи '\(subtask.title)': \(error.localizedDescription)")
+                throw error
+            }
+        } else {
+            print("ℹ️ Нет события для подзадачи: \(subtask.title)")
+        }
+    }
+    
     // Удаляем события для цели
     func removeEvents(for goal: Goal) async throws {
         guard try await requestCalendarAccess() else {

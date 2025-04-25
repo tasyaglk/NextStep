@@ -30,54 +30,60 @@ class GoalsViewModel: ObservableObject {
             errorMessage = nil
         } catch {
             errorMessage = "Ошибка загрузки целей: \(error.localizedDescription)"
-//            print(errorMessage)
+            print(errorMessage)
         }
     }
     
     func loadSubtasks() async {
         do {
             subtasks = try await service.fetchAllSubtasks(for: userId)
+            print("Subtasks loaded: \(subtasks)")
             errorMessage = nil
         } catch {
             errorMessage = "Ошибка загрузки подзадач: \(error.localizedDescription)"
+            print(errorMessage)
         }
     }
 
     func addGoal(_ goal: Goal) async {
+        print("Adding goal: \(goal)")
+        print("Subtasks IDs: \(goal.subtasks?.map { $0.id } ?? [])")
         do {
             let updatedGoal = try await calendarManager.synchronizeSubtasks(goal: goal)
+            print("-----\nUpdated goal with calendarEventIDs: \(updatedGoal.subtasks?.map { ($0.id, $0.calendarEventID ?? "nil") } ?? [])")
             try await service.createGoal(goal: updatedGoal)
             await loadGoals()
             successMessage = "Цель и расписание успешно сохранены!"
             errorMessage = nil
+            print("-----\nGoal added successfully: \(updatedGoal)")
         } catch {
             let errorDesc = error.localizedDescription
             errorMessage = "Ошибка создания цели: \(errorDesc.contains("subtasks_pkey") ? "Конфликт подзадач, попробуйте снова" : errorDesc)"
             successMessage = nil
+            print("Error adding goal: \(error)")
         }
     }
 
     func updateGoal(_ goal: Goal) async {
-//        print("Updating goal: \(goal)")
-//        print("Subtasks IDs: \(goal.subtasks?.map { $0.id } ?? [])")
+        print("Updating goal: \(goal)")
+        print("Subtasks IDs: \(goal.subtasks?.map { $0.id } ?? [])")
         do {
-            let updatedGoal = try await calendarManager.synchronizeSubtasks(goal: goal)
-//            print("Updated goal with calendarEventIDs: \(updatedGoal.subtasks?.map { ($0.id, $0.calendarEventID ?? "nil") } ?? [])")
-            try await service.updateGoal(updatedGoal)
+            try await service.updateGoal(goal)
             await loadGoals()
+            await loadSubtasks()
             successMessage = "Цель успешно обновлена!"
             errorMessage = nil
-//            print("Goal updated successfully: \(updatedGoal)")
+            print("Goal updated successfully: \(goal)")
         } catch {
             let errorDesc = error.localizedDescription
             errorMessage = "Ошибка обновления цели: \(errorDesc.contains("subtasks_pkey") ? "Конфликт подзадач, попробуйте снова" : errorDesc)"
             successMessage = nil
-//            print("Error updating goal: \(error)")
+            print("Error updating goal: \(error)")
         }
     }
 
     func deleteGoal(_ goal: Goal) async {
-//        print("Deleting goal: \(goal.id)")
+        print("Deleting goal: \(goal.id)")
         do {
             try await calendarManager.removeEvents(for: goal)
             try await service.deleteGoal(id: goal.id, userId: userId)
@@ -97,17 +103,17 @@ class GoalsViewModel: ObservableObject {
         var updatedGoal = goal
         updatedGoal.isPinned.toggle()
         
-//        print("Toggling pin for goal: \(goal.id), isPinned: \(updatedGoal.isPinned)")
+        print("Toggling pin for goal: \(goal.id), isPinned: \(updatedGoal.isPinned)")
         do {
             try await service.updateGoal(updatedGoal)
             await loadGoals()
             successMessage = updatedGoal.isPinned ? "Цель закреплена!" : "Цель откреплена!"
             errorMessage = nil
-//            print("Goal pinned successfully: \(updatedGoal.isPinned)")
+            print("Goal pinned successfully: \(updatedGoal.isPinned)")
         } catch {
             errorMessage = "Ошибка при закреплении цели: \(error.localizedDescription)"
             successMessage = nil
-//            print("Error pinning goal: \(error)")
+            print("Error pinning goal: \(error)")
         }
     }
     
@@ -129,10 +135,25 @@ class GoalsViewModel: ObservableObject {
             if let urlError = error as? URLError {
                 print("URLError: \(urlError)")
             } else if let decodingError = error as? DecodingError {
-                print("Decoding error: \(decodingError)")
+                print("DecodingError: \(decodingError)")
             } else {
                 print("Other error: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func deleteSubtask(_ subtask: Subtask) async {
+        print("Deleting subtask: \(subtask.id)")
+        do {
+            try await service.deleteSubtask(id: subtask.id, userId: userId)
+            await loadSubtasks()
+            successMessage = "Подзадача успешно удалена!"
+            errorMessage = nil
+            print("Subtask deleted successfully: \(subtask.id)")
+        } catch {
+            errorMessage = "Ошибка удаления подзадачи: \(error.localizedDescription)"
+            successMessage = nil
+            print("Error deleting subtask: \(error)")
         }
     }
 }

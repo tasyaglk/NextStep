@@ -18,6 +18,7 @@ struct EventModal: View {
     
     @State private var newSubtaskTitle = ""
     @State private var newSubtaskDate = Date()
+    @State private var showErrorAlert = false
     
     init(taskToEdit: Goal? = nil, onSave: ((Goal) -> Void)? = nil) {
         self.taskToEdit = taskToEdit
@@ -50,7 +51,9 @@ struct EventModal: View {
                         .foregroundStyle(Color.blackColor)
                     
                     ForEach($editor.subtasks) { $subtask in
-                        DatePicker(subtask.title, selection: $subtask.deadline, in: editor.startDate...)
+                        DatePicker(subtask.title, selection: $subtask.deadline, in: editor.startDate...editor.endDate)
+                            .font(.custom("Onest-Regular", size: 16))
+                            .foregroundStyle(Color.blackColor)
                     }
                     .onDelete { indices in
                         editor.subtasks.remove(atOffsets: indices)
@@ -60,14 +63,16 @@ struct EventModal: View {
                         TextField("Новая подзадача", text: $newSubtaskTitle)
                             .font(.custom("Onest-Regular", size: 16))
                             .foregroundStyle(Color.blackColor)
-                        DatePicker("", selection: $newSubtaskDate, displayedComponents: [.date, .hourAndMinute])
+                        DatePicker("", selection: $newSubtaskDate, in: editor.startDate...editor.endDate, displayedComponents: [.date, .hourAndMinute])
                         
                         Button {
                             editor.addSubtask(title: newSubtaskTitle, deadline: newSubtaskDate, goalName: editor.title)
-                            
-                            
-                            newSubtaskTitle = ""
-                            newSubtaskDate = Date()
+                            if editor.errorMessage == nil {
+                                newSubtaskTitle = ""
+                                newSubtaskDate = Date()
+                            } else {
+                                showErrorAlert = true
+                            }
                         } label: {
                             Image(systemName: "plus.circle.fill")
                                 .foregroundColor(.appTeal)
@@ -78,18 +83,14 @@ struct EventModal: View {
                 .listRowSeparator(.hidden)
                 
                 Section {
-//                    ColorPicker("Цвет задачи", selection: $editor.selectedColor)
-                        ColorSelectorView(selectedColor: $editor.selectedColor)
-                    
+                    ColorSelectorView(selectedColor: $editor.selectedColor)
                 }
             }
             .onChange(of: editor.selectedColor) { _ in
                 editor.updateSubtask()
-                
             }
             .onChange(of: editor.title) { _ in
                 editor.updateSubtask()
-                
             }
             .navigationTitle(taskToEdit == nil ? "Новая цель" : "Редактировать")
             .toolbar {
@@ -104,21 +105,39 @@ struct EventModal: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(taskToEdit == nil ? "Добавить" : "Сохранить") {
                         let goal = editor.buildGoal(existingGoal: taskToEdit)
-                        
-                        if taskToEdit != nil {
-                            Task { await viewModel.updateGoal(goal) }
-                        } else {
-                            Task { await viewModel.addGoal(goal) }
+                        if editor.errorMessage != nil {
+                            showErrorAlert = true
+                            return
                         }
-                        
-                        onSave?(goal)
-                        dismiss()
+                        Task {
+                            if taskToEdit != nil {
+                                await viewModel.updateGoal(goal)
+                            } else {
+                                await viewModel.addGoal(goal)
+                            }
+                            if viewModel.errorMessage == nil {
+                                onSave?(goal)
+                                dismiss()
+                            } else {
+                                showErrorAlert = true
+                            }
+                        }
                     }
                     .disabled(editor.title.isEmpty)
                     .foregroundColor(.blackColor)
                     .font(.custom("Onest-Regular", size: 16))
                 }
             }
+            .alert(isPresented: $showErrorAlert) {
+                Alert(
+                    title: Text("Ошибка"),
+                    message: Text(editor.errorMessage ?? viewModel.errorMessage ?? "Неизвестная ошибка"),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+//            .alert(item: $viewModel.successMessage) { success in
+//                Alert(title: Text("Успех"), message: Text(success))
+//            }
         }
     }
 }
