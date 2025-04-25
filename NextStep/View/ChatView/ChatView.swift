@@ -41,9 +41,33 @@ struct ChatView: View {
     
     @ViewBuilder
     private func InputFieldView() -> some View {
-        HStack {
-            TextField("Сообщение..", text: $viewModel.newMessage)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+        HStack(alignment: .bottom) {
+            ZStack(alignment: .leading) {
+                // Плейсхолдер
+                if viewModel.newMessage.isEmpty {
+                    Text("Сообщение...")
+                        .foregroundColor(.gray)
+                        .padding(.leading, 8)
+                        .padding(.vertical, 12)
+                }
+                
+                // Многострочный TextEditor
+                TextEditor(text: $viewModel.newMessage)
+                    .foregroundColor(.primary)
+                    .font(.system(size: 16))
+                    .frame(maxHeight: 80) // Ограничение на ~3 строки
+                    .padding(.horizontal, 4)
+                    .padding(.vertical, 4)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(.systemBackground))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                            )
+                    )
+                    .scrollContentBackground(.hidden) // Убираем стандартный фон
+            }
             
             Button(action: {
                 viewModel.sendMessage()
@@ -52,11 +76,13 @@ struct ChatView: View {
                     ProgressView()
                 } else {
                     Image(systemName: "arrow.up.circle.fill")
+                        .foregroundColor(.blue)
                 }
             }
             .disabled(viewModel.newMessage.isEmpty || viewModel.isLoading)
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.vertical, 8)
     }
     
     @ViewBuilder
@@ -105,6 +131,8 @@ struct ChatView: View {
 
 struct MessageBubble: View {
     let message: ChatMessage
+    @State private var typingDots: String = "."
+    @State private var timer: Timer?
     
     var body: some View {
         HStack {
@@ -117,12 +145,18 @@ struct MessageBubble: View {
                     .cornerRadius(15)
             } else {
                 if message.isTypingIndicator {
-                    Text(message.content)
+                    Text("Печатает\(typingDots)")
                         .padding()
                         .background(Color.gray.opacity(0.2))
                         .foregroundColor(.primary)
                         .cornerRadius(15)
                         .italic()
+                        .onAppear {
+                            startTypingAnimation()
+                        }
+                        .onDisappear {
+                            stopTypingAnimation()
+                        }
                 } else {
                     Text(message.content)
                         .padding()
@@ -136,4 +170,29 @@ struct MessageBubble: View {
         .padding(.horizontal)
         .padding(.vertical, 4)
     }
+    
+    private func startTypingAnimation() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
+            withAnimation {
+                switch typingDots {
+                case ".":
+                    typingDots = ".."
+                case "..":
+                    typingDots = "..."
+                case "...":
+                    typingDots = "."
+                default:
+                    typingDots = "."
+                }
+            }
+        }
+    }
+    
+    private func stopTypingAnimation() {
+        timer?.invalidate()
+        timer = nil
+        typingDots = "."
+    }
 }
+

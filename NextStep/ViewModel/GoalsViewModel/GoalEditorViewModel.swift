@@ -14,7 +14,7 @@ class GoalEditorViewModel: ObservableObject {
     @Published var selectedColor: Color = .blue
     @Published var subtasks: [Subtask] = []
     @Published var errorMessage: String?
-    private var deletedSubtaskEventIDs: [String] = [] // Храним calendarEventID удалённых подзадач
+    private var deletedSubtaskEventIDs: [String] = []
     private let calendarManager = CalendarManager.shared
 
     init(goal: Goal? = nil) {
@@ -23,9 +23,12 @@ class GoalEditorViewModel: ObservableObject {
             self.startDate = goal.startTime
             self.selectedColor = Color(hex: goal.color) ?? .blue
 
-            if let duration = TimeInterval(goal.duration) {
+            // Парсим duration из строки (ISO 8601 или HH:MM:SS)
+            if let duration = parseDuration(goal.duration) {
                 self.endDate = goal.startTime.addingTimeInterval(duration)
+                print("✅ Parsed duration: \(goal.duration) -> \(duration) seconds, endDate: \(self.endDate)")
             } else {
+                print("⚠️ Не удалось распарсить duration: \(goal.duration), устанавливаем endDate = startTime")
                 self.endDate = goal.startTime
             }
 
@@ -57,16 +60,16 @@ class GoalEditorViewModel: ObservableObject {
     }
 
     func removeSubtask(atOffsets indices: IndexSet) async {
-        // Собираем calendarEventID удаляемых подзадач
         let subtasksToDelete = indices.map { subtasks[$0] }
         for subtask in subtasksToDelete {
             if let eventID = subtask.calendarEventID, !eventID.isEmpty {
                 deletedSubtaskEventIDs.append(eventID)
                 do {
                     try await calendarManager.removeEvent(for: subtask)
+                    print("✅ Удалено событие для подзадачи: \(subtask.title), eventID: \(eventID)")
                 } catch {
                     errorMessage = "Ошибка удаления события подзадачи: \(error.localizedDescription)"
-                    print("⚠️ Failed to remove event for subtask \(subtask.title): \(error)")
+                    print("⚠️ Не удалось удалить событие для подзадачи \(subtask.title): \(error)")
                 }
             }
         }
@@ -92,7 +95,10 @@ class GoalEditorViewModel: ObservableObject {
             return Goal(id: UUID(), userId: UserService.userID, title: "", startTime: startDate, duration: "", color: "#000000", isPinned: false, subtasks: [], completedSubtaskCount: 0)
         }
 
-        let durationString = ISO8601DurationFormatter.string(from: endDate.timeIntervalSince(startDate))
+        // Формируем duration в формате HH:MM:SS для совместимости с сервером
+        let timeInterval = endDate.timeIntervalSince(startDate)
+        let durationString = formatDurationToHHMMSS(timeInterval)
+        print("✅ Built goal with duration: \(durationString) (\(timeInterval) seconds)")
         
         let createdGoal = Goal(
             id: existingGoal?.id ?? UUID(),
@@ -111,7 +117,6 @@ class GoalEditorViewModel: ObservableObject {
     }
 
     func cleanupDeletedSubtaskEvents() async throws {
-        // Удаляем события для подзадач, которые были удалены ранее
         for eventID in deletedSubtaskEventIDs {
             let subtask = Subtask(
                 id: UUID(),
@@ -123,8 +128,68 @@ class GoalEditorViewModel: ObservableObject {
                 calendarEventID: eventID
             )
             try await calendarManager.removeEvent(for: subtask)
+            print("✅ Очищено событие для удалённой подзадачи, eventID: \(eventID)")
         }
         deletedSubtaskEventIDs.removeAll()
     }
-}
 
+    // Парсер для duration (поддерживает ISO 8601 и HH:MM:SS)
+    private func parseDuration(_ duration: String) -> TimeInterval? {
+        // Проверка на пустую строку
+        guard !duration.isEmpty else {
+            print("⚠️ Пустой duration")
+            return nil
+        }
+
+        // 1. Формат HH:MM:SS
+        let hhmmssRegex = try! NSRegularExpression(pattern: "^(\\d+):(\\d{2}):(\\d{2})$")
+        if let match = hhmmssRegex.firstMatch(in: duration, options: [], range: NSRange(duration.startIndex..., in: duration)) {
+            if let hoursRange = Range(match.range(at: 1), in: duration),
+               let minutesRange = Range(match.range(at: 2), in: duration),
+               let secondsRange = Range(match.range(at: 3), in: duration),
+               let hours = Double(duration[hoursRange]),
+               let minutes = Double(duration[minutesRange]),
+               let seconds = Double(duration[secondsRange]) {
+                let totalSeconds = hours * 3600 + minutes * 60 + seconds
+                if totalSeconds > 0 {
+                    return totalSeconds
+                }
+                print("⚠️ Нулевая длительность: \(duration)")
+                return nil
+            }
+        }
+
+        // 2. Формат ISO 8601 (PTxHyMzS)
+        if duration.starts(with: "PT") {
+            let isoRegex = try! NSRegularExpression(pattern: "PT(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)S)?")
+            if let match = isoRegex.firstMatch(in: duration, options: [], range: NSRange(duration.startIndex..., in: duration)) {
+                var seconds: Double = 0
+                if let hoursRange = Range(match.range(at: 1), in: duration), let hours = Double(duration[hoursRange]) {
+                    seconds += hours * 3600
+                }
+                if let minutesRange = Range(match.range(at: 2), in: duration), let minutes = Double(duration[minutesRange]) {
+                    seconds += minutes * 60
+                }
+                if let secondsRange = Range(match.range(at: 3), in: duration), let sec = Double(duration[secondsRange]) {
+                    seconds += sec
+                }
+                if seconds > 0 {
+                    return seconds
+                }
+                print("⚠️ Нулевая длительность ISO 8601: \(duration)")
+                return nil
+            }
+        }
+
+        print("⚠️ Неверный формат duration: \(duration)")
+        return nil
+    }
+
+    // Форматирование TimeInterval в HH:MM:SS
+    private func formatDurationToHHMMSS(_ timeInterval: TimeInterval) -> String {
+        let hours = Int(timeInterval) / 3600
+        let minutes = (Int(timeInterval) % 3600) / 60
+        let seconds = Int(timeInterval) % 60
+        return String(format: "%d:%02d:%02d", hours, minutes, seconds)
+    }
+}
