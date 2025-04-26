@@ -22,7 +22,16 @@ class GoalsViewModel: ObservableObject {
     
     private let service = GoalService()
     private let calendarManager = CalendarManager.shared
-    private let userId = UserService.userID
+    private var userId = UserService.userID
+    
+    func loadUserInfo() {
+        if let savedData = UserDefaults.standard.data(forKey: "userProfile"),
+           let decodedProfile = try? JSONDecoder().decode(UserProfile.self, from: savedData) {
+            var userInfo = decodedProfile
+            userId = decodedProfile.id
+            UserService.userID = decodedProfile.id
+        }
+    }
 
     func loadGoals() async {
         do {

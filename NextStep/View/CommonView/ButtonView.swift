@@ -20,7 +20,7 @@ struct ButtonView: View {
         }, label: {
             Text(title)
                 .font(customFont: .onestBold, size: 16)
-                .foregroundStyle(Color.blackColor)
+                .foregroundStyle(Color.white)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .frame(height: height)
                 .background(isEnabled ? Color.blueMainColor : Color.blueMainColor)

@@ -73,8 +73,8 @@ class LoginViewModel: ObservableObject {
         }
         UserService.isLoggedIn = true
         UserService.userID = userInfo.id
-//        print("---")
-//        print(UserService.userID)
-//        print("---")
+        print("---")
+        print(UserService.userID)
+        print("---")
     }
 }

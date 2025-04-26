@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct SubtaskStatistics: View {
-     var subtask: Subtask
+    var subtask: Subtask
     
     let onToggleCompletion: (Subtask) async -> Void
+    
+    private static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ru_RU")
+        formatter.dateFormat = "d MMMM yyyy"
+        return formatter
+    }()
+    
+    private static let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ru_RU")
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -27,7 +41,6 @@ struct SubtaskStatistics: View {
                     }
                 }
                 
-                
                 VStack(alignment: .leading, spacing: 8) {
                     Text(subtask.title)
                         .font(customFont: .onestSemiBold, size: 20)
@@ -41,15 +54,14 @@ struct SubtaskStatistics: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text(subtask.deadline, style: .date)
+                    Text(Self.dateFormatter.string(from: subtask.deadline))
                         .font(customFont: .onestSemiBold, size: 20)
                         .foregroundStyle(Color.white)
-                        
-                        Text(subtask.deadline, style: .time)
-                            .font(customFont: .onestSemiBold, size: 20)
-                            .foregroundStyle(Color.white)
+                    
+                    Text(Self.timeFormatter.string(from: subtask.deadline))
+                        .font(customFont: .onestSemiBold, size: 20)
+                        .foregroundStyle(Color.white)
                 }
-                
             }
         }
         .padding()

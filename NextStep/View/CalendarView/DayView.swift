@@ -15,12 +15,14 @@ struct DayView: View {
     
     private var weekdayString: String {
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ru_RU") // Устанавливаем русскую локаль
         formatter.dateFormat = "EEE"
         return formatter.string(from: date).uppercased()
     }
     
     private var dayString: String {
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ru_RU") // Устанавливаем русскую локаль
         formatter.dateFormat = "d"
         return formatter.string(from: date)
     }

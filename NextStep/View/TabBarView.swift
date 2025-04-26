@@ -23,7 +23,7 @@ struct TabBarView: View {
                     VStack {
                         Image(systemName: "calendar")
                             .foregroundStyle(selectedIndex == 0 ? activeColor : inactiveColor)
-                        Text("calendar")
+                        Text("календарь")
                             .foregroundStyle(selectedIndex == 0 ? activeColor : inactiveColor)
                     }
                 }
@@ -34,7 +34,7 @@ struct TabBarView: View {
                     VStack {
                         Image(systemName: "trophy.fill")
                             .foregroundStyle(selectedIndex == 1 ? activeColor : inactiveColor)
-                        Text("goals")
+                        Text("цели")
                             .foregroundStyle(selectedIndex == 1 ? activeColor : inactiveColor)
                     }
                 }
@@ -45,7 +45,7 @@ struct TabBarView: View {
                     VStack {
                         Image(systemName: "message.fill")
                             .foregroundStyle(selectedIndex == 2 ? activeColor : inactiveColor)
-                        Text("chats")
+                        Text("чат")
                             .foregroundStyle(selectedIndex == 2 ? activeColor : inactiveColor)
                     }
                 }
@@ -56,7 +56,7 @@ struct TabBarView: View {
                     VStack {
                         Image(systemName: "person.fill")
                             .foregroundStyle(selectedIndex == 3 ? activeColor : inactiveColor)
-                        Text("profile")
+                        Text("профиль")
                             .foregroundStyle(selectedIndex == 3 ? activeColor : inactiveColor)
                     }
                 }

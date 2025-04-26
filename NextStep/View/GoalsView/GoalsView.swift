@@ -120,10 +120,19 @@ struct GoalsView: View {
     
     private var Header: some View {
         HStack {
+            Button(action: { isShowingEventModal = true }) {
+                Image(systemName: "plus")
+                    .foregroundColor(.clear)
+            }
+            .disabled(true)
+            
             Spacer()
-            Text("Все цели")
+            
+            Text("все цели")
                 .font(customFont: .onestBold, size: 20)
+            
             Spacer()
+            
             Button(action: { isShowingEventModal = true }) {
                 Image(systemName: "plus")
                     .foregroundColor(.blackColor)

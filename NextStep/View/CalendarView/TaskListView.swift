@@ -33,7 +33,8 @@ struct TaskListView: View {
 
     var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, MMMM d, yyyy"
+        formatter.locale = Locale(identifier: "ru_RU") 
+        formatter.dateFormat = "EEEE, d MMMM yyyy"
         return formatter
     }()
     
@@ -44,7 +45,7 @@ struct TaskListView: View {
                     .font(customFont: .onestSemiBold, size: 20)
                     .foregroundStyle(Color.blackColor)
                 
-                Text("You have \(filteredTasks.count) tasks scheduled for today")
+                Text("У вас запланировано \(filteredTasks.count) \(taskWord(count: filteredTasks.count)) на сегодня")
                     .font(customFont: .onestRegular, size: 16)
                     .foregroundColor(.grayColor)
             }
@@ -52,7 +53,6 @@ struct TaskListView: View {
                 ScrollViewReader { scrollProxy in
                     ScrollView(.vertical, showsIndicators: false) {
                         HStack(alignment: .top, spacing: 16) {
-                            
                             VStack(spacing: hourSpacing) {
                                 ForEach(filteredTasks) { task in
                                     SubtaskView(
@@ -73,17 +73,12 @@ struct TaskListView: View {
         }
         .onAppear {
             Task {
+                viewModel.loadUserInfo()
                 await viewModel.loadSubtasks()
             }
         }
         .padding()
-        .background(.white
-//            ZStack {
-//                Color.appContainer
-//                RoundedRectangle(cornerRadius: 20)
-//                    .stroke(Color.grayColor, lineWidth: 1)
-//            }
-        )
+        .background(.white)
         .cornerRadius(20)
         .gesture(
             MagnificationGesture()
@@ -121,6 +116,20 @@ struct TaskListView: View {
         .animation(.interactiveSpring(
             response: 0.3, dampingFraction: 0.7, blendDuration: 0.1
         ), value: timeSlotScale)
+    }
+    
+    private func taskWord(count: Int) -> String {
+        let lastDigit = count % 10
+        let lastTwoDigits = count % 100
         
+        if lastTwoDigits >= 11 && lastTwoDigits <= 19 {
+            return "задач"
+        } else if lastDigit == 1 {
+            return "задача"
+        } else if lastDigit >= 2 && lastDigit <= 4 {
+            return "задачи"
+        } else {
+            return "задач"
+        }
     }
 }

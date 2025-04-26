@@ -31,13 +31,45 @@ struct WeekView: View {
     
     private func monthYearString(for date: Date) -> String {
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ru_RU")
         formatter.dateFormat = "MMMM yyyy"
         
-        if isDateInDisplayedWeek(selectedDate, for: weekOffset) {
-            return formatter.string(from: selectedDate)
+        // Получаем строку в родительном падеже
+        let originalString = if isDateInDisplayedWeek(selectedDate, for: weekOffset) {
+            formatter.string(from: selectedDate)
+        } else {
+            formatter.string(from: date)
         }
         
-        return formatter.string(from: date)
+        // Разделяем строку на месяц и год
+        let components = originalString.split(separator: " ")
+        guard components.count == 2 else { return originalString }
+        let monthInGenitive = components[0]
+        let year = components[1]
+        
+        // Преобразуем месяц из родительного в именительный падеж
+        let monthInNominative = genitiveToNominative(String(monthInGenitive))
+        
+        return "\(monthInNominative) \(year)"
+    }
+
+    // Функция для преобразования месяца из родительного в именительный падеж
+    private func genitiveToNominative(_ month: String) -> String {
+        switch month.lowercased() {
+        case "января": return "Январь"
+        case "февраля": return "Февраль"
+        case "марта": return "Март"
+        case "апреля": return "Апрель"
+        case "мая": return "Май"
+        case "июня": return "Июнь"
+        case "июля": return "Июль"
+        case "августа": return "Август"
+        case "сентября": return "Сентябрь"
+        case "октября": return "Октябрь"
+        case "ноября": return "Ноябрь"
+        case "декабря": return "Декабрь"
+        default: return month
+        }
     }
     
     var body: some View {
@@ -63,7 +95,7 @@ struct WeekView: View {
                     HStack(spacing: 4) {
                         Image(systemName: "calendar")
                             .font(.system(size: 12))
-                        Text("Today")
+                        Text("Сегодня") // Локализовали "Today" на русский
                             .font(customFont: .onestRegular, size: 15)
                             .foregroundStyle(Color.blackColor)
                     }
@@ -78,12 +110,10 @@ struct WeekView: View {
                     .foregroundColor(.blackColor)
                     .cornerRadius(8)
                 }
-
                 .opacity(isDateInDisplayedWeek(Date(), for: weekOffset) ? 0 : 1)
                 .offset(y: isDateInDisplayedWeek(Date(), for: weekOffset) ? 20 : 0)
                 .scaleEffect(isDateInDisplayedWeek(Date(), for: weekOffset) ? 0.9 : 1)
                 .animation(.easeInOut(duration: 0.3), value: isDateInDisplayedWeek(Date(), for: weekOffset))
-
             }
             .padding(.leading, 8)
             .onTapGesture {
@@ -92,13 +122,14 @@ struct WeekView: View {
             .overlay {
                 if showDatePicker {
                     DatePicker(
-                        "Test",
+                        "Выберите дату", // Локализовали заголовок DatePicker
                         selection: $selectedDate,
                         displayedComponents: .date
                     )
                     .labelsHidden()
                     .datePickerStyle(.compact)
                     .accentColor(.blue)
+                    .environment(\.locale, Locale(identifier: "ru_RU")) // Локаль для DatePicker
                     .onChange(of: selectedDate) { _, _ in
                         showDatePicker = false
                     }
@@ -120,7 +151,6 @@ struct WeekView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             .frame(height: 70)
-            
         }
         .padding(.horizontal)
         .onChange(of: selectedDate) { _, newDate in
@@ -136,4 +166,3 @@ struct WeekView: View {
         }
     }
 }
-

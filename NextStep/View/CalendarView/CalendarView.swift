@@ -25,6 +25,7 @@ struct CalendarView: View {
                     TaskListView(selectedDate: selectedDate)
                         .onAppear {
                             Task {
+                                 viewModel.loadUserInfo()
                                 await viewModel.loadGoals()
                             }
                         }
@@ -32,11 +33,12 @@ struct CalendarView: View {
                 .padding(.top)
             }
         }
-//        .onAppear {
-//            Task {
-//                await viewModel.loadSubtasks()
-//            }
-//        }
+        .onAppear {
+            Task {
+                viewModel.loadUserInfo()
+               await viewModel.loadGoals()
+            }
+        }
     }
 }
 
@@ -49,7 +51,7 @@ struct Header: View {
             Spacer()
             
             HStack(spacing: 16) {
-                Text("Calendar")
+                Text("календарь")
                     .font(customFont: .onestBold, size: 20)
                     .foregroundStyle(Color.blackColor)
             }
