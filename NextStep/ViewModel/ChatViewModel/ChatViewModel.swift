@@ -28,7 +28,7 @@ class ChatViewModel: ObservableObject {
     private var lastSchedule: String = ""
     
     private let userId: Int
-    private let apiManager = DeepSeekAPIManager.shared
+    private let apiManager = DeepSeekService.shared
     private let goalService = GoalService()
     private let calendarManager = CalendarManager.shared
     
