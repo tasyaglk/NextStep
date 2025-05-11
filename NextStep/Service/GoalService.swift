@@ -152,12 +152,12 @@ final class GoalService {
         if let subtask = subtasks.first(where: { $0.id == id }) {
             do {
                 try await calendarManager.removeEvent(for: subtask)
-                print("✅ Attempted to remove event for subtask: \(subtask.title), eventID: \(subtask.calendarEventID ?? "nil")")
+                print("\(subtask.title), eventID: \(subtask.calendarEventID ?? "nil")")
             } catch {
-                print("⚠️ Ошибка удаления события из календаря для подзадачи \(subtask.title): \(error.localizedDescription)")
+                print("Ошибка удаления события из календаря для подзадачи \(subtask.title): \(error.localizedDescription)")
             }
         } else {
-            print("ℹ️ Подзадача с id \(id) не найдена")
+            print("Подзадача с id \(id) не найдена")
         }
         
         var components = URLComponents(string: "http://localhost:8080/subtasks/\(id)")!
@@ -177,6 +177,6 @@ final class GoalService {
             throw NSError(domain: "ServerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Не удалось удалить подзадачу: \(errorMessage)"])
         }
         
-        print("✅ Подзадача удалена с сервера: \(id)")
+        print("Подзадача удалена с сервера: \(id)")
     }
 }

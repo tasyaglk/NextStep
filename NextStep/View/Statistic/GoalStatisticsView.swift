@@ -55,7 +55,7 @@ struct GoalStatisticsView: View {
 //                }
             VStack {
                 HStack {
-                    Text("Подзадачи")
+                    Text("Этапы")
                         .font(customFont: .onestBold, size: 20)
                         .foregroundStyle(Color.blackColor)
                         

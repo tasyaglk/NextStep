@@ -15,7 +15,6 @@ class CalendarManager {
     
     private init() {}
     
-    // Запрашиваем полный доступ к календарю
     func requestCalendarAccess() async throws -> Bool {
         do {
             return try await eventStore.requestFullAccessToEvents()
@@ -24,7 +23,6 @@ class CalendarManager {
         }
     }
     
-    // Получаем события из календаря за период
     func fetchEvents(from startDate: Date, to endDate: Date) async throws -> [(start: Date, end: Date)] {
         guard try await requestCalendarAccess() else {
             throw NSError(domain: "CalendarAccessError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Нет доступа к календарю"])
@@ -42,7 +40,6 @@ class CalendarManager {
         return busySlots
     }
     
-    // Добавляем событие для подзадачи
     func addEvent(for subtask: Subtask) async throws -> String {
         guard try await requestCalendarAccess() else {
             throw NSError(domain: "CalendarAccessError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Нет доступа к календарю"])
@@ -51,7 +48,7 @@ class CalendarManager {
         let event = EKEvent(eventStore: eventStore)
         event.title = subtask.title
         event.startDate = subtask.deadline
-        event.endDate = subtask.deadline.addingTimeInterval(60 * 60) // 1 час
+        event.endDate = subtask.deadline.addingTimeInterval(60 * 60)
         event.calendar = eventStore.defaultCalendarForNewEvents
         event.notes = "Из цели: \(subtask.goalName) из приложения NextStep"
         
@@ -62,7 +59,6 @@ class CalendarManager {
         return eventID
     }
     
-    // Удаляем событие для одной подзадачи
     func removeEvent(for subtask: Subtask) async throws {
         guard try await requestCalendarAccess() else {
             throw NSError(domain: "CalendarAccessError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Нет доступа к календарю"])
@@ -72,17 +68,16 @@ class CalendarManager {
            let event = eventStore.event(withIdentifier: eventID) {
             do {
                 try eventStore.remove(event, span: .thisEvent)
-                print("✅ Удалено событие для подзадачи: \(String(describing: event.title))")
+                print("Удалено событие для подзадачи: \(String(describing: event.title))")
             } catch {
-                print("❌ Ошибка удаления события для подзадачи '\(subtask.title)': \(error.localizedDescription)")
+                print("Ошибка удаления события для подзадачи '\(subtask.title)': \(error.localizedDescription)")
                 throw error
             }
         } else {
-            print("ℹ️ Нет события для подзадачи: \(subtask.title)")
+            print("Нет события для подзадачи: \(subtask.title)")
         }
     }
     
-    // Удаляем события для цели
     func removeEvents(for goal: Goal) async throws {
         guard try await requestCalendarAccess() else {
             throw NSError(domain: "CalendarAccessError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Нет доступа к календарю"])
@@ -93,9 +88,9 @@ class CalendarManager {
                let event = eventStore.event(withIdentifier: eventID) {
                 do {
                     try eventStore.remove(event, span: .thisEvent)
-                    print("✅ Удалено событие: \(String(describing: event.title))")
+                    print("Удалено событие: \(String(describing: event.title))")
                 } catch {
-                    print("❌ Ошибка удаления события: \(error.localizedDescription)")
+                    print("Ошибка удаления события: \(error.localizedDescription)")
                     throw error
                 }
             }
@@ -113,7 +108,7 @@ class CalendarManager {
                 subtask.calendarEventID = eventID
                 updatedSubtasks.append(subtask)
             } catch {
-                print("❌ Ошибка добавления события для подзадачи '\(subtask.title)': \(error.localizedDescription)")
+                print("Ошибка добавления события для подзадачи '\(subtask.title)': \(error.localizedDescription)")
                 throw error
             }
         }

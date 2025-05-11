@@ -63,7 +63,6 @@ struct ProfileView: View {
             .padding(.horizontal, 16)
             .padding(.bottom, 16)
             
-            // Модальное окно для выхода
             .sheet(isPresented: $profileViewModel.logOutAlert) {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {

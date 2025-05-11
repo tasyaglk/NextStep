@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0004A30E2DD0F55A00DBC12A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0004A30D2DD0F55A00DBC12A /* Alamofire */; };
+		0004A3102DD0F55A00DBC12A /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0004A30F2DD0F55A00DBC12A /* AlamofireDynamic */; };
 		00306FE92D355D3800CD8516 /* NextStepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00306FE82D355D3800CD8516 /* NextStepApp.swift */; };
-		00306FEB2D355D3800CD8516 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00306FEA2D355D3800CD8516 /* ContentView.swift */; };
 		00306FED2D355D3800CD8516 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00306FEC2D355D3800CD8516 /* Item.swift */; };
 		00306FEF2D355D3900CD8516 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00306FEE2D355D3900CD8516 /* Assets.xcassets */; };
 		00306FF22D355D3900CD8516 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00306FF12D355D3900CD8516 /* Preview Assets.xcassets */; };
@@ -114,15 +115,6 @@
 		00E63C202D870AB2004585DE /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C1F2D870AB2004585DE /* TaskListView.swift */; };
 		00E63C212D870AB2004585DE /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C1F2D870AB2004585DE /* TaskListView.swift */; };
 		00E63C222D870AB2004585DE /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C1F2D870AB2004585DE /* TaskListView.swift */; };
-		00E63C242D870AD6004585DE /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C232D870AD6004585DE /* TimelineView.swift */; };
-		00E63C252D870AD6004585DE /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C232D870AD6004585DE /* TimelineView.swift */; };
-		00E63C262D870AD6004585DE /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C232D870AD6004585DE /* TimelineView.swift */; };
-		00E63C282D870AF4004585DE /* TimelineHourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C272D870AF4004585DE /* TimelineHourView.swift */; };
-		00E63C292D870AF4004585DE /* TimelineHourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C272D870AF4004585DE /* TimelineHourView.swift */; };
-		00E63C2A2D870AF4004585DE /* TimelineHourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C272D870AF4004585DE /* TimelineHourView.swift */; };
-		00E63C2C2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */; };
-		00E63C2D2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */; };
-		00E63C2E2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */; };
 		00E63C302D870CEF004585DE /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2F2D870CEF004585DE /* TaskView.swift */; };
 		00E63C312D870CEF004585DE /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2F2D870CEF004585DE /* TaskView.swift */; };
 		00E63C322D870CEF004585DE /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E63C2F2D870CEF004585DE /* TaskView.swift */; };
@@ -157,7 +149,6 @@
 /* Begin PBXFileReference section */
 		00306FE52D355D3800CD8516 /* NextStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00306FE82D355D3800CD8516 /* NextStepApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStepApp.swift; sourceTree = "<group>"; };
-		00306FEA2D355D3800CD8516 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		00306FEC2D355D3800CD8516 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		00306FEE2D355D3900CD8516 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00306FF12D355D3900CD8516 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -220,9 +211,6 @@
 		00E63C172D870A69004585DE /* WeekRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRowView.swift; sourceTree = "<group>"; };
 		00E63C1B2D870A7C004585DE /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		00E63C1F2D870AB2004585DE /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
-		00E63C232D870AD6004585DE /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
-		00E63C272D870AF4004585DE /* TimelineHourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineHourView.swift; sourceTree = "<group>"; };
-		00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeIndicator.swift; sourceTree = "<group>"; };
 		00E63C2F2D870CEF004585DE /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		00E63C332D870D09004585DE /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		00E63C3C2D871685004585DE /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
@@ -236,6 +224,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0004A30E2DD0F55A00DBC12A /* Alamofire in Frameworks */,
+				0004A3102DD0F55A00DBC12A /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +277,6 @@
 				003070182D355EB300CD8516 /* Model */,
 				003070172D355EAD00CD8516 /* View */,
 				00306FE82D355D3800CD8516 /* NextStepApp.swift */,
-				00306FEA2D355D3800CD8516 /* ContentView.swift */,
 				00306FEC2D355D3800CD8516 /* Item.swift */,
 				00306FEE2D355D3900CD8516 /* Assets.xcassets */,
 				00306FF02D355D3900CD8516 /* Preview Content */,
@@ -452,11 +441,8 @@
 			isa = PBXGroup;
 			children = (
 				0030704A2D35803D00CD8516 /* CalendarView.swift */,
-				00E63C2B2D870CD4004585DE /* CurrentTimeIndicator.swift */,
 				00E63C1B2D870A7C004585DE /* DayView.swift */,
 				00E63C1F2D870AB2004585DE /* TaskListView.swift */,
-				00E63C272D870AF4004585DE /* TimelineHourView.swift */,
-				00E63C232D870AD6004585DE /* TimelineView.swift */,
 				00E63C172D870A69004585DE /* WeekRowView.swift */,
 				00E63C132D870A45004585DE /* WeekView.swift */,
 				003103B22DAE58AF0058CACD /* SubtaskView.swift */,
@@ -641,6 +627,7 @@
 			);
 			mainGroup = 00306FDC2D355D3800CD8516;
 			packageReferences = (
+				0004A30C2DD0F55A00DBC12A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 00306FE62D355D3800CD8516 /* Products */;
 			projectDirPath = "";
@@ -715,12 +702,10 @@
 				003103C12DB39A6A0058CACD /* GoalStatisticsViewModel.swift in Sources */,
 				003103C52DB40AF00058CACD /* CardStyle.swift in Sources */,
 				003103C32DB39A9E0058CACD /* ProgressRing.swift in Sources */,
-				00E63C292D870AF4004585DE /* TimelineHourView.swift in Sources */,
 				0075D5F82DBA747900FD0C7C /* DeepSeekService.swift in Sources */,
 				003070472D357AA100CD8516 /* ProfileView.swift in Sources */,
 				00E63C1C2D870A7C004585DE /* DayView.swift in Sources */,
 				00E63C222D870AB2004585DE /* TaskListView.swift in Sources */,
-				00E63C2E2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
 				003103B92DAE8DE10058CACD /* GoalEditorViewModel.swift in Sources */,
 				00E63C0C2D8433A2004585DE /* UserService.swift in Sources */,
 				00E63C102D870072004585DE /* EventModal.swift in Sources */,
@@ -735,7 +720,6 @@
 				00E63C052D8312D8004585DE /* FloatingClouds.swift in Sources */,
 				0075D5DE2DB690D800FD0C7C /* ColorSelectorView.swift in Sources */,
 				00E63BE02D75F97C004585DE /* ChatView.swift in Sources */,
-				00306FEB2D355D3800CD8516 /* ContentView.swift in Sources */,
 				003070202D356ED300CD8516 /* CustomFonts.swift in Sources */,
 				0075D5EB2DB7079C00FD0C7C /* CalendarManager.swift in Sources */,
 				00E63BE62D75FA50004585DE /* LoginView.swift in Sources */,
@@ -766,7 +750,6 @@
 				007323122D3ACA4600297828 /* UnvisiblePasswordField.swift in Sources */,
 				00306FE92D355D3800CD8516 /* NextStepApp.swift in Sources */,
 				00E63C432D876D09004585DE /* SearchBar.swift in Sources */,
-				00E63C252D870AD6004585DE /* TimelineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,15 +765,12 @@
 				00E63C192D870A69004585DE /* WeekRowView.swift in Sources */,
 				00E63C1D2D870A7C004585DE /* DayView.swift in Sources */,
 				00E63C342D870D09004585DE /* Goal.swift in Sources */,
-				00E63C242D870AD6004585DE /* TimelineView.swift in Sources */,
 				00E63C142D870A45004585DE /* WeekView.swift in Sources */,
 				00E63BDE2D75F97C004585DE /* ChatView.swift in Sources */,
 				00E63C212D870AB2004585DE /* TaskListView.swift in Sources */,
 				00E63C3D2D871685004585DE /* GoalsView.swift in Sources */,
 				0075D5FC2DBA749600FD0C7C /* DeepSeekModels.swift in Sources */,
 				0075D5F22DBA740A00FD0C7C /* ChatMessage.swift in Sources */,
-				00E63C282D870AF4004585DE /* TimelineHourView.swift in Sources */,
-				00E63C2D2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
 				008F6E182D9F1086004E241F /* Subtask.swift in Sources */,
 				00306FFC2D355D3900CD8516 /* NextStepTests.swift in Sources */,
 				0030704C2D35803D00CD8516 /* CalendarView.swift in Sources */,
@@ -803,7 +783,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0075D5F32DBA740A00FD0C7C /* ChatMessage.swift in Sources */,
-				00E63C2C2D870CD4004585DE /* CurrentTimeIndicator.swift in Sources */,
 				008F6E1A2D9F1086004E241F /* Subtask.swift in Sources */,
 				00E63C152D870A45004585DE /* WeekView.swift in Sources */,
 				003103B42DAE58AF0058CACD /* SubtaskView.swift in Sources */,
@@ -816,9 +795,7 @@
 				003070082D355D3900CD8516 /* NextStepUITestsLaunchTests.swift in Sources */,
 				003070492D357AA100CD8516 /* ProfileView.swift in Sources */,
 				003070512D35901E00CD8516 /* UserProfile.swift in Sources */,
-				00E63C262D870AD6004585DE /* TimelineView.swift in Sources */,
 				00E63C362D870D09004585DE /* Goal.swift in Sources */,
-				00E63C2A2D870AF4004585DE /* TimelineHourView.swift in Sources */,
 				0030704D2D35803D00CD8516 /* CalendarView.swift in Sources */,
 				003103BC2DB316160058CACD /* GoalStatisticsView.swift in Sources */,
 				00E63BDF2D75F97C004585DE /* ChatView.swift in Sources */,
@@ -1132,6 +1109,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0004A30C2DD0F55A00DBC12A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0004A30D2DD0F55A00DBC12A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0004A30C2DD0F55A00DBC12A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0004A30F2DD0F55A00DBC12A /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0004A30C2DD0F55A00DBC12A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 00306FDD2D355D3800CD8516 /* Project object */;
 }

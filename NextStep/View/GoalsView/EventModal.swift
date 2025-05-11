@@ -39,14 +39,16 @@ struct EventModal: View {
                     DatePicker("Начало", selection: $editor.startDate, displayedComponents: [.date, .hourAndMinute])
                         .font(.custom("Onest-Regular", size: 16))
                         .foregroundStyle(Color.blackColor)
+                        .environment(\.locale, Locale(identifier: "ru_RU"))
                     DatePicker("Окончание", selection: $editor.endDate, in: editor.startDate..., displayedComponents: [.date, .hourAndMinute])
                         .font(.custom("Onest-Regular", size: 16))
                         .foregroundStyle(Color.blackColor)
+                        .environment(\.locale, Locale(identifier: "ru_RU"))
                 }
                 .listRowSeparator(.hidden)
                 
                 Section {
-                    Text("Подзадачи")
+                    Text("Этапы")
                         .font(.custom("Onest-Regular", size: 16))
                         .foregroundStyle(Color.blackColor)
                     
@@ -54,6 +56,7 @@ struct EventModal: View {
                         DatePicker(subtask.title, selection: $subtask.deadline, in: editor.startDate...editor.endDate)
                             .font(.custom("Onest-Regular", size: 16))
                             .foregroundStyle(Color.blackColor)
+                            .environment(\.locale, Locale(identifier: "ru_RU"))
                     }
                     .onDelete { indices in
                         Task {
@@ -69,6 +72,7 @@ struct EventModal: View {
                             .font(.custom("Onest-Regular", size: 16))
                             .foregroundStyle(Color.blackColor)
                         DatePicker("", selection: $newSubtaskDate, in: editor.startDate...editor.endDate, displayedComponents: [.date, .hourAndMinute])
+                            .environment(\.locale, Locale(identifier: "ru_RU"))
                         
                         Button {
                             editor.addSubtask(title: newSubtaskTitle, deadline: newSubtaskDate, goalName: editor.title)
@@ -147,9 +151,13 @@ struct EventModal: View {
                     dismissButton: .default(Text("OK"))
                 )
             }
-            //            .alert(item: $viewModel.successMessage) { success in
-            //                Alert(title: Text("Успех"), message: Text(success))
-            //            }
+            .alert(isPresented: $showErrorAlert) {
+                Alert(
+                    title: Text("Ошибка"),
+                    message: Text(editor.errorMessage ?? viewModel.errorMessage ?? "проблемы, повторите позже еще раз."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
         }
     }
 }

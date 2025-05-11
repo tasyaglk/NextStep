@@ -98,6 +98,8 @@ class PasswordViewModel: ObservableObject  {
             DispatchQueue.main.async {
                 if success {
                     self.isChanged = true
+//                    self.alertMessage = message
+//                    self.showAlert = true
                 } else {
                     self.alertMessage = message
                     self.showAlert = true
