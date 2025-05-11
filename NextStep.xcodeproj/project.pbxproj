@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0004A30E2DD0F55A00DBC12A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0004A30D2DD0F55A00DBC12A /* Alamofire */; };
-		0004A3102DD0F55A00DBC12A /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0004A30F2DD0F55A00DBC12A /* AlamofireDynamic */; };
 		00306FE92D355D3800CD8516 /* NextStepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00306FE82D355D3800CD8516 /* NextStepApp.swift */; };
 		00306FED2D355D3800CD8516 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00306FEC2D355D3800CD8516 /* Item.swift */; };
 		00306FEF2D355D3900CD8516 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00306FEE2D355D3900CD8516 /* Assets.xcassets */; };
@@ -146,6 +145,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0004A3122DD1239B00DBC12A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		00306FE52D355D3800CD8516 /* NextStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00306FE82D355D3800CD8516 /* NextStepApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStepApp.swift; sourceTree = "<group>"; };
@@ -225,7 +237,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0004A30E2DD0F55A00DBC12A /* Alamofire in Frameworks */,
-				0004A3102DD0F55A00DBC12A /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +559,7 @@
 				00306FE12D355D3800CD8516 /* Sources */,
 				00306FE22D355D3800CD8516 /* Frameworks */,
 				00306FE32D355D3800CD8516 /* Resources */,
+				0004A3122DD1239B00DBC12A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1126,11 +1138,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0004A30C2DD0F55A00DBC12A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		0004A30F2DD0F55A00DBC12A /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0004A30C2DD0F55A00DBC12A /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
