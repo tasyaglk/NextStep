@@ -79,7 +79,7 @@
 		0075D5F22DBA740A00FD0C7C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F02DBA740A00FD0C7C /* ChatMessage.swift */; };
 		0075D5F32DBA740A00FD0C7C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F02DBA740A00FD0C7C /* ChatMessage.swift */; };
 		0075D5F62DBA746300FD0C7C /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F52DBA746300FD0C7C /* ChatViewModel.swift */; };
-		0075D5F82DBA747900FD0C7C /* DeepSeekService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F72DBA747900FD0C7C /* DeepSeekService.swift */; };
+		0075D5F82DBA747900FD0C7C /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F72DBA747900FD0C7C /* LLMService.swift */; };
 		0075D5FA2DBA749600FD0C7C /* DeepSeekModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F92DBA749600FD0C7C /* DeepSeekModels.swift */; };
 		0075D5FB2DBA749600FD0C7C /* DeepSeekModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F92DBA749600FD0C7C /* DeepSeekModels.swift */; };
 		0075D5FC2DBA749600FD0C7C /* DeepSeekModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075D5F92DBA749600FD0C7C /* DeepSeekModels.swift */; };
@@ -204,7 +204,7 @@
 		0075D5EA2DB7079C00FD0C7C /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		0075D5F02DBA740A00FD0C7C /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		0075D5F52DBA746300FD0C7C /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
-		0075D5F72DBA747900FD0C7C /* DeepSeekService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepSeekService.swift; sourceTree = "<group>"; };
+		0075D5F72DBA747900FD0C7C /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
 		0075D5F92DBA749600FD0C7C /* DeepSeekModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepSeekModels.swift; sourceTree = "<group>"; };
 		008F6CAD2D8A3A98004E241F /* JSONExstention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONExstention.swift; sourceTree = "<group>"; };
 		008F6D2D2D8D7885004E241F /* GoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalService.swift; sourceTree = "<group>"; };
@@ -489,7 +489,7 @@
 		00E63C0A2D843396004585DE /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				0075D5F72DBA747900FD0C7C /* DeepSeekService.swift */,
+				0075D5F72DBA747900FD0C7C /* LLMService.swift */,
 				00E63C0B2D8433A2004585DE /* UserService.swift */,
 				008F6D2D2D8D7885004E241F /* GoalService.swift */,
 			);
@@ -714,7 +714,7 @@
 				003103C12DB39A6A0058CACD /* GoalStatisticsViewModel.swift in Sources */,
 				003103C52DB40AF00058CACD /* CardStyle.swift in Sources */,
 				003103C32DB39A9E0058CACD /* ProgressRing.swift in Sources */,
-				0075D5F82DBA747900FD0C7C /* DeepSeekService.swift in Sources */,
+				0075D5F82DBA747900FD0C7C /* LLMService.swift in Sources */,
 				003070472D357AA100CD8516 /* ProfileView.swift in Sources */,
 				00E63C1C2D870A7C004585DE /* DayView.swift in Sources */,
 				00E63C222D870AB2004585DE /* TaskListView.swift in Sources */,
@@ -988,6 +988,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NextStep/Preview Content\"";
+				DEVELOPMENT_TEAM = 88J8J7P9S6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NextStep/Info.plist;
@@ -1001,7 +1002,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "-.NextStep";
+				PRODUCT_BUNDLE_IDENTIFIER = tasyaglk.NextStep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -1,5 +1,5 @@
 //
-//  DeepSeekService.swift
+//  LLMService.swift
 //  NextStep
 //
 //  Created by Тася Галкина on 24.04.2025.
@@ -9,10 +9,10 @@ import Foundation
 import Alamofire
 import Combine
 
-class DeepSeekService {
-    static let shared = DeepSeekService()
+class LLMService {
+    static let shared = LLMService()
     
-    private let baseURL = "http://localhost:8080/deepseek"
+    private let baseURL = "http://localhost:8080/llm"
     
     private let jsonDecoder: JSONDecoder = {
         let decoder = JSONDecoder()
@@ -22,7 +22,6 @@ class DeepSeekService {
     
     private init() {}
     
-    // MARK: - Reformulate Goal
     func reformulateGoal(_ goal: String) async throws -> String {
         let url = "\(baseURL)/reformulate-goal"
         let parameters = ["goal": goal]
